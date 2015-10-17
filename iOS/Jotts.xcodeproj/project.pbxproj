@@ -1,0 +1,615 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA8537671BD2A8FA006C9FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */; };
+		FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */; };
+		FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */; };
+		FAAFE7561BD2A7AC0002B5A4 /* Jotts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */; };
+		FAAFE7581BD2A7AC0002B5A4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */; };
+		FAAFE75A1BD2A7AC0002B5A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */; };
+		FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */; };
+		FAAFE76D1BD2A7AC0002B5A4 /* JottsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */; };
+		FAAFE7781BD2A7AC0002B5A4 /* JottsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */; };
+		FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
+		FAC61FB61BD2ADB900FD973C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB31BD2AD9900FD973C /* Result.framework */; };
+		FAC61FB91BD2AE5400FD973C /* ReactiveCocoa.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */; };
+		FAC61FBA1BD2AE5700FD973C /* Result.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAAFE7691BD2A7AC0002B5A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAAFE74E1BD2A7AC0002B5A4;
+			remoteInfo = Jotts;
+		};
+		FAAFE7741BD2A7AC0002B5A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAAFE74E1BD2A7AC0002B5A4;
+			remoteInfo = Jotts;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FAC61FB81BD2AE1200FD973C /* Copy Carthage dSYMs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 16;
+			files = (
+				FAC61FB91BD2AE5400FD973C /* ReactiveCocoa.framework.dSYM in Copy Carthage dSYMs */,
+				FAC61FBA1BD2AE5700FD973C /* Result.framework.dSYM in Copy Carthage dSYMs */,
+			);
+			name = "Copy Carthage dSYMs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotts.xcdatamodel; sourceTree = "<group>"; };
+		FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		FAAFE75C1BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FAAFE7611BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FAAFE7631BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JottsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JottsTests.swift; sourceTree = "<group>"; };
+		FAAFE76E1BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JottsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JottsUITests.swift; sourceTree = "<group>"; };
+		FAAFE7791BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAC61FAD1BD2AA8600FD973C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
+		FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
+		FAC61FB31BD2AD9900FD973C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
+		FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Result.framework.dSYM; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAAFE74C1BD2A7AC0002B5A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAC61FB61BD2ADB900FD973C /* Result.framework in Frameworks */,
+				FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE7651BD2A7AC0002B5A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE7701BD2A7AC0002B5A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FAAFE7461BD2A7AC0002B5A4 = {
+			isa = PBXGroup;
+			children = (
+				FAC61FAD1BD2AA8600FD973C /* Cartfile */,
+				FAAFE7511BD2A7AC0002B5A4 /* Jotts */,
+				FAAFE76B1BD2A7AC0002B5A4 /* JottsTests */,
+				FAAFE7761BD2A7AC0002B5A4 /* JottsUITests */,
+				FAAFE7501BD2A7AC0002B5A4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAAFE7501BD2A7AC0002B5A4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */,
+				FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */,
+				FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAAFE7511BD2A7AC0002B5A4 /* Jotts */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */,
+				FAC61FAE1BD2AC4100FD973C /* Controllers */,
+				FAC61FAF1BD2AC5A00FD973C /* Resources */,
+			);
+			name = Jotts;
+			sourceTree = "<group>";
+		};
+		FAAFE76B1BD2A7AC0002B5A4 /* JottsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */,
+				FAAFE76E1BD2A7AC0002B5A4 /* Info.plist */,
+			);
+			path = JottsTests;
+			sourceTree = "<group>";
+		};
+		FAAFE7761BD2A7AC0002B5A4 /* JottsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */,
+				FAAFE7791BD2A7AC0002B5A4 /* Info.plist */,
+			);
+			path = JottsUITests;
+			sourceTree = "<group>";
+		};
+		FAC61FAE1BD2AC4100FD973C /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */,
+				FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FAC61FAF1BD2AC5A00FD973C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61FB01BD2AD9900FD973C /* Carthage */,
+				FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */,
+				FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */,
+				FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */,
+				FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */,
+				FAAFE7631BD2A7AC0002B5A4 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FAC61FB01BD2AD9900FD973C /* Carthage */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */,
+				FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */,
+				FAC61FB31BD2AD9900FD973C /* Result.framework */,
+				FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */,
+			);
+			name = Carthage;
+			path = Carthage/Build/iOS;
+			sourceTree = SOURCE_ROOT;
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAAFE74E1BD2A7AC0002B5A4 /* Jotts */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAFE77C1BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "Jotts" */;
+			buildPhases = (
+				FAAFE74B1BD2A7AC0002B5A4 /* Sources */,
+				FAAFE74C1BD2A7AC0002B5A4 /* Frameworks */,
+				FAAFE74D1BD2A7AC0002B5A4 /* Resources */,
+				FAC61FB71BD2ADC300FD973C /* Copy Carthage Frameworks */,
+				FAC61FB81BD2AE1200FD973C /* Copy Carthage dSYMs */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Jotts;
+			productName = Jotts;
+			productReference = FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FAAFE7671BD2A7AC0002B5A4 /* JottsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAFE77F1BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsTests" */;
+			buildPhases = (
+				FAAFE7641BD2A7AC0002B5A4 /* Sources */,
+				FAAFE7651BD2A7AC0002B5A4 /* Frameworks */,
+				FAAFE7661BD2A7AC0002B5A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAAFE76A1BD2A7AC0002B5A4 /* PBXTargetDependency */,
+			);
+			name = JottsTests;
+			productName = JottsTests;
+			productReference = FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAAFE7721BD2A7AC0002B5A4 /* JottsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAAFE7821BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsUITests" */;
+			buildPhases = (
+				FAAFE76F1BD2A7AC0002B5A4 /* Sources */,
+				FAAFE7701BD2A7AC0002B5A4 /* Frameworks */,
+				FAAFE7711BD2A7AC0002B5A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAAFE7751BD2A7AC0002B5A4 /* PBXTargetDependency */,
+			);
+			name = JottsUITests;
+			productName = JottsUITests;
+			productReference = FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAAFE7471BD2A7AC0002B5A4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Hank Brekke";
+				TargetAttributes = {
+					FAAFE74E1BD2A7AC0002B5A4 = {
+						CreatedOnToolsVersion = 7.0.1;
+					};
+					FAAFE7671BD2A7AC0002B5A4 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FAAFE74E1BD2A7AC0002B5A4;
+					};
+					FAAFE7721BD2A7AC0002B5A4 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = FAAFE74E1BD2A7AC0002B5A4;
+					};
+				};
+			};
+			buildConfigurationList = FAAFE74A1BD2A7AC0002B5A4 /* Build configuration list for PBXProject "Jotts" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAAFE7461BD2A7AC0002B5A4;
+			productRefGroup = FAAFE7501BD2A7AC0002B5A4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAAFE74E1BD2A7AC0002B5A4 /* Jotts */,
+				FAAFE7671BD2A7AC0002B5A4 /* JottsTests */,
+				FAAFE7721BD2A7AC0002B5A4 /* JottsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FAAFE74D1BD2A7AC0002B5A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA8537671BD2A8FA006C9FD3 /* Main.storyboard in Resources */,
+				FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */,
+				FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE7661BD2A7AC0002B5A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE7711BD2A7AC0002B5A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		FAC61FB71BD2ADC300FD973C /* Copy Carthage Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+			);
+			name = "Copy Carthage Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAAFE74B1BD2A7AC0002B5A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAFE7561BD2A7AC0002B5A4 /* Jotts.xcdatamodeld in Sources */,
+				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
+				FAAFE7581BD2A7AC0002B5A4 /* MasterViewController.swift in Sources */,
+				FAAFE75A1BD2A7AC0002B5A4 /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE7641BD2A7AC0002B5A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAFE76D1BD2A7AC0002B5A4 /* JottsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAAFE76F1BD2A7AC0002B5A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAAFE7781BD2A7AC0002B5A4 /* JottsUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAAFE76A1BD2A7AC0002B5A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAAFE74E1BD2A7AC0002B5A4 /* Jotts */;
+			targetProxy = FAAFE7691BD2A7AC0002B5A4 /* PBXContainerItemProxy */;
+		};
+		FAAFE7751BD2A7AC0002B5A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAAFE74E1BD2A7AC0002B5A4 /* Jotts */;
+			targetProxy = FAAFE7741BD2A7AC0002B5A4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAAFE75C1BD2A7AC0002B5A4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FAAFE7611BD2A7AC0002B5A4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FAAFE77A1BD2A7AC0002B5A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAAFE77B1BD2A7AC0002B5A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAAFE77D1BD2A7AC0002B5A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FAAFE77E1BD2A7AC0002B5A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = "$(SRCROOT)/Resources/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FAAFE7801BD2A7AC0002B5A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JottsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
+			};
+			name = Debug;
+		};
+		FAAFE7811BD2A7AC0002B5A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JottsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
+			};
+			name = Release;
+		};
+		FAAFE7831BD2A7AC0002B5A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JottsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Jotts;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		FAAFE7841BD2A7AC0002B5A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JottsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = Jotts;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAAFE74A1BD2A7AC0002B5A4 /* Build configuration list for PBXProject "Jotts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAFE77A1BD2A7AC0002B5A4 /* Debug */,
+				FAAFE77B1BD2A7AC0002B5A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAFE77C1BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "Jotts" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAFE77D1BD2A7AC0002B5A4 /* Debug */,
+				FAAFE77E1BD2A7AC0002B5A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAFE77F1BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAFE7801BD2A7AC0002B5A4 /* Debug */,
+				FAAFE7811BD2A7AC0002B5A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAAFE7821BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAAFE7831BD2A7AC0002B5A4 /* Debug */,
+				FAAFE7841BD2A7AC0002B5A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */,
+			);
+			currentVersion = FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */;
+			path = Jotts.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
+}

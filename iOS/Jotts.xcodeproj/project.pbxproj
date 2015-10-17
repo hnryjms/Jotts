@@ -10,27 +10,30 @@
 		FA8537671BD2A8FA006C9FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */; };
 		FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */; };
 		FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */; };
-		FAAFE7561BD2A7AC0002B5A4 /* Jotts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */; };
-		FAAFE7581BD2A7AC0002B5A4 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */; };
-		FAAFE75A1BD2A7AC0002B5A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */; };
 		FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */; };
-		FAAFE76D1BD2A7AC0002B5A4 /* JottsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */; };
-		FAAFE7781BD2A7AC0002B5A4 /* JottsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */; };
 		FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
 		FAC61FB61BD2ADB900FD973C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB31BD2AD9900FD973C /* Result.framework */; };
 		FAC61FB91BD2AE5400FD973C /* ReactiveCocoa.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */; };
 		FAC61FBA1BD2AE5700FD973C /* Result.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */; };
+		FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC21BD2B42E00FD973C /* Card+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC31BD2B42E00FD973C /* Card.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD01BD2B42E00FD973C /* Classroom+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC41BD2B42E00FD973C /* Classroom+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD11BD2B42E00FD973C /* Classroom.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC51BD2B42E00FD973C /* Classroom.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD21BD2B42E00FD973C /* Deck+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC61BD2B42E00FD973C /* Deck+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC71BD2B42E00FD973C /* Deck.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD41BD2B42E00FD973C /* Schedule+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC81BD2B42E00FD973C /* Schedule+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD51BD2B42E00FD973C /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FC91BD2B42E00FD973C /* Schedule.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD61BD2B42E00FD973C /* Assignment+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FCA1BD2B42E00FD973C /* Assignment+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD71BD2B42E00FD973C /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FCB1BD2B42E00FD973C /* Assignment.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FCC1BD2B42E00FD973C /* Session+CoreDataProperties.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FD91BD2B42E00FD973C /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FCD1BD2B42E00FD973C /* Session.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FDB1BD2B65C00FD973C /* ObjectCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FDA1BD2B65C00FD973C /* ObjectCore.swift */; settings = {ASSET_TAGS = (); }; };
+		FAC61FDF1BD2BBE100FD973C /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FDE1BD2BBE100FD973C /* DataTests.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		FAAFE7691BD2A7AC0002B5A4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FAAFE74E1BD2A7AC0002B5A4;
-			remoteInfo = Jotts;
-		};
-		FAAFE7741BD2A7AC0002B5A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
 			proxyType = 1;
@@ -57,24 +60,32 @@
 /* Begin PBXFileReference section */
 		FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotts.xcdatamodel; sourceTree = "<group>"; };
-		FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		FAAFE75C1BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FAAFE7611BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FAAFE7631BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JottsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JottsTests.swift; sourceTree = "<group>"; };
 		FAAFE76E1BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JottsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JottsUITests.swift; sourceTree = "<group>"; };
-		FAAFE7791BD2A7AC0002B5A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAC61FAD1BD2AA8600FD973C /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ReactiveCocoa.framework; sourceTree = "<group>"; };
 		FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = ReactiveCocoa.framework.dSYM; sourceTree = "<group>"; };
 		FAC61FB31BD2AD9900FD973C /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Result.framework; sourceTree = "<group>"; };
 		FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Result.framework.dSYM; sourceTree = "<group>"; };
+		FAC61FC01BD2B3D900FD973C /* Jotts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Jotts.xcdatamodel; sourceTree = "<group>"; };
+		FAC61FC21BD2B42E00FD973C /* Card+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Card+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FC31BD2B42E00FD973C /* Card.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		FAC61FC41BD2B42E00FD973C /* Classroom+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Classroom+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FC51BD2B42E00FD973C /* Classroom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Classroom.swift; sourceTree = "<group>"; };
+		FAC61FC61BD2B42E00FD973C /* Deck+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Deck+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FC71BD2B42E00FD973C /* Deck.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		FAC61FC81BD2B42E00FD973C /* Schedule+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Schedule+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FC91BD2B42E00FD973C /* Schedule.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		FAC61FCA1BD2B42E00FD973C /* Assignment+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Assignment+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FCB1BD2B42E00FD973C /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		FAC61FCC1BD2B42E00FD973C /* Session+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Session+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FAC61FCD1BD2B42E00FD973C /* Session.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
+		FAC61FDA1BD2B65C00FD973C /* ObjectCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectCore.swift; sourceTree = "<group>"; };
+		FAC61FDE1BD2BBE100FD973C /* DataTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,13 +105,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FAAFE7701BD2A7AC0002B5A4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -110,7 +114,6 @@
 				FAC61FAD1BD2AA8600FD973C /* Cartfile */,
 				FAAFE7511BD2A7AC0002B5A4 /* Jotts */,
 				FAAFE76B1BD2A7AC0002B5A4 /* JottsTests */,
-				FAAFE7761BD2A7AC0002B5A4 /* JottsUITests */,
 				FAAFE7501BD2A7AC0002B5A4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -120,7 +123,6 @@
 			children = (
 				FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */,
 				FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */,
-				FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,9 +130,10 @@
 		FAAFE7511BD2A7AC0002B5A4 /* Jotts */ = {
 			isa = PBXGroup;
 			children = (
-				FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */,
+				FAC61FBB1BD2B36B00FD973C /* Data */,
 				FAC61FAE1BD2AC4100FD973C /* Controllers */,
 				FAC61FAF1BD2AC5A00FD973C /* Resources */,
+				FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */,
 			);
 			name = Jotts;
 			sourceTree = "<group>";
@@ -138,26 +141,15 @@
 		FAAFE76B1BD2A7AC0002B5A4 /* JottsTests */ = {
 			isa = PBXGroup;
 			children = (
-				FAAFE76C1BD2A7AC0002B5A4 /* JottsTests.swift */,
+				FAC61FDE1BD2BBE100FD973C /* DataTests.swift */,
 				FAAFE76E1BD2A7AC0002B5A4 /* Info.plist */,
 			);
 			path = JottsTests;
 			sourceTree = "<group>";
 		};
-		FAAFE7761BD2A7AC0002B5A4 /* JottsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				FAAFE7771BD2A7AC0002B5A4 /* JottsUITests.swift */,
-				FAAFE7791BD2A7AC0002B5A4 /* Info.plist */,
-			);
-			path = JottsUITests;
-			sourceTree = "<group>";
-		};
 		FAC61FAE1BD2AC4100FD973C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FAAFE7571BD2A7AC0002B5A4 /* MasterViewController.swift */,
-				FAAFE7591BD2A7AC0002B5A4 /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -169,7 +161,6 @@
 				FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */,
 				FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */,
 				FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */,
-				FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */,
 				FAAFE7631BD2A7AC0002B5A4 /* Info.plist */,
 			);
 			path = Resources;
@@ -186,6 +177,35 @@
 			name = Carthage;
 			path = Carthage/Build/iOS;
 			sourceTree = SOURCE_ROOT;
+		};
+		FAC61FBB1BD2B36B00FD973C /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */,
+				FAC61FDD1BD2B66D00FD973C /* Generated */,
+				FAC61FDA1BD2B65C00FD973C /* ObjectCore.swift */,
+				FAC61FC31BD2B42E00FD973C /* Card.swift */,
+				FAC61FC51BD2B42E00FD973C /* Classroom.swift */,
+				FAC61FC71BD2B42E00FD973C /* Deck.swift */,
+				FAC61FC91BD2B42E00FD973C /* Schedule.swift */,
+				FAC61FCB1BD2B42E00FD973C /* Assignment.swift */,
+				FAC61FCD1BD2B42E00FD973C /* Session.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		FAC61FDD1BD2B66D00FD973C /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				FAC61FC21BD2B42E00FD973C /* Card+CoreDataProperties.swift */,
+				FAC61FC41BD2B42E00FD973C /* Classroom+CoreDataProperties.swift */,
+				FAC61FC61BD2B42E00FD973C /* Deck+CoreDataProperties.swift */,
+				FAC61FC81BD2B42E00FD973C /* Schedule+CoreDataProperties.swift */,
+				FAC61FCA1BD2B42E00FD973C /* Assignment+CoreDataProperties.swift */,
+				FAC61FCC1BD2B42E00FD973C /* Session+CoreDataProperties.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -227,24 +247,6 @@
 			productReference = FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		FAAFE7721BD2A7AC0002B5A4 /* JottsUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FAAFE7821BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsUITests" */;
-			buildPhases = (
-				FAAFE76F1BD2A7AC0002B5A4 /* Sources */,
-				FAAFE7701BD2A7AC0002B5A4 /* Frameworks */,
-				FAAFE7711BD2A7AC0002B5A4 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FAAFE7751BD2A7AC0002B5A4 /* PBXTargetDependency */,
-			);
-			name = JottsUITests;
-			productName = JottsUITests;
-			productReference = FAAFE7731BD2A7AC0002B5A4 /* JottsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -258,10 +260,6 @@
 						CreatedOnToolsVersion = 7.0.1;
 					};
 					FAAFE7671BD2A7AC0002B5A4 = {
-						CreatedOnToolsVersion = 7.0.1;
-						TestTargetID = FAAFE74E1BD2A7AC0002B5A4;
-					};
-					FAAFE7721BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
 						TestTargetID = FAAFE74E1BD2A7AC0002B5A4;
 					};
@@ -282,7 +280,6 @@
 			targets = (
 				FAAFE74E1BD2A7AC0002B5A4 /* Jotts */,
 				FAAFE7671BD2A7AC0002B5A4 /* JottsTests */,
-				FAAFE7721BD2A7AC0002B5A4 /* JottsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -299,13 +296,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		FAAFE7661BD2A7AC0002B5A4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAAFE7711BD2A7AC0002B5A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -338,10 +328,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAAFE7561BD2A7AC0002B5A4 /* Jotts.xcdatamodeld in Sources */,
 				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
-				FAAFE7581BD2A7AC0002B5A4 /* MasterViewController.swift in Sources */,
-				FAAFE75A1BD2A7AC0002B5A4 /* DetailViewController.swift in Sources */,
+				FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */,
+				FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */,
+				FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */,
+				FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */,
+				FAC61FD01BD2B42E00FD973C /* Classroom+CoreDataProperties.swift in Sources */,
+				FAC61FD51BD2B42E00FD973C /* Schedule.swift in Sources */,
+				FAC61FDB1BD2B65C00FD973C /* ObjectCore.swift in Sources */,
+				FAC61FD11BD2B42E00FD973C /* Classroom.swift in Sources */,
+				FAC61FD71BD2B42E00FD973C /* Assignment.swift in Sources */,
+				FAC61FD41BD2B42E00FD973C /* Schedule+CoreDataProperties.swift in Sources */,
+				FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */,
+				FAC61FD91BD2B42E00FD973C /* Session.swift in Sources */,
+				FAC61FD21BD2B42E00FD973C /* Deck+CoreDataProperties.swift in Sources */,
+				FAC61FD61BD2B42E00FD973C /* Assignment+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,15 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAAFE76D1BD2A7AC0002B5A4 /* JottsTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FAAFE76F1BD2A7AC0002B5A4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FAAFE7781BD2A7AC0002B5A4 /* JottsUITests.swift in Sources */,
+				FAC61FDF1BD2BBE100FD973C /* DataTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,11 +361,6 @@
 			isa = PBXTargetDependency;
 			target = FAAFE74E1BD2A7AC0002B5A4 /* Jotts */;
 			targetProxy = FAAFE7691BD2A7AC0002B5A4 /* PBXContainerItemProxy */;
-		};
-		FAAFE7751BD2A7AC0002B5A4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FAAFE74E1BD2A7AC0002B5A4 /* Jotts */;
-			targetProxy = FAAFE7741BD2A7AC0002B5A4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -483,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -498,6 +487,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -513,6 +503,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = JottsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
@@ -525,35 +516,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(SRCROOT)/Carthage/Build/iOS";
 				INFOPLIST_FILE = JottsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
-			};
-			name = Release;
-		};
-		FAAFE7831BD2A7AC0002B5A4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JottsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Jotts;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		FAAFE7841BD2A7AC0002B5A4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = JottsUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_TARGET_NAME = Jotts;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -587,24 +555,15 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FAAFE7821BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "JottsUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FAAFE7831BD2A7AC0002B5A4 /* Debug */,
-				FAAFE7841BD2A7AC0002B5A4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		FAAFE7541BD2A7AC0002B5A4 /* Jotts.xcdatamodeld */ = {
+		FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */,
+				FAC61FC01BD2B3D900FD973C /* Jotts.xcdatamodel */,
 			);
-			currentVersion = FAAFE7551BD2A7AC0002B5A4 /* Jotts.xcdatamodel */;
+			currentVersion = FAC61FC01BD2B3D900FD973C /* Jotts.xcdatamodel */;
 			path = Jotts.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

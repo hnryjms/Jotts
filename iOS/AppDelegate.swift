@@ -13,8 +13,19 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
+    
+    lazy var core: ObjectCore = {
+        do {
+            return try ObjectCore()
+        } catch {
+            abort()
+        }
+    }()
 
-
+    class func sharedDelegate() -> AppDelegate {
+        return UIApplication.sharedApplication().delegate as! AppDelegate
+    }
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         let splitViewController = self.window!.rootViewController as! UISplitViewController
@@ -52,7 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
         // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        return true
+        guard let navigationController = secondaryViewController as? UINavigationController else { return false }
+        guard let classroomController = navigationController.topViewController as? ClassroomController else { return false }
+        if classroomController.classroom == nil {
+            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
+            return true
+        }
+        
+        return false
     }
 }
 

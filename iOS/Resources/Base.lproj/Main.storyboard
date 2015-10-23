@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dJc-Jv-8cY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dJc-Jv-8cY">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
         <!--Classes-->
@@ -48,7 +48,7 @@
         <!--Classroom-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Classroom" id="JEX-9P-axG" sceneMemberID="viewController">
+                <viewController title="Classroom" id="JEX-9P-axG" customClass="ClassroomController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -589,10 +589,10 @@
             </objects>
             <point key="canvasLocation" x="2141" y="475"/>
         </scene>
-        <!--Split View Controller-->
+        <!--Main Split Controller-->
         <scene sceneID="gmg-wB-eV0">
             <objects>
-                <splitViewController id="dJc-Jv-8cY" sceneMemberID="viewController">
+                <splitViewController id="dJc-Jv-8cY" customClass="MainSplitController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <connections>
                         <segue destination="RMx-3f-FxP" kind="relationship" relationship="masterViewController" id="K4G-GX-Z4U"/>
                         <segue destination="kJm-gK-5x4" kind="relationship" relationship="detailViewController" id="C1w-tc-4nM"/>
@@ -605,7 +605,7 @@
         <!--My Classes-->
         <scene sceneID="smW-Zh-WAh">
             <objects>
-                <tableViewController title="My Classes" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" sceneMemberID="viewController">
+                <tableViewController title="My Classes" clearsSelectionOnViewWillAppear="NO" id="7bK-jq-Zjz" customClass="MyClassesController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -687,8 +687,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="k6c-0p-5mE"/>
         <segue reference="M4q-SS-ljw"/>
         <segue reference="PQi-uZ-OKj"/>
-        <segue reference="k6c-0p-5mE"/>
     </inferredMetricsTieBreakers>
 </document>

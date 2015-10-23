@@ -44,4 +44,18 @@ class DataTests: XCTestCase {
         }
     }
     
+    func testNewClassroomInvalid() {
+        do {
+            let core = try ObjectCore()
+            
+            let classroom = core.newClassroom()
+            
+            try classroom.validate()
+            
+            XCTFail()
+        } catch let error as NSError {
+            XCTAssertNotNil(error)
+        }
+    }
+    
 }

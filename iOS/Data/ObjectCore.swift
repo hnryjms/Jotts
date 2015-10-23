@@ -17,10 +17,10 @@ class ObjectCore {
         self.managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
         
         let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
-        let documentStore = urls[urls.count-1];
+        let documentStore = urls[urls.count-1]
         
-        let modelURL = NSBundle.mainBundle().URLForResource("Jotts", withExtension: "momd") as NSURL!;
-        let model = NSManagedObjectModel(contentsOfURL: modelURL) as NSManagedObjectModel!;
+        let modelURL = NSBundle.mainBundle().URLForResource("Jotts", withExtension: "momd") as NSURL!
+        let model = NSManagedObjectModel(contentsOfURL: modelURL) as NSManagedObjectModel!
 
         let coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         let url = documentStore.URLByAppendingPathComponent("Jotts.sqlite")
@@ -30,11 +30,38 @@ class ObjectCore {
         self.managedObjectContext.persistentStoreCoordinator = coordinator
     }
     
-    func entity(name: String) -> NSEntityDescription {
-        return NSEntityDescription.entityForName(name, inManagedObjectContext: self.managedObjectContext)!;
+    // MARK: - Helper functions
+    
+    internal func entity(name: String) -> NSEntityDescription {
+        return NSEntityDescription.entityForName(name, inManagedObjectContext: self.managedObjectContext)!
     }
     
-    func classes() throws -> [Classroom] {
+    // MARK: - Operational functions
+    
+    func save() {
+        do {
+            try self.managedObjectContext.save()
+        } catch let error as NSError {
+            print(error)
+            abort()
+        }
+    }
+    
+    func delete(classroom: Classroom) {
+        if let schedule = classroom.schedule {
+            schedule.enumerateObjectsUsingBlock({ (x, _, _) -> Void in
+                
+                if let object = x as? Schedule {
+                    self.managedObjectContext.deleteObject(object)
+                }
+            })
+        }
+        self.managedObjectContext.deleteObject(classroom)
+    }
+    
+    // MARK: - NSFetchRequest queries
+    
+    func fetch_classes() -> NSFetchRequest {
         let fetchRequest = NSFetchRequest()
         
         let entity = self.entity("Classroom")
@@ -45,10 +72,20 @@ class ObjectCore {
         
         fetchRequest.sortDescriptors = sortDescriptors
         
-        let items = try self.managedObjectContext.executeFetchRequest(fetchRequest);
+        return fetchRequest
+    }
+    
+    // MARK: - Request queriers
+    
+    func classes() throws -> [Classroom] {
+        let fetchRequest = self.fetch_classes()
+        
+        let items = try self.managedObjectContext.executeFetchRequest(fetchRequest)
         
         return items as! [Classroom]
     }
+    
+    // MARK: - Object instantiators
     
     func newClassroom() -> Classroom {
         return Classroom(core: self)

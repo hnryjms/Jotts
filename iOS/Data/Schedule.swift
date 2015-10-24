@@ -10,9 +10,9 @@ import Foundation
 import CoreData
 
 class Schedule: NSManagedObject {
-    init(core: ObjectCore) {
+    convenience init(core: ObjectCore) {
         let entity = core.entity("Schedule")
-        super.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
+        self.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
     }
     convenience init(predictFrom schedules: [Schedule], core: ObjectCore)  {
         self.init(core: core)

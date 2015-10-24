@@ -20,6 +20,15 @@ class ClassroomController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    override func previewActionItems() -> [UIPreviewActionItem] {
+        
+        let deleteAction = UIPreviewAction(title: NSLocalizedString("delete_classroom", comment: "Delete Class"), style: .Destructive, handler: { (previewAction, viewController) -> Void in
+            print("delete")
+        })
+        
+        return [deleteAction]
+    }
 
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)

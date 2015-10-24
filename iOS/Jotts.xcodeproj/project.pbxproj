@@ -11,6 +11,8 @@
 		FA8537671BD2A8FA006C9FD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */; };
 		FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */; };
 		FAA5E8251BD9CE3A004DE3FC /* NSManagedObject+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E8241BD9CE3A004DE3FC /* NSManagedObject+Validate.swift */; };
+		FAA5E8791BDBDB64004DE3FC /* ClassMetaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */; };
+		FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */; };
 		FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */; };
 		FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */; };
 		FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
@@ -64,6 +66,8 @@
 /* Begin PBXFileReference section */
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
 		FAA5E8241BD9CE3A004DE3FC /* NSManagedObject+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Validate.swift"; sourceTree = "<group>"; };
+		FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassMetaController.swift; sourceTree = "<group>"; };
+		FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushoverSegue.swift; sourceTree = "<group>"; };
 		FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAFE75C1BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -116,6 +120,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FAA5E87A1BDBDBF9004DE3FC /* Elements */ = {
+			isa = PBXGroup;
+			children = (
+				FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */,
+			);
+			path = Elements;
+			sourceTree = "<group>";
+		};
 		FAAFE7461BD2A7AC0002B5A4 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +150,7 @@
 		FAAFE7511BD2A7AC0002B5A4 /* Jotts */ = {
 			isa = PBXGroup;
 			children = (
+				FAA5E87A1BDBDBF9004DE3FC /* Elements */,
 				FAC61FAE1BD2AC4100FD973C /* Controllers */,
 				FAC61FBB1BD2B36B00FD973C /* Data */,
 				FAC61FAF1BD2AC5A00FD973C /* Resources */,
@@ -161,6 +174,7 @@
 				FAC61FE21BD2F5F100FD973C /* MainSplitController.swift */,
 				FAC61FE01BD2F4CF00FD973C /* MyClassesController.swift */,
 				FA55702C1BD300EF00546019 /* ClassroomController.swift */,
+				FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -271,6 +285,7 @@
 				TargetAttributes = {
 					FAAFE74E1BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 8984CRB38G;
 					};
 					FAAFE7671BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -345,6 +360,7 @@
 				FA55702D1BD300EF00546019 /* ClassroomController.swift in Sources */,
 				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
 				FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */,
+				FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */,
 				FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */,
 				FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */,
 				FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */,
@@ -358,6 +374,7 @@
 				FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */,
 				FAC61FE11BD2F4CF00FD973C /* MyClassesController.swift in Sources */,
 				FAC61FD91BD2B42E00FD973C /* Session.swift in Sources */,
+				FAA5E8791BDBDB64004DE3FC /* ClassMetaController.swift in Sources */,
 				FAC61FD21BD2B42E00FD973C /* Deck+CoreDataProperties.swift in Sources */,
 				FAC61FD61BD2B42E00FD973C /* Assignment+CoreDataProperties.swift in Sources */,
 			);
@@ -488,6 +505,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -497,6 +516,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -504,6 +524,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -513,6 +535,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

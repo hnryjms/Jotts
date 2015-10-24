@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 class Classroom: NSManagedObject {
-    init(core: ObjectCore) {
+    convenience init(core: ObjectCore) {
         let entity = core.entity("Classroom")
         
         let fetchRequest = NSFetchRequest()
@@ -71,7 +71,7 @@ class Classroom: NSManagedObject {
             print("Failed to predict automatic schedule")
         }
         
-        super.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
+        self.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
         
         self.color = color
         self.schedule = schedule

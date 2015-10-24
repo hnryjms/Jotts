@@ -21,7 +21,5 @@ extension NSManagedObject {
         } else if self.deleted {
             return try self.validateForDelete()
         }
-        
-        throw NSError(domain: "io.hnryjms.Jotts", code: 1, userInfo: nil)
     }
 }

@@ -8,7 +8,6 @@
 
 import Foundation
 import CoreData
-import ReactiveCocoa
 
 class ObjectCore {
     let managedObjectContext: NSManagedObjectContext

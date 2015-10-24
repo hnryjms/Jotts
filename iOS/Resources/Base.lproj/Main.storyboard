@@ -48,7 +48,7 @@
         <!--Classroom-->
         <scene sceneID="yUG-lL-AsK">
             <objects>
-                <viewController title="Classroom" id="JEX-9P-axG" customClass="ClassroomController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Classroom" title="Classroom" id="JEX-9P-axG" customClass="ClassroomController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SYR-Wa-9uf"/>
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
@@ -166,7 +166,7 @@
         <!--Info-->
         <scene sceneID="isZ-x4-R0B">
             <objects>
-                <tableViewController id="kcl-aq-yQx" sceneMemberID="viewController">
+                <tableViewController id="kcl-aq-yQx" customClass="ClassMetaController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Hh4-Hx-nw1">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -613,7 +613,7 @@
                         <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" white="0.45129788306451618" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MetaCell" rowHeight="96" id="WCw-Qf-5nD" customClass="DashboardMetaCell" customModule="Jotts" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MetaCell" rowHeight="96" id="WCw-Qf-5nD" customClass="MyClassesMetaCell" customModule="Jotts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
@@ -629,16 +629,16 @@
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psychology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xjm-5P-LHU">
-                                            <rect key="frame" x="24" y="15" width="556" height="38"/>
+                                            <rect key="frame" x="24" y="15" width="556" height="38.5"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="32"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In 6 minutes - Room 102 - Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsH-xm-LOO">
-                                            <rect key="frame" x="24" y="58" width="556" height="20.5"/>
+                                            <rect key="frame" x="24" y="61.5" width="556" height="20.5"/>
                                             <animations/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
                                         </label>
@@ -652,16 +652,16 @@
                                         <constraint firstAttribute="bottom" secondItem="GcU-DG-ek5" secondAttribute="bottom" id="V6e-FB-75V"/>
                                         <constraint firstAttribute="trailing" secondItem="xjm-5P-LHU" secondAttribute="trailing" constant="20" id="aRp-rp-Tdd"/>
                                         <constraint firstItem="GcU-DG-ek5" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" id="lex-sD-VHr"/>
-                                        <constraint firstItem="vsH-xm-LOO" firstAttribute="top" secondItem="xjm-5P-LHU" secondAttribute="bottom" constant="5" id="m7P-C4-ZGM"/>
+                                        <constraint firstItem="vsH-xm-LOO" firstAttribute="top" secondItem="xjm-5P-LHU" secondAttribute="bottom" constant="8" id="m7P-C4-ZGM"/>
                                         <constraint firstItem="xjm-5P-LHU" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" constant="15" id="pTh-RD-PWH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <outlet property="classroomColorStrip" destination="GcU-DG-ek5" id="Tac-qz-PEP"/>
-                                    <outlet property="classroomDetailsLabel" destination="vsH-xm-LOO" id="Rqq-dR-SEP"/>
-                                    <outlet property="classroomTitleLabel" destination="xjm-5P-LHU" id="6Qt-Cc-inX"/>
+                                    <outlet property="colorBar" destination="GcU-DG-ek5" id="bLQ-nP-Lyb"/>
+                                    <outlet property="metaLabel" destination="vsH-xm-LOO" id="Y1B-Hn-QBj"/>
+                                    <outlet property="nameLabel" destination="xjm-5P-LHU" id="Cae-t9-hlP"/>
                                     <segue destination="kJm-gK-5x4" kind="showDetail" identifier="viewClass" id="QHf-9D-mcV"/>
                                 </connections>
                             </tableViewCell>
@@ -687,8 +687,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="k6c-0p-5mE"/>
-        <segue reference="M4q-SS-ljw"/>
         <segue reference="PQi-uZ-OKj"/>
+        <segue reference="QHf-9D-mcV"/>
+        <segue reference="k6c-0p-5mE"/>
     </inferredMetricsTieBreakers>
 </document>

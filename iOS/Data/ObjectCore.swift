@@ -41,8 +41,7 @@ class ObjectCore {
         do {
             try self.managedObjectContext.save()
         } catch let error as NSError {
-            print(error)
-            abort()
+            print("Tried to save invalid data store \(error)")
         }
     }
     

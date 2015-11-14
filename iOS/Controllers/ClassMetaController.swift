@@ -7,89 +7,114 @@
 //
 
 import UIKit
+import ReactiveCocoa
 
 class ClassMetaController: UITableViewController {
-
+    var classroom: Classroom?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+            self.tableView.backgroundColor = nil
+        } else {
+            self.navigationItem.rightBarButtonItem = nil
+            
+            /*
+            NSNotificationCenter.defaultCenter().rac_notifications(UIKeyboardWillHideNotification, object: nil)
+                .startWithNext { [unowned self] notification in
+                    let insets = UIEdgeInsets(top: self.tableView.contentInset.top,
+                        left: self.tableView.contentInset.left,
+                        bottom: 0,
+                        right: self.tableView.contentInset.right);
+                    
+                    self.tableView.contentInset = insets;
+                    self.tableView.scrollIndicatorInsets = insets;
+                }
+            
+            NSNotificationCenter.defaultCenter().rac_notifications(UIKeyboardWillChangeFrameNotification, object: nil)
+                .startWithNext { [unowned self] notification in
+                    let size = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size;
+                    let insets = UIEdgeInsets(top: self.tableView.contentInset.top,
+                        left: self.tableView.contentInset.left,
+                        bottom: size.height,
+                        right: self.tableView.contentInset.right);
+                    
+                    self.tableView.contentInset = insets;
+                    self.tableView.scrollIndicatorInsets = insets;
+                }
+            */
+        }
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    // MARK: - Table view data source
-
+    
+    // MARK: - Table data source & delegate
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        if self.classroom == nil {
+            return 0
+        }
+        
+        return 3
     }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        switch section {
+        case 0: return 1
+        case 1:
+            guard let schedule = self.classroom!.schedule else { return 1 }
+            return schedule.count + 1
+        case 2:
+            guard let sessions = self.classroom!.sessions else { return 1 }
+            return sessions.count + 1
+        default: abort()
+        }
     }
-
-    /*
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0: return 120
+        default: return 44
+        }
+    }
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
+        switch indexPath.section {
+        case 0:
+            let cell = tableView.dequeueReusableCellWithIdentifier("MetaCell", forIndexPath: indexPath)
+            
+            return cell
+        case 1:
+            if self.classroom!.schedule != nil && indexPath.row < self.classroom!.schedule!.count {
+                let cell = tableView.dequeueReusableCellWithIdentifier("ScheduleCell", forIndexPath: indexPath)
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("AddScheduleCell", forIndexPath: indexPath)
+                
+                return cell
+            }
+        case 2:
+            if self.classroom!.sessions != nil && indexPath.row < self.classroom!.sessions!.count {
+                let cell = tableView.dequeueReusableCellWithIdentifier("SessionCell", forIndexPath: indexPath)
+                
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("AddSessionCell", forIndexPath: indexPath)
+                
+                return cell
+            }
+        default: abort()
+        }
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        switch indexPath.section {
+        case 1:
+            guard let schedule = self.classroom!.schedule else { return false }
+            return indexPath.row < schedule.count;
+        case 2:
+            guard let sessions = self.classroom!.sessions else { return false }
+            return indexPath.row < sessions.count;
+        default: return false
+        }
     }
-    */
-
-    /*
-    // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -55,5 +55,10 @@ class ClassroomController: UIViewController {
             }
         }
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let destinationController = segue.destinationViewController as! ClassMetaController
+        destinationController.classroom = classroom
+    }
 
 }

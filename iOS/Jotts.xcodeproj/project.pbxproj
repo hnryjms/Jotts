@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA55702D1BD300EF00546019 /* ClassroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55702C1BD300EF00546019 /* ClassroomController.swift */; };
+		FA63CB331C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */; };
 		FA6545B51BDC49A70099B1FD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6545B31BDC49A70099B1FD /* Interface.storyboard */; };
 		FA6545B71BDC49A70099B1FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6545B61BDC49A70099B1FD /* Assets.xcassets */; };
 		FA6545BE1BDC49A70099B1FD /* Watch Complication.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FA6545BD1BDC49A70099B1FD /* Watch Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -133,6 +134,7 @@
 
 /* Begin PBXFileReference section */
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
+		FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+RACReuseCell.swift"; sourceTree = "<group>"; };
 		FA6545B11BDC49A70099B1FD /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6545B41BDC49A70099B1FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FA6545B61BDC49A70099B1FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */,
+				FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
 				FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */,
 				FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */,
+				FA63CB331C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift in Sources */,
 				FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */,
 				FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */,
 				FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */,
@@ -982,6 +986,7 @@
 				FA6545D61BDC49A70099B1FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA6545D81BDC49A70099B1FD /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
@@ -990,6 +995,7 @@
 				FA6545DA1BDC49A70099B1FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FA6545EE1BDC4B700099B1FD /* Build configuration list for PBXNativeTarget "Today" */ = {
 			isa = XCConfigurationList;
@@ -998,6 +1004,7 @@
 				FA6545F01BDC4B700099B1FD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FAAFE74A1BD2A7AC0002B5A4 /* Build configuration list for PBXProject "Jotts" */ = {
 			isa = XCConfigurationList;

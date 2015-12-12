@@ -9,8 +9,71 @@
 import UIKit
 import ReactiveCocoa
 
+class ClassMetaViewModel {
+    private var _classroom: Classroom?
+    var classroom: Classroom? {
+        get {
+            return _classroom
+        }
+        set(newClassroom) {
+            _classroom = nil
+
+            // The VM properties should be updated while `_classroom` is `nil` to prevent the classroom
+            // from being updated with it's existing initial values.
+            if let classroom = newClassroom {
+                self.classTitle.value = classroom.title
+                self.classRoom.value = classroom.room
+                self.classInstructor.value = classroom.instructor
+            }
+
+            _classroom = newClassroom
+        }
+    }
+    
+    lazy var classTitle: MutableProperty<String?> = {
+        return MutableProperty<String?>(self.classroom?.title)
+    }()
+    lazy var classRoom: MutableProperty<String?> = {
+        return MutableProperty<String?>(self.classroom?.room)
+    }()
+    lazy var classInstructor: MutableProperty<String?> = {
+        return MutableProperty<String?>(self.classroom?.instructor)
+    }()
+    
+    init() {
+        self.classTitle.producer.startWithNext { [unowned self] title in
+            
+            if let classroom = self.classroom {
+                classroom.title = title
+            }
+        }
+        self.classRoom.producer.startWithNext { [unowned self] title in
+            
+            if let classroom = self.classroom {
+                classroom.room = title
+            }
+        }
+        self.classInstructor.producer.startWithNext { [unowned self] title in
+            
+            if let classroom = self.classroom {
+                classroom.instructor = title
+            }
+        }
+    }
+}
+
 class ClassMetaController: UITableViewController {
-    var classroom: Classroom?
+    let viewModel: ClassMetaViewModel = {
+        return ClassMetaViewModel()
+    }()
+    var classroom: Classroom? {
+        get {
+            return self.viewModel.classroom
+        }
+        set(newClassroom) {
+            self.viewModel.classroom = newClassroom
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +102,7 @@ class ClassMetaController: UITableViewController {
                         left: self.tableView.contentInset.left,
                         bottom: size.height,
                         right: self.tableView.contentInset.right);
-                    
+            
                     self.tableView.contentInset = insets;
                     self.tableView.scrollIndicatorInsets = insets;
                 }
@@ -77,7 +140,15 @@ class ClassMetaController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell = tableView.dequeueReusableCellWithIdentifier("MetaCell", forIndexPath: indexPath)
+            let cell = tableView.dequeueReusableCellWithIdentifier("MetaCell", forIndexPath: indexPath) as! ClassMetaInfoCell
+            
+            cell.classTitleLabel.text = self.viewModel.classTitle.value
+            cell.classRoomLabel.text = self.viewModel.classRoom.value
+            cell.classInstructorLabel.text = self.viewModel.classInstructor.value
+            
+            self.viewModel.classTitle <~ cell.rac_classTitleLabelSignal
+            self.viewModel.classRoom <~ cell.rac_classRoomLabelSignal
+            self.viewModel.classInstructor <~ cell.rac_classInstructorLabelSignal
             
             return cell
         case 1:
@@ -116,5 +187,53 @@ class ClassMetaController: UITableViewController {
     }
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
+    }
+}
+
+class ClassMetaInfoCell: UITableViewCell {
+    @IBOutlet weak var classTitleLabel: UITextField!
+    @IBOutlet weak var classRoomLabel: UITextField!
+    @IBOutlet weak var classInstructorLabel: UITextField!
+    
+    var rac_classTitleLabelSignal: SignalProducer<String?, NoError> {
+        let signal = classTitleLabel.rac_textSignal()
+            .toSignalProducer()
+            .map { text in
+                return text as? String
+            }
+            .takeUntil(rac_prepareForReuseProducer)
+            .flatMapError({ _ in return SignalProducer<String?, NoError>.empty })
+        
+        return signal
+    }
+    
+    var rac_classRoomLabelSignal: SignalProducer<String?, NoError> {
+        return classRoomLabel.rac_textSignal()
+            .toSignalProducer()
+            .map { text in
+                return text as? String
+            }
+            .takeUntil(rac_prepareForReuseProducer)
+            .flatMapError({ _ in return SignalProducer<String?, NoError>.empty })
+    }
+    
+    var rac_classInstructorLabelSignal: SignalProducer<String?, NoError> {
+        return classInstructorLabel.rac_textSignal()
+            .toSignalProducer()
+            .map { text in
+                return text as? String
+            }
+            .takeUntil(rac_prepareForReuseProducer)
+            .flatMapError({ _ in return SignalProducer<String?, NoError>.empty })
+    }
+    
+    @IBAction func classTitleEndExit(sender: AnyObject) {
+        self.classRoomLabel.becomeFirstResponder()
+    }
+    @IBAction func classRoomEndExit(sender: AnyObject) {
+        self.classInstructorLabel.becomeFirstResponder()
+    }
+    @IBAction func classInstructorEndExit(sender: AnyObject) {
+        self.classInstructorLabel.resignFirstResponder()
     }
 }

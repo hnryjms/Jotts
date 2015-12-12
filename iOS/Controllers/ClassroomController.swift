@@ -30,30 +30,19 @@ class ClassroomController: UIViewController {
         return [deleteAction]
     }
 
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        
+    deinit {
         guard let classroom = self.classroom else {
             // There's no point in continuing if the state here was invalid.
-            return;
+            return
         }
         
-        if let navigationController = self.navigationController {
-            // Inside a navigaiton stack, we want to save if this controller is being popped
-            // off of the stack (not displaying additional detail).
-            
-            if navigationController.viewControllers.indexOf(self) != nil {
-                // This controller has been removed from the stack, so the user popped back.
-                
-                do {
-                    try classroom.validate()
-                } catch {
-                    self.core.delete(classroom)
-                }
-                
-                self.core.save()
-            }
+        do {
+            try classroom.validate()
+        } catch {
+            self.core.delete(classroom)
         }
+        
+        self.core.save()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

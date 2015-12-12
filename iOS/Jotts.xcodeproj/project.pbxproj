@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA1111731C1BD66A0000DE87 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */; };
 		FA55702D1BD300EF00546019 /* ClassroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55702C1BD300EF00546019 /* ClassroomController.swift */; };
 		FA63CB331C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */; };
 		FA6545B51BDC49A70099B1FD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6545B31BDC49A70099B1FD /* Interface.storyboard */; };
@@ -133,6 +134,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
 		FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+RACReuseCell.swift"; sourceTree = "<group>"; };
 		FA6545B11BDC49A70099B1FD /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +281,7 @@
 			children = (
 				FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */,
 				FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */,
+				FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				FAC61FDB1BD2B65C00FD973C /* ObjectCore.swift in Sources */,
 				FAC61FD11BD2B42E00FD973C /* Classroom.swift in Sources */,
 				FAC61FD71BD2B42E00FD973C /* Assignment.swift in Sources */,
+				FA1111731C1BD66A0000DE87 /* BaseViewModel.swift in Sources */,
 				FAA5E8251BD9CE3A004DE3FC /* NSManagedObject+Validate.swift in Sources */,
 				FAC61FD41BD2B42E00FD973C /* Schedule+CoreDataProperties.swift in Sources */,
 				FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */,

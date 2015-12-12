@@ -9,27 +9,7 @@
 import UIKit
 import ReactiveCocoa
 
-class ClassMetaViewModel {
-    private var _classroom: Classroom?
-    var classroom: Classroom? {
-        get {
-            return _classroom
-        }
-        set(newClassroom) {
-            _classroom = nil
-
-            // The VM properties should be updated while `_classroom` is `nil` to prevent the classroom
-            // from being updated with it's existing initial values.
-            if let classroom = newClassroom {
-                self.classTitle.value = classroom.title
-                self.classRoom.value = classroom.room
-                self.classInstructor.value = classroom.instructor
-            }
-
-            _classroom = newClassroom
-        }
-    }
-    
+class ClassMetaViewModel: BaseViewModel {
     lazy var classTitle: MutableProperty<String?> = {
         return MutableProperty<String?>(self.classroom?.title)
     }()
@@ -40,25 +20,16 @@ class ClassMetaViewModel {
         return MutableProperty<String?>(self.classroom?.instructor)
     }()
     
-    init() {
-        self.classTitle.producer.startWithNext { [unowned self] title in
-            
-            if let classroom = self.classroom {
-                classroom.title = title
-            }
-        }
-        self.classRoom.producer.startWithNext { [unowned self] title in
-            
-            if let classroom = self.classroom {
-                classroom.room = title
-            }
-        }
-        self.classInstructor.producer.startWithNext { [unowned self] title in
-            
-            if let classroom = self.classroom {
-                classroom.instructor = title
-            }
-        }
+    override func initialValues(classroom: Classroom) {
+        self.classTitle.value = classroom.title
+        self.classRoom.value = classroom.room
+        self.classInstructor.value = classroom.instructor
+    }
+    
+    override func setupBindings(classroom: Classroom) {
+        DynamicProperty(object: classroom, keyPath: "title") <~ self.classTitle.producer.map { text in text as AnyObject? }
+        DynamicProperty(object: classroom, keyPath: "room") <~ self.classRoom.producer.map { text in text as AnyObject? }
+        DynamicProperty(object: classroom, keyPath: "instructor") <~ self.classInstructor.producer.map { text in text as AnyObject? }
     }
 }
 

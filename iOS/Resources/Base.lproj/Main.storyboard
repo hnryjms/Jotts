@@ -109,18 +109,18 @@
                                     <constraint firstAttribute="height" constant="80" id="RSl-Sd-2qW"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU0-Oe-LhJ">
-                                <rect key="frame" x="20" y="118" width="560" height="20.5"/>
-                                <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
-                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="viL-AH-g9A">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psychology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="viL-AH-g9A">
                                 <rect key="frame" x="20" y="75" width="560" height="39"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="33"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" In 6 Minutes - Room 102 - Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU0-Oe-LhJ">
+                                <rect key="frame" x="20" y="118" width="560" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -190,7 +190,7 @@
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" autocorrectionType="no" spellCheckingType="no" keyboardType="numbersAndPunctuation" returnKeyType="next"/>
                                             <connections>
-                                                <action selector="classRoomEndExit:" destination="mzo-JE-HSV" eventType="editingDidEndOnExit" id="rdi-LX-Ne0"/>
+                                                <action selector="classRoomEndExit:" destination="mzo-JE-HSV" eventType="editingDidEndOnExit" id="b60-WX-ptQ"/>
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Smith" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwV-zQ-LIE">
@@ -199,7 +199,7 @@
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                             <connections>
-                                                <action selector="classInstructorEndExit:" destination="mzo-JE-HSV" eventType="editingDidEndOnExit" id="ugR-a0-QXh"/>
+                                                <action selector="classInstructorEndExit:" destination="mzo-JE-HSV" eventType="editingDidEndOnExit" id="tin-4g-49y"/>
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Psychology" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-u4-cev">

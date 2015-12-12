@@ -8,12 +8,35 @@
 
 import UIKit
 
+class ClassroomViewModel: BaseViewModel {
+    func save() {
+        guard let classroom = self.classroom else {
+            // There's no point in continuing if the state here was invalid.
+            return
+        }
+        
+        do {
+            try classroom.validate()
+        } catch {
+            self.core.delete(classroom)
+        }
+        
+        self.core.save()
+    }
+}
+
 class ClassroomController: UIViewController {
-    lazy var core: ObjectCore = {
-        return AppDelegate.sharedDelegate().core
+    let viewModel: ClassroomViewModel = {
+        return ClassroomViewModel()
     }()
-    
-    var classroom: Classroom?
+    var classroom: Classroom? {
+        get {
+            return self.viewModel.classroom
+        }
+        set(newClassroom) {
+            self.viewModel.classroom = newClassroom
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,18 +54,7 @@ class ClassroomController: UIViewController {
     }
 
     deinit {
-        guard let classroom = self.classroom else {
-            // There's no point in continuing if the state here was invalid.
-            return
-        }
-        
-        do {
-            try classroom.validate()
-        } catch {
-            self.core.delete(classroom)
-        }
-        
-        self.core.save()
+        self.viewModel.save()
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -1,0 +1,15 @@
+/* Insturctor Placeholder */
+"ClassMetaController.instructor" = "Smith";
+
+/* Room Placeholder */
+"ClassMetaController.room" = "PS102";
+
+/* Title Placeholder */
+"ClassMetaController.title" = "Psychology";
+
+/* Room Number */
+"Classroom.room_%@" = "Room %@";
+
+/* Delete Class */
+"delete_classroom" = "Delete Class";
+

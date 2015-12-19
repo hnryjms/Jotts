@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import ReactiveCocoa
 
 class Classroom: NSManagedObject {
     convenience init(core: ObjectCore) {
@@ -75,5 +76,58 @@ class Classroom: NSManagedObject {
         
         self.color = color
         self.schedule = schedule
+    }
+    
+    // MARK: - Observable properties
+    
+    var rac_title: SignalProducer<String?, NoError> {
+        get {
+            let signal = DynamicProperty(object: self, keyPath: "title").producer
+                .map { title in title as? String }
+            
+            return signal
+        }
+    }
+    var rac_instructor: SignalProducer<String?, NoError> {
+        get {
+            let signal = DynamicProperty(object: self, keyPath: "instructor").producer
+                .map { title in title as? String }
+            
+            return signal
+        }
+    }
+    var rac_room: SignalProducer<String?, NoError> {
+        get {
+            let signal = DynamicProperty(object: self, keyPath: "room").producer
+                .map { title in title as? String }
+            
+            return signal
+        }
+    }
+    
+    // MARK: - Calculated properties
+    
+    var rac_details: SignalProducer<String, NoError> {
+        get {
+            let signal = combineLatest(self.rac_room, self.rac_instructor)
+                .map { (room, instructor) -> String in
+                    var details: [String] = []
+                    if let roomValue = room {
+                        if Int(roomValue) != nil {
+                            let roomValueString = String(format: NSLocalizedString("Classroom.room_%@", comment: "Room Number"), roomValue)
+                            details.append(roomValueString)
+                        } else {
+                            details.append(roomValue)
+                        }
+                    }
+                    if let instructorValue = instructor {
+                        details.append(instructorValue)
+                    }
+                    
+                    return details.joinWithSeparator(" - ")
+                }
+            
+            return signal
+        }
     }
 }

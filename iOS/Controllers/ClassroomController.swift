@@ -7,8 +7,16 @@
 //
 
 import UIKit
+import ReactiveCocoa
 
 class ClassroomViewModel: BaseViewModel {
+    lazy var classTitle: MutableProperty<String?> = {
+        return MutableProperty<String?>(self.classroom?.title)
+    }()
+    lazy var classDetails: MutableProperty<String?> = {
+        return MutableProperty<String?>(self.classroom?.room)
+    }()
+    
     func save() {
         guard let classroom = self.classroom else {
             // There's no point in continuing if the state here was invalid.
@@ -22,6 +30,15 @@ class ClassroomViewModel: BaseViewModel {
         }
         
         self.core.save()
+    }
+    
+    override func initialValues(classroom: Classroom) {
+        self.classTitle.value = classroom.title
+    }
+    
+    override func setupBindings(classroom: Classroom) {
+        self.classTitle <~ classroom.rac_title
+        self.classDetails <~ classroom.rac_details.map { x in x as String? }
     }
 }
 
@@ -38,9 +55,15 @@ class ClassroomController: UIViewController {
         }
     }
     
+    @IBOutlet weak var classTitleLabel: UILabel!
+    @IBOutlet weak var classDetailsLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        DynamicProperty(object: self.classTitleLabel, keyPath: "text") <~ self.viewModel.classTitle.producer.map { x in x as? AnyObject }
+        DynamicProperty(object: self.classDetailsLabel, keyPath: "text") <~ self.viewModel.classDetails.producer.map { x in x as? AnyObject }
+        
         // Do any additional setup after loading the view.
     }
     

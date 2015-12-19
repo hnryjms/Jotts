@@ -117,6 +117,10 @@ class ClassMetaController: UITableViewController {
             cell.classRoomLabel.text = self.viewModel.classRoom.value
             cell.classInstructorLabel.text = self.viewModel.classInstructor.value
             
+            cell.classTitleLabel.placeholder = NSLocalizedString("ClassMetaController.title", comment: "Title Placeholder")
+            cell.classRoomLabel.placeholder = NSLocalizedString("ClassMetaController.room", comment: "Room Placeholder")
+            cell.classInstructorLabel.placeholder = NSLocalizedString("ClassMetaController.instructor", comment: "Insturctor Placeholder")
+            
             self.viewModel.classTitle <~ cell.rac_classTitleLabelSignal
             self.viewModel.classRoom <~ cell.rac_classRoomLabelSignal
             self.viewModel.classInstructor <~ cell.rac_classInstructorLabelSignal

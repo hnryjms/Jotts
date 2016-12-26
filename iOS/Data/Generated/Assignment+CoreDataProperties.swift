@@ -16,7 +16,7 @@ extension Assignment {
 
     @NSManaged var completed: NSNumber?
     @NSManaged var details: String?
-    @NSManaged var dueDate: NSDate?
+    @NSManaged var dueDate: Date?
     @NSManaged var title: String?
     @NSManaged var classroom: Classroom?
 

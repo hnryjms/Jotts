@@ -8,13 +8,15 @@
 
 import Foundation
 import CoreData
+import ReactiveSwift
 import ReactiveCocoa
+import enum Result.NoError
 
 class Classroom: NSManagedObject {
     convenience init(core: ObjectCore) {
         let entity = core.entity("Classroom")
         
-        let fetchRequest = NSFetchRequest()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>()
         fetchRequest.entity = entity
         
         // Classroom defaults
@@ -30,14 +32,19 @@ class Classroom: NSManagedObject {
             "7a40a3", // purple
             "996600"  // brown
         ];
-        let colorPath = core.managedObjectContext.countForFetchRequest(fetchRequest, error: nil) % colors.count;
-        let color = colors[colorPath];
+        let color: String;
+        do {
+            let colorPath = try core.managedObjectContext.count(for: fetchRequest) % colors.count;
+            color = colors[colorPath];
+        } catch {
+            color = colors[0];
+        }
         var schedule = NSOrderedSet(objects: Schedule(core: core))
         
         do {
             let classrooms = try core.classes()
             if classrooms.count > 0 {
-                let schedule_count = Int(nearbyintf(classrooms.reduce(0, combine: { (total: Float, classroom: Classroom) -> Float in
+                let schedule_count = Int(nearbyintf(classrooms.reduce(0, { (total: Float, classroom: Classroom) -> Float in
                     return total + Float(classroom.schedule!.count);
                 }) / Float(classrooms.count)));
         
@@ -48,12 +55,12 @@ class Classroom: NSManagedObject {
                 // for this new class based on the existing schedules and classes.
                 var schedule_chunks: [[Schedule]] = [];
         
-                for var i = 0; i < schedule_count; i++ {
+                for _ in 0 ..< schedule_count {
                     schedule_chunks.append([]);
                 }
         
                 for classroom in classrooms {
-                    for var i = 0; i < schedule_count; i++ {
+                    for i in 0 ..< schedule_count {
                         if i < classroom.schedule!.count {
                             let schedule = classroom.schedule!.array[i] as! Schedule
                             schedule_chunks[i].append(schedule);
@@ -63,7 +70,7 @@ class Classroom: NSManagedObject {
         
                 let set = NSMutableOrderedSet()
                 for chunk in schedule_chunks {
-                    set.addObject(Schedule(predictFrom: chunk, core: core))
+                    set.add(Schedule(predictFrom: chunk, core: core))
                 }
                 
                 schedule = set as NSOrderedSet
@@ -72,7 +79,7 @@ class Classroom: NSManagedObject {
             print("Failed to predict automatic schedule")
         }
         
-        self.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
+        self.init(entity: entity, insertInto: core.managedObjectContext)
         
         self.color = color
         self.schedule = schedule
@@ -82,26 +89,17 @@ class Classroom: NSManagedObject {
     
     var rac_title: SignalProducer<String?, NoError> {
         get {
-            let signal = DynamicProperty(object: self, keyPath: "title").producer
-                .map { title in title as? String }
-            
-            return signal
+            return DynamicProperty<String>(object: self, keyPath: #keyPath(title)).producer
         }
     }
     var rac_instructor: SignalProducer<String?, NoError> {
         get {
-            let signal = DynamicProperty(object: self, keyPath: "instructor").producer
-                .map { title in title as? String }
-            
-            return signal
+            return DynamicProperty<String>(object: self, keyPath: #keyPath(instructor)).producer
         }
     }
     var rac_room: SignalProducer<String?, NoError> {
         get {
-            let signal = DynamicProperty(object: self, keyPath: "room").producer
-                .map { title in title as? String }
-            
-            return signal
+            return DynamicProperty<String>(object: self, keyPath: "room").producer
         }
     }
     
@@ -109,7 +107,7 @@ class Classroom: NSManagedObject {
     
     var rac_details: SignalProducer<String, NoError> {
         get {
-            let signal = combineLatest(self.rac_room, self.rac_instructor)
+            let signal = SignalProducer.combineLatest(self.rac_room, self.rac_instructor)
                 .map { (room, instructor) -> String in
                     var details: [String] = []
                     if let roomValue = room {
@@ -124,7 +122,7 @@ class Classroom: NSManagedObject {
                         details.append(instructorValue)
                     }
                     
-                    return details.joinWithSeparator(" - ")
+                    return details.joined(separator: " - ")
                 }
             
             return signal

@@ -14,11 +14,11 @@ extension NSManagedObject {
         current managed object context.
      */
     func validate() throws {
-        if self.inserted {
+        if self.isInserted {
             return try self.validateForInsert()
-        } else if self.updated {
+        } else if self.isUpdated {
             return try self.validateForUpdate()
-        } else if self.deleted {
+        } else if self.isDeleted {
             return try self.validateForDelete()
         }
     }

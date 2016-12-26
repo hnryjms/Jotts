@@ -15,7 +15,7 @@ import CoreData
 extension Card {
 
     @NSManaged var details: String?
-    @NSManaged var image: NSData?
+    @NSManaged var image: Data?
     @NSManaged var subtitle: String?
     @NSManaged var title: String?
     @NSManaged var deck: Deck?

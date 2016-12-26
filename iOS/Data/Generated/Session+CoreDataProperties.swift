@@ -15,7 +15,7 @@ import CoreData
 extension Session {
 
     @NSManaged var length: NSNumber?
-    @NSManaged var startDate: NSDate?
+    @NSManaged var startDate: Date?
     @NSManaged var classroom: Classroom?
 
 }

@@ -13,26 +13,26 @@ class ObjectCore {
     let managedObjectContext: NSManagedObjectContext
     
     init() throws {
-        self.managedObjectContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+        self.managedObjectContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
         
-        let urls = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)
+        let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentStore = urls[urls.count-1]
         
-        let modelURL = NSBundle.mainBundle().URLForResource("Jotts", withExtension: "momd") as NSURL!
-        let model = NSManagedObjectModel(contentsOfURL: modelURL) as NSManagedObjectModel!
+        let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd") as URL!
+        let model = NSManagedObjectModel(contentsOf: modelURL!) as NSManagedObjectModel!
 
-        let coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
-        let url = documentStore.URLByAppendingPathComponent("Jotts.sqlite")
+        let coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model!)
+        let url = documentStore.appendingPathComponent("Jotts.sqlite")
 
-        try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+        try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
         
         self.managedObjectContext.persistentStoreCoordinator = coordinator
     }
     
     // MARK: - Helper functions
     
-    internal func entity(name: String) -> NSEntityDescription {
-        return NSEntityDescription.entityForName(name, inManagedObjectContext: self.managedObjectContext)!
+    internal func entity(_ name: String) -> NSEntityDescription {
+        return NSEntityDescription.entity(forEntityName: name, in: self.managedObjectContext)!
     }
     
     // MARK: - Operational functions
@@ -45,22 +45,22 @@ class ObjectCore {
         }
     }
     
-    func delete(classroom: Classroom) {
+    func delete(_ classroom: Classroom) {
         if let schedule = classroom.schedule {
-            schedule.enumerateObjectsUsingBlock({ (x, _, _) -> Void in
+            schedule.enumerateObjects({ (x, _, _) -> Void in
                 
                 if let object = x as? Schedule {
-                    self.managedObjectContext.deleteObject(object)
+                    self.managedObjectContext.delete(object)
                 }
             })
         }
-        self.managedObjectContext.deleteObject(classroom)
+        self.managedObjectContext.delete(classroom)
     }
     
     // MARK: - NSFetchRequest queries
     
-    func fetch_classes() -> NSFetchRequest {
-        let fetchRequest = NSFetchRequest()
+    func fetch_classes() -> NSFetchRequest<Classroom> {
+        let fetchRequest = NSFetchRequest<Classroom>()
         
         let entity = self.entity("Classroom")
         fetchRequest.entity = entity
@@ -78,9 +78,9 @@ class ObjectCore {
     func classes() throws -> [Classroom] {
         let fetchRequest = self.fetch_classes()
         
-        let items = try self.managedObjectContext.executeFetchRequest(fetchRequest)
+        let items = try self.managedObjectContext.fetch(fetchRequest)
         
-        return items as! [Classroom]
+        return items
     }
     
     // MARK: - Object instantiators

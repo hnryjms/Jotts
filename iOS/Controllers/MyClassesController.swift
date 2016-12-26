@@ -15,7 +15,7 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         return AppDelegate.sharedDelegate().core
     }()
     
-    lazy var fetchController: NSFetchedResultsController = {
+    lazy var fetchController: NSFetchedResultsController<Classroom> = {
         
         let fetchRequest = self.core.fetch_classes()
         
@@ -42,20 +42,20 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
-        self.registerForPreviewingWithDelegate(self, sourceView: self.view)
+        self.registerForPreviewing(with: self, sourceView: self.view)
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let indexPath = self.tableView.indexPathForRowAtPoint(location) {
-            let cell = self.tableView.cellForRowAtIndexPath(indexPath) as! MyClassesMetaCell
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        if let indexPath = self.tableView.indexPathForRow(at: location) {
+            let cell = self.tableView.cellForRow(at: indexPath) as! MyClassesMetaCell
             let classroom = cell.classroom!
             
-            let cellRect = self.tableView.convertRect(cell.bounds, toView: previewingContext.sourceView)
+            let cellRect = self.tableView.convert(cell.bounds, to: previewingContext.sourceView)
             
             // Hide the 1px border on the bottom of the cell for cleaner presentation.
             previewingContext.sourceRect = CGRect(x: cellRect.origin.x, y: cellRect.origin.y, width: cellRect.size.width, height: cellRect.size.height-1)
             
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Classroom") as! ClassroomController
+            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Classroom") as! ClassroomController
             controller.classroom = classroom
             
             return controller
@@ -64,16 +64,16 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         return nil
     }
     
-    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
         let controller = viewControllerToCommit as! ClassroomController
         let classroom = controller.classroom!
         
-        self.performSegueWithIdentifier("viewClass", sender: classroom)
+        self.performSegue(withIdentifier: "viewClass", sender: classroom)
     }
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         guard let sections = self.fetchController.sections else {
             return 0
         }
@@ -81,16 +81,16 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         return sections.count
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let sectionInfo = self.fetchController.sections![section];
         return sectionInfo.numberOfObjects
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MetaCell", forIndexPath: indexPath) as! MyClassesMetaCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MetaCell", for: indexPath) as! MyClassesMetaCell
 
-        let classroom = self.fetchController.objectAtIndexPath(indexPath) as! Classroom
-        cell.classroom = classroom;
+        let classroom = self.fetchController.object(at: indexPath)
+        cell.classroom = classroom
 
         return cell
     }
@@ -98,43 +98,43 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
     
     // MARK: - Fetched results controller
     
-    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.beginUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeSection sectionInfo: NSFetchedResultsSectionInfo, atIndex sectionIndex: Int, forChangeType type: NSFetchedResultsChangeType) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
         switch type {
-        case .Insert:
-            self.tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
-        case .Delete:
-            self.tableView.deleteSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
+        case .insert:
+            self.tableView.insertSections(IndexSet(integer: sectionIndex), with: .fade)
+        case .delete:
+            self.tableView.deleteSections(IndexSet(integer: sectionIndex), with: .fade)
         default:
             return
         }
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch type {
-        case .Insert:
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
-        case .Delete:
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-        case .Update:
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+        case .update:
             print("Update cell")
-        case .Move:
-            tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .fade)
+            tableView.insertRows(at: [newIndexPath!], with: .fade)
         }
     }
     
-    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         self.tableView.endUpdates()
     }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let core = self.core
         
         let classroom: Classroom
@@ -143,7 +143,7 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
             classroom = core.newClassroom()
         case "viewClass":
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                classroom = self.fetchController.objectAtIndexPath(indexPath) as! Classroom
+                classroom = self.fetchController.object(at: indexPath)
             } else {
                 classroom = sender as! Classroom
             }
@@ -155,7 +155,7 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
             break
         }
         
-        let navigationController = segue.destinationViewController as! UINavigationController
+        let navigationController = segue.destination as! UINavigationController
         let destinationController = navigationController.viewControllers[0] as! ClassroomController
         destinationController.classroom = classroom
     }
@@ -173,7 +173,7 @@ class MyClassesMetaCell: UITableViewCell {
         }
     }
     
-    override func setHighlighted(highlighted: Bool, animated: Bool) {
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         let animation = {
             if highlighted {
                 self.contentView.backgroundColor = self.colorBar!.backgroundColor
@@ -183,13 +183,13 @@ class MyClassesMetaCell: UITableViewCell {
         }
         
         if animated {
-            UIView.animateWithDuration(0.25, animations: animation)
+            UIView.animate(withDuration: 0.25, animations: animation)
         } else {
             animation()
         }
     }
     
-    override func setSelected(selected: Bool, animated: Bool) {
+    override func setSelected(_ selected: Bool, animated: Bool) {
         self.setHighlighted(selected, animated: animated)
     }
 }

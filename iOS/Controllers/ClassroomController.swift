@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReactiveSwift
 import ReactiveCocoa
 
 class ClassroomViewModel: BaseViewModel {
@@ -32,11 +33,11 @@ class ClassroomViewModel: BaseViewModel {
         self.core.save()
     }
     
-    override func initialValues(classroom: Classroom) {
+    override func initialValues(_ classroom: Classroom) {
         self.classTitle.value = classroom.title
     }
     
-    override func setupBindings(classroom: Classroom) {
+    override func setupBindings(_ classroom: Classroom) {
         self.classTitle <~ classroom.rac_title
         self.classDetails <~ classroom.rac_details.map { x in x as String? }
     }
@@ -61,15 +62,15 @@ class ClassroomController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DynamicProperty(object: self.classTitleLabel, keyPath: "text") <~ self.viewModel.classTitle.producer.map { x in x as? AnyObject }
-        DynamicProperty(object: self.classDetailsLabel, keyPath: "text") <~ self.viewModel.classDetails.producer.map { x in x as? AnyObject }
+        DynamicProperty<String>(object: self.classTitleLabel, keyPath: "text") <~ self.viewModel.classTitle.producer
+        DynamicProperty<String>(object: self.classDetailsLabel, keyPath: "text") <~ self.viewModel.classDetails.producer
         
         // Do any additional setup after loading the view.
     }
     
-    override func previewActionItems() -> [UIPreviewActionItem] {
+    override var previewActionItems : [UIPreviewActionItem] {
         
-        let deleteAction = UIPreviewAction(title: NSLocalizedString("delete_classroom", comment: "Delete Class"), style: .Destructive, handler: { (previewAction, viewController) -> Void in
+        let deleteAction = UIPreviewAction(title: NSLocalizedString("delete_classroom", comment: "Delete Class"), style: .destructive, handler: { (previewAction, viewController) -> Void in
             print("delete")
         })
         
@@ -80,8 +81,8 @@ class ClassroomController: UIViewController {
         self.viewModel.save()
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationController = segue.destinationViewController as! ClassMetaController
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationController = segue.destination as! ClassMetaController
         destinationController.classroom = classroom
     }
 

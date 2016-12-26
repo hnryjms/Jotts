@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FA1111731C1BD66A0000DE87 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */; };
+		FA20B2EA1E11CD990067F252 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
+		FA20B2EB1E11CD990067F252 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB31BD2AD9900FD973C /* Result.framework */; };
+		FA20B2ED1E11CD990067F252 /* ReactiveSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA20B2EC1E11CD990067F252 /* ReactiveSwift.framework */; };
 		FA55702D1BD300EF00546019 /* ClassroomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA55702C1BD300EF00546019 /* ClassroomController.swift */; };
-		FA63CB331C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */; };
 		FA6545B51BDC49A70099B1FD /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA6545B31BDC49A70099B1FD /* Interface.storyboard */; };
 		FA6545B71BDC49A70099B1FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA6545B61BDC49A70099B1FD /* Assets.xcassets */; };
 		FA6545BE1BDC49A70099B1FD /* Watch Complication.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = FA6545BD1BDC49A70099B1FD /* Watch Complication.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -32,8 +34,6 @@
 		FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */; };
 		FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */; };
 		FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */; };
-		FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
-		FAC61FB61BD2ADB900FD973C /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB31BD2AD9900FD973C /* Result.framework */; };
 		FAC61FB91BD2AE5400FD973C /* ReactiveCocoa.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */; };
 		FAC61FBA1BD2AE5700FD973C /* Result.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB41BD2AD9900FD973C /* Result.framework.dSYM */; };
 		FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */; };
@@ -136,8 +136,8 @@
 
 /* Begin PBXFileReference section */
 		FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		FA20B2EC1E11CD990067F252 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
-		FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+RACReuseCell.swift"; sourceTree = "<group>"; };
 		FA6545B11BDC49A70099B1FD /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA6545B41BDC49A70099B1FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		FA6545B61BDC49A70099B1FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -212,8 +212,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAC61FB61BD2ADB900FD973C /* Result.framework in Frameworks */,
-				FAC61FB51BD2ADB600FD973C /* ReactiveCocoa.framework in Frameworks */,
+				FA20B2ED1E11CD990067F252 /* ReactiveSwift.framework in Frameworks */,
+				FA20B2EA1E11CD990067F252 /* ReactiveCocoa.framework in Frameworks */,
+				FA20B2EB1E11CD990067F252 /* Result.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,6 +264,7 @@
 		FA6545E11BDC4B6F0099B1FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA20B2EC1E11CD990067F252 /* ReactiveSwift.framework */,
 				FA6545E21BDC4B6F0099B1FD /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
@@ -282,7 +284,6 @@
 			isa = PBXGroup;
 			children = (
 				FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */,
-				FA63CB321C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift */,
 				FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */,
 			);
 			path = Elements;
@@ -503,27 +504,32 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = "Hank Brekke";
 				TargetAttributes = {
 					FA6545B01BDC49A70099B1FD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 8984CRB38G;
+						LastSwiftMigration = 0820;
 					};
 					FA6545BC1BDC49A70099B1FD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 8984CRB38G;
+						LastSwiftMigration = 0820;
 					};
 					FA6545DF1BDC4B6F0099B1FD = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 8984CRB38G;
+						LastSwiftMigration = 0820;
 					};
 					FAAFE74E1BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 8984CRB38G;
+						LastSwiftMigration = 0820;
 					};
 					FAAFE7671BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
+						LastSwiftMigration = 0820;
 						TestTargetID = FAAFE74E1BD2A7AC0002B5A4;
 					};
 				};
@@ -605,6 +611,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/Result.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/ReactiveSwift.framework",
 			);
 			name = "Copy Carthage Frameworks";
 			outputPaths = (
@@ -645,7 +652,6 @@
 				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
 				FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */,
 				FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */,
-				FA63CB331C1BC61E00337D41 /* UITableViewCell+RACReuseCell.swift in Sources */,
 				FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */,
 				FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */,
 				FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */,
@@ -756,6 +762,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -774,6 +781,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -782,16 +790,17 @@
 		FA6545D91BDC49A70099B1FD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts.Watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -800,16 +809,17 @@
 		FA6545DA1BDC49A70099B1FD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts.Watch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -826,6 +836,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -840,6 +851,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts.Today;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -856,8 +868,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -901,8 +915,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -921,6 +937,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -929,11 +946,11 @@
 		FAAFE77D1BD2A7AC0002B5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -943,17 +960,18 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
 		FAAFE77E1BD2A7AC0002B5A4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -963,6 +981,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -975,6 +994,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
 			};
 			name = Debug;
@@ -988,6 +1008,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
 			};
 			name = Release;

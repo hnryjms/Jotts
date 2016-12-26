@@ -15,12 +15,12 @@ import CoreData
 extension Schedule {
 
     @NSManaged var activeDays: NSNumber?
-    @NSManaged var endDate: NSDate?
+    @NSManaged var endDate: Date?
     @NSManaged var excludedDays: NSNumber?
     @NSManaged var frequency: NSNumber?
     @NSManaged var length: NSNumber?
-    @NSManaged var nextDate: NSDate?
-    @NSManaged var startDate: NSDate?
+    @NSManaged var nextDate: Date?
+    @NSManaged var startDate: Date?
     @NSManaged var startTime: NSNumber?
     @NSManaged var classroom: Classroom?
 

@@ -12,12 +12,12 @@ import UIKit
 class PushoverSegue: UIStoryboardSegue {
 	
 	override func perform() {
-		if UIDevice.currentDevice().userInterfaceIdiom == .Pad {
+		if UIDevice.current.userInterfaceIdiom == .pad {
 			// TODO: Popover view.
 		} else {
-			let navigationController = self.sourceViewController.navigationController as UINavigationController!;
+			let navigationController = self.source.navigationController as UINavigationController!;
 			
-			navigationController.pushViewController(self.destinationViewController, animated: true);
+			navigationController?.pushViewController(self.destination, animated: true);
 		}
 	}
 }

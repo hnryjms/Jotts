@@ -12,7 +12,7 @@ import CoreData
 class Schedule: NSManagedObject {
     convenience init(core: ObjectCore) {
         let entity = core.entity("Schedule")
-        self.init(entity: entity, insertIntoManagedObjectContext: core.managedObjectContext)
+        self.init(entity: entity, insertInto: core.managedObjectContext)
     }
     convenience init(predictFrom schedules: [Schedule], core: ObjectCore)  {
         self.init(core: core)

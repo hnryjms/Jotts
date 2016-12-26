@@ -13,7 +13,7 @@ class BaseViewModel {
         return AppDelegate.sharedDelegate().core
     }()
     
-    private var _classroom: Classroom?
+    fileprivate var _classroom: Classroom?
     var classroom: Classroom? {
         get {
             return _classroom
@@ -34,11 +34,11 @@ class BaseViewModel {
         }
     }
     
-    func initialValues(classroom: Classroom) {
+    func initialValues(_ classroom: Classroom) {
         print("Unimplemented default initial values.")
     }
     
-    func setupBindings(classroom: Classroom) {
+    func setupBindings(_ classroom: Classroom) {
         print("Unimplemented default bindings.")
     }
 }

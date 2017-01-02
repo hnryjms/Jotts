@@ -39,14 +39,14 @@ class Classroom: NSManagedObject {
         } catch {
             color = colors[0];
         }
-        var schedule = NSOrderedSet(objects: Schedule(core: core))
-        
+
+        let schedule: NSOrderedSet
         do {
             let classrooms = try core.classes()
             if classrooms.count > 0 {
-                let schedule_count = Int(nearbyintf(classrooms.reduce(0, { (total: Float, classroom: Classroom) -> Float in
-                    return total + Float(classroom.schedule!.count);
-                }) / Float(classrooms.count)));
+                let schedule_count = classrooms.reduce(0, { (total: Int, classroom: Classroom) -> Int in
+                    return total + classroom.schedule!.count
+                }) / classrooms.count;
         
                 // We assume the first schedule added to each classroom follows a pattern, the second
                 // schedule added follows a different pattern, and so on.
@@ -74,9 +74,12 @@ class Classroom: NSManagedObject {
                 }
                 
                 schedule = set as NSOrderedSet
+            } else {
+                schedule = NSOrderedSet(objects: Schedule(core: core))
             }
         } catch {
             print("Failed to predict automatic schedule")
+            schedule = NSOrderedSet(objects: Schedule(core: core))
         }
         
         self.init(entity: entity, insertInto: core.managedObjectContext)

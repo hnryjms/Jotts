@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		FA1111731C1BD66A0000DE87 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */; };
 		FA20B2EA1E11CD990067F252 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
 		FA20B2EB1E11CD990067F252 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB31BD2AD9900FD973C /* Result.framework */; };
@@ -31,7 +32,6 @@
 		FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */; };
 		FAA5E8251BD9CE3A004DE3FC /* NSManagedObject+Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E8241BD9CE3A004DE3FC /* NSManagedObject+Validate.swift */; };
 		FAA5E8791BDBDB64004DE3FC /* ClassMetaController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */; };
-		FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */; };
 		FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */; };
 		FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */; };
 		FAC61FB91BD2AE5400FD973C /* ReactiveCocoa.framework.dSYM in Copy Carthage dSYMs */ = {isa = PBXBuildFile; fileRef = FAC61FB21BD2AD9900FD973C /* ReactiveCocoa.framework.dSYM */; };
@@ -135,6 +135,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FA20B2EC1E11CD990067F252 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
@@ -159,7 +160,6 @@
 		FA850D851C250E8E004F4CC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		FAA5E8241BD9CE3A004DE3FC /* NSManagedObject+Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSManagedObject+Validate.swift"; sourceTree = "<group>"; };
 		FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassMetaController.swift; sourceTree = "<group>"; };
-		FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushoverSegue.swift; sourceTree = "<group>"; };
 		FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FAAFE75C1BD2A7AC0002B5A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -283,8 +283,8 @@
 		FAA5E87A1BDBDBF9004DE3FC /* Elements */ = {
 			isa = PBXGroup;
 			children = (
-				FAA5E87B1BDBDC13004DE3FC /* PushoverSegue.swift */,
 				FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */,
+				5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -651,7 +651,6 @@
 				FA55702D1BD300EF00546019 /* ClassroomController.swift in Sources */,
 				FAAFE7531BD2A7AC0002B5A4 /* AppDelegate.swift in Sources */,
 				FAC61FCF1BD2B42E00FD973C /* Card.swift in Sources */,
-				FAA5E87C1BDBDC13004DE3FC /* PushoverSegue.swift in Sources */,
 				FAC61FD31BD2B42E00FD973C /* Deck.swift in Sources */,
 				FAC61FD81BD2B42E00FD973C /* Session+CoreDataProperties.swift in Sources */,
 				FAC61FCE1BD2B42E00FD973C /* Card+CoreDataProperties.swift in Sources */,
@@ -669,6 +668,7 @@
 				FAA5E8791BDBDB64004DE3FC /* ClassMetaController.swift in Sources */,
 				FAC61FD21BD2B42E00FD973C /* Deck+CoreDataProperties.swift in Sources */,
 				FAC61FD61BD2B42E00FD973C /* Assignment+CoreDataProperties.swift in Sources */,
+				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

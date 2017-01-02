@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import ReactiveSwift
+import ReactiveCocoa
 
-class MyClassesController: UITableViewController, NSFetchedResultsControllerDelegate, UIViewControllerPreviewingDelegate {
+class MyClassesController: UITableViewController, NSFetchedResultsControllerDelegate {
     
     lazy var core: ObjectCore = {
         return AppDelegate.sharedDelegate().core
@@ -40,35 +42,8 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
-        self.registerForPreviewing(with: self, sourceView: self.view)
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        if let indexPath = self.tableView.indexPathForRow(at: location) {
-            let cell = self.tableView.cellForRow(at: indexPath) as! MyClassesMetaCell
-            let classroom = cell.classroom!
-            
-            let cellRect = self.tableView.convert(cell.bounds, to: previewingContext.sourceView)
-            
-            // Hide the 1px border on the bottom of the cell for cleaner presentation.
-            previewingContext.sourceRect = CGRect(x: cellRect.origin.x, y: cellRect.origin.y, width: cellRect.size.width, height: cellRect.size.height-1)
-            
-            let controller = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Classroom") as! ClassroomController
-            controller.classroom = classroom
-            
-            return controller
-        }
-        
-        return nil
-    }
-    
-    func previewingContext(_ previewingContext: UIViewControllerPreviewing, commit viewControllerToCommit: UIViewController) {
-        let controller = viewControllerToCommit as! ClassroomController
-        let classroom = controller.classroom!
-        
-        self.performSegue(withIdentifier: "viewClass", sender: classroom)
     }
 
     // MARK: - Table view data source
@@ -169,7 +144,11 @@ class MyClassesMetaCell: UITableViewCell {
     
     var classroom: Classroom? {
         didSet {
-            // TODO: Configure cell
+            if let nextClassroom = self.classroom {
+                self.colorBar!.backgroundColor = UIColor(fromHex: nextClassroom.color!)
+                self.nameLabel!.reactive.text <~ nextClassroom.rac_title
+                self.metaLabel!.reactive.text <~ nextClassroom.rac_details
+            }
         }
     }
     

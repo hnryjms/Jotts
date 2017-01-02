@@ -39,7 +39,7 @@ class ClassroomViewModel: BaseViewModel {
     
     override func setupBindings(_ classroom: Classroom) {
         self.classTitle <~ classroom.rac_title
-        self.classDetails <~ classroom.rac_details.map { x in x as String? }
+        self.classDetails <~ classroom.rac_details
     }
 }
 
@@ -62,17 +62,21 @@ class ClassroomController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        DynamicProperty<String>(object: self.classTitleLabel, keyPath: "text") <~ self.viewModel.classTitle.producer
-        DynamicProperty<String>(object: self.classDetailsLabel, keyPath: "text") <~ self.viewModel.classDetails.producer
+        self.classTitleLabel.reactive.text <~ self.viewModel.classTitle.producer
+        self.classDetailsLabel.reactive.text <~ self.viewModel.classDetails.producer
         
         // Do any additional setup after loading the view.
     }
     
     override var previewActionItems : [UIPreviewActionItem] {
         
-        let deleteAction = UIPreviewAction(title: NSLocalizedString("delete_classroom", comment: "Delete Class"), style: .destructive, handler: { (previewAction, viewController) -> Void in
-            print("delete")
-        })
+        let deleteAction = UIPreviewAction(
+                title: NSLocalizedString("delete_classroom", comment: "Delete Class"),
+                style: .destructive,
+                handler: { (previewAction, viewController) -> Void in
+                    print("delete")
+                }
+        )
         
         return [deleteAction]
     }

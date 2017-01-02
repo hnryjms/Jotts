@@ -29,9 +29,18 @@ class ClassMetaViewModel: BaseViewModel {
     }
     
     override func setupBindings(_ classroom: Classroom) {
-        DynamicProperty<String>(object: classroom, keyPath: "title") <~ self.classTitle.producer
-        DynamicProperty<String>(object: classroom, keyPath: "room") <~ self.classRoom.producer
-        DynamicProperty<String>(object: classroom, keyPath: "instructor") <~ self.classInstructor.producer
+        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.title = $0 }) <~ self.classTitle.producer
+        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.room = $0 }) <~ self.classRoom.producer
+        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.instructor = $0 }) <~ self.classInstructor.producer
+    }
+    
+    func save() {
+        do {
+            try self.classroom?.validate()
+            self.core.save()
+        } catch {
+            print("Skipping validation error")
+        }
     }
 }
 
@@ -55,32 +64,11 @@ class ClassMetaController: UITableViewController {
             self.tableView.backgroundColor = nil
         } else {
             self.navigationItem.rightBarButtonItem = nil
-            
-            /*
-            NSNotificationCenter.defaultCenter().rac_notifications(UIKeyboardWillHideNotification, object: nil)
-                .startWithNext { [unowned self] notification in
-                    let insets = UIEdgeInsets(top: self.tableView.contentInset.top,
-                        left: self.tableView.contentInset.left,
-                        bottom: 0,
-                        right: self.tableView.contentInset.right);
-                    
-                    self.tableView.contentInset = insets;
-                    self.tableView.scrollIndicatorInsets = insets;
-                }
-            
-            NSNotificationCenter.defaultCenter().rac_notifications(UIKeyboardWillChangeFrameNotification, object: nil)
-                .startWithNext { [unowned self] notification in
-                    let size = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue().size;
-                    let insets = UIEdgeInsets(top: self.tableView.contentInset.top,
-                        left: self.tableView.contentInset.left,
-                        bottom: size.height,
-                        right: self.tableView.contentInset.right);
-            
-                    self.tableView.contentInset = insets;
-                    self.tableView.scrollIndicatorInsets = insets;
-                }
-            */
         }
+    }
+    
+    deinit {
+        self.viewModel.save()
     }
     
     // MARK: - Table data source & delegate
@@ -121,7 +109,7 @@ class ClassMetaController: UITableViewController {
             
             cell.classTitleLabel.placeholder = NSLocalizedString("ClassMetaController.title", comment: "Title Placeholder")
             cell.classRoomLabel.placeholder = NSLocalizedString("ClassMetaController.room", comment: "Room Placeholder")
-            cell.classInstructorLabel.placeholder = NSLocalizedString("ClassMetaController.instructor", comment: "Insturctor Placeholder")
+            cell.classInstructorLabel.placeholder = NSLocalizedString("ClassMetaController.instructor", comment: "Instructor Placeholder")
             
             self.viewModel.classTitle <~ cell.rac_classTitleLabelSignal
             self.viewModel.classRoom <~ cell.rac_classRoomLabelSignal

@@ -8,12 +8,12 @@
 
 import Foundation
 
-class BaseViewModel {
+class BaseViewModel: NSObject {
     lazy var core: ObjectCore = {
         return AppDelegate.sharedDelegate().core
     }()
     
-    fileprivate var _classroom: Classroom?
+    private var _classroom: Classroom?
     var classroom: Classroom? {
         get {
             return _classroom

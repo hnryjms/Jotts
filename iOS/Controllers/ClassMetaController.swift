@@ -33,7 +33,7 @@ class ClassMetaViewModel: BaseViewModel {
         BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.room = $0 }) <~ self.classRoom.producer
         BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.instructor = $0 }) <~ self.classInstructor.producer
     }
-    
+
     func save() {
         do {
             try self.classroom?.validate()
@@ -111,7 +111,7 @@ class ClassMetaController: UITableViewController {
             cell.classTitleLabel.placeholder = NSLocalizedString("ClassMetaController.title", comment: "Title Placeholder")
             cell.classRoomLabel.placeholder = NSLocalizedString("ClassMetaController.room", comment: "Room Placeholder")
             cell.classInstructorLabel.placeholder = NSLocalizedString("ClassMetaController.instructor", comment: "Instructor Placeholder")
-            
+
             self.viewModel.classTitle <~ cell.rac_classTitleLabelSignal
             self.viewModel.classRoom <~ cell.rac_classRoomLabelSignal
             self.viewModel.classInstructor <~ cell.rac_classInstructorLabelSignal
@@ -165,7 +165,7 @@ class ClassMetaInfoCell: UITableViewCell {
         return classTitleLabel.reactive.textValues
             .take(until: self.reactive.prepareForReuse)
     }
-    
+
     var rac_classRoomLabelSignal: Signal<String?, NoError> {
         return classRoomLabel.reactive.textValues
             .take(until: self.reactive.prepareForReuse)

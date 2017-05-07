@@ -547,6 +547,14 @@
 			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
+		FA850D861C250E8E004F4CC4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA850D851C250E8E004F4CC4 /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		FAAFE75B1BD2A7AC0002B5A4 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

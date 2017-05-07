@@ -29,9 +29,9 @@ class ClassMetaViewModel: BaseViewModel {
     }
     
     override func setupBindings(_ classroom: Classroom) {
-        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.title = $0 }) <~ self.classTitle.producer
-        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.room = $0 }) <~ self.classRoom.producer
-        BindingTarget(lifetime: self.reactive.lifetime, setter: { classroom.instructor = $0 }) <~ self.classInstructor.producer
+        BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.title = $0 }) <~ self.classTitle.producer
+        BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.room = $0 }) <~ self.classRoom.producer
+        BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.instructor = $0 }) <~ self.classInstructor.producer
     }
     
     func save() {
@@ -61,12 +61,13 @@ class ClassMetaController: UITableViewController {
         super.viewDidLoad()
         
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.tableView.backgroundColor = nil
-        } else {
             self.navigationItem.rightBarButtonItem = nil
+            self.tableView.backgroundColor = nil
+            self.navigationController!.navigationBar.barTintColor = nil;
+            self.navigationController!.navigationBar.titleTextAttributes = nil;
         }
     }
-    
+
     deinit {
         self.viewModel.save()
     }

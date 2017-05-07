@@ -139,18 +139,6 @@
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
-      "idiom" : "car",
-      "filename" : "Icon-60@2x-1.png",
-      "scale" : "2x"
-    },
-    {
-      "size" : "60x60",
-      "idiom" : "car",
-      "filename" : "Icon-60@3x-1.png",
-      "scale" : "3x"
-    },
-    {
       "size" : "24x24",
       "idiom" : "watch",
       "scale" : "2x",
@@ -197,10 +185,27 @@
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "car",
+      "filename" : "Icon-60@2x-1.png",
+      "unassigned" : true,
+      "scale" : "2x"
+    },
+    {
+      "size" : "60x60",
+      "idiom" : "car",
+      "filename" : "Icon-60@3x-1.png",
+      "unassigned" : true,
+      "scale" : "3x"
     }
   ],
   "info" : {
     "version" : 1,
     "author" : "xcode"
+  },
+  "properties" : {
+    "pre-rendered" : true
   }
 }

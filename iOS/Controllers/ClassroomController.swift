@@ -90,10 +90,15 @@ class ClassroomController: UIViewController {
     deinit {
         self.viewModel.save()
     }
-    
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationController = segue.destination as! ClassMetaController
-        destinationController.classroom = classroom
+        let destinationController = segue.destination as! UINavigationController
+        let classMetaController = destinationController.topViewController as! ClassMetaController
+        classMetaController.classroom = classroom
+    }
+
+    @IBAction func unwindToClassroom(unwindSegue: UIStoryboardSegue) {
+        // We already save when the child controller is `deinit`'d
     }
 
 }

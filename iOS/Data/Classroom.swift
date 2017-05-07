@@ -105,6 +105,11 @@ class Classroom: NSManagedObject {
             return DynamicProperty<String>(object: self, keyPath: "room").producer
         }
     }
+    var rac_color: SignalProducer<String?, NoError> {
+        get {
+            return DynamicProperty<String>(object: self, keyPath: #keyPath(color)).producer
+        }
+    }
     
     // MARK: - Calculated properties
     

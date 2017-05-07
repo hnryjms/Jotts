@@ -6,11 +6,15 @@
 import UIKit
 
 extension UIColor {
-    convenience init(fromHex hex: String) {
-        let hexCode: String = hex.trimmingCharacters(in: (CharacterSet.alphanumerics).inverted).uppercased()
+    convenience init?(fromHex hex: String?) {
+        let hexCode: String? = hex?.trimmingCharacters(in: (CharacterSet.alphanumerics).inverted).uppercased()
+
+        guard hexCode?.characters.count == 6 else {
+            return nil
+        }
 
         var rgbValue: UInt32 = 0
-        Scanner(string: hexCode).scanHexInt32(&rgbValue)
+        Scanner(string: hexCode!).scanHexInt32(&rgbValue)
 
         self.init(
                 red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,

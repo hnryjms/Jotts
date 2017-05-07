@@ -17,6 +17,9 @@ class ClassroomViewModel: BaseViewModel {
     lazy var classDetails: MutableProperty<String?> = {
         return MutableProperty<String?>(self.classroom?.room)
     }()
+    lazy var tintColor: MutableProperty<UIColor?> = {
+        return MutableProperty<UIColor?>(UIColor(fromHex: self.classroom?.color))
+    }()
     
     func save() {
         guard let classroom = self.classroom else {
@@ -40,6 +43,7 @@ class ClassroomViewModel: BaseViewModel {
     override func setupBindings(_ classroom: Classroom) {
         self.classTitle <~ classroom.rac_title
         self.classDetails <~ classroom.rac_details
+        self.tintColor <~ classroom.rac_color.map { UIColor(fromHex: $0) }
     }
 }
 
@@ -64,7 +68,9 @@ class ClassroomController: UIViewController {
 
         self.classTitleLabel.reactive.text <~ self.viewModel.classTitle.producer
         self.classDetailsLabel.reactive.text <~ self.viewModel.classDetails.producer
-        
+        self.navigationController!.view.reactive.makeBindingTarget { $0.tintColor = $1 } as BindingTarget<UIColor>
+                <~ self.viewModel.tintColor.producer.skipNil()
+
         // Do any additional setup after loading the view.
     }
     

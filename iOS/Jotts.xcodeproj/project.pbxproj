@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
+		5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */; };
 		5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */; };
 		FA1111731C1BD66A0000DE87 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */; };
 		FA20B2EA1E11CD990067F252 /* ReactiveCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAC61FB11BD2AD9900FD973C /* ReactiveCocoa.framework */; };
@@ -102,6 +103,7 @@
 /* Begin PBXFileReference section */
 		5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
+		5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Weekdays.swift"; sourceTree = "<group>"; };
 		FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		FA20B2EC1E11CD990067F252 /* ReactiveSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReactiveSwift.framework; path = Carthage/Build/iOS/ReactiveSwift.framework; sourceTree = "<group>"; };
 		FA55702C1BD300EF00546019 /* ClassroomController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassroomController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 			children = (
 				FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */,
 				5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */,
+				5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				FAC61FD61BD2B42E00FD973C /* Assignment+CoreDataProperties.swift in Sources */,
 				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 				5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */,
+				5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -537,14 +541,6 @@
 				FA6545E81BDC4B6F0099B1FD /* Base */,
 			);
 			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-		FA850D861C250E8E004F4CC4 /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA850D851C250E8E004F4CC4 /* Base */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 		FA850D861C250E8E004F4CC4 /* Localizable.strings */ = {

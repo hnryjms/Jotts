@@ -77,7 +77,7 @@ class ClassroomController: UIViewController {
     override var previewActionItems : [UIPreviewActionItem] {
         
         let deleteAction = UIPreviewAction(
-                title: NSLocalizedString("delete_classroom", comment: "Delete Class"),
+                title: NSLocalizedString("ClassroomController.deleteClass", comment: "Delete Class"),
                 style: .destructive,
                 handler: { (previewAction, viewController) -> Void in
                     print("delete")

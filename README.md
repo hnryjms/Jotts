@@ -19,7 +19,7 @@ and develop. It's written in Swift 2.1, and requires Xcode 7.1 for building.
 Dependencies are handled by [Carthage][carthage] and need to be installed
 before you will be able to build this app.
 
-The iOS app supports iOS 9.0 and later, but requirements may change as
+The iOS app supports iOS 10.3 and later, but requirements may change as
 development continues.
 
 ```

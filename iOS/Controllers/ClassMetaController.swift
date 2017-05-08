@@ -119,22 +119,29 @@ class ClassMetaController: UITableViewController {
             return cell
         case 1:
             if self.classroom!.schedule != nil && indexPath.row < self.classroom!.schedule!.count {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleCell", for: indexPath)
-                
+                let schedule = self.classroom!.schedule![indexPath.row] as! Schedule
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! ClassMetaTextCell
+
+                cell.classTextLabel.reactive.text <~ schedule.rac_details
+
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AddScheduleCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! ClassMetaTextCell
+
+                cell.classTextLabel.text = NSLocalizedString("ClassMetaController.addSchedule", comment: "Add Schedule Button")
                 
                 return cell
             }
         case 2:
             if self.classroom!.sessions != nil && indexPath.row < self.classroom!.sessions!.count {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "SessionCell", for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! ClassMetaTextCell
                 
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "AddSessionCell", for: indexPath)
-                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "AddCell", for: indexPath) as! ClassMetaTextCell
+
+                cell.classTextLabel.text = NSLocalizedString("ClassMetaController.addSession", comment: "Add Session Button")
+
                 return cell
             }
         default: abort()
@@ -185,4 +192,8 @@ class ClassMetaInfoCell: UITableViewCell {
     @IBAction func classInstructorEndExit(_ sender: AnyObject) {
         self.classInstructorLabel.resignFirstResponder()
     }
+}
+
+class ClassMetaTextCell: UITableViewCell {
+    @IBOutlet weak var classTextLabel: UILabel!
 }

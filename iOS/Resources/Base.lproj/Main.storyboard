@@ -14,7 +14,7 @@
         <scene sceneID="pY4-Hu-kfo">
             <objects>
                 <navigationController title="Classes" id="RMx-3f-FxP" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" id="Pmd-2v-anx">
+                    <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Pmd-2v-anx">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -160,7 +160,7 @@
             <objects>
                 <navigationController modalPresentationStyle="formSheet" id="JUK-yd-ATB" customClass="DarkNavigationController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <value key="contentSizeForViewInPopover" type="size" width="320" height="400"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xW7-J5-EkR">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xW7-J5-EkR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -238,7 +238,7 @@
                                     <outlet property="classTitleLabel" destination="mBn-u4-cev" id="dIJ-eD-VkD"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ScheduleCell" id="pZN-uf-cDZ" customClass="ClassmetaScheduleCell" customModule="Jotts" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TextCell" id="pZN-uf-cDZ" customClass="ClassMetaTextCell" customModule="Jotts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="175.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pZN-uf-cDZ" id="0K6-zL-kdA">
@@ -259,59 +259,12 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="classTextLabel" destination="Zf9-L0-JyP" id="otn-cl-vih"/>
                                     <segue destination="EJo-V6-xYC" kind="show" identifier="editSchedule" id="PQi-uZ-OKj"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddScheduleCell" id="Bim-ay-Gve">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCell" id="bJo-lX-AgH" customClass="ClassMetaTextCell" customModule="Jotts" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="219.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bim-ay-Gve" id="eH2-Vx-nQF">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Add Schedule" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mn0-dm-pca">
-                                            <rect key="frame" x="20" y="11" width="335" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Mn0-dm-pca" secondAttribute="trailing" constant="20" id="59I-T8-pFY"/>
-                                        <constraint firstAttribute="centerY" secondItem="Mn0-dm-pca" secondAttribute="centerY" id="NDq-2X-0ij"/>
-                                        <constraint firstItem="Mn0-dm-pca" firstAttribute="leading" secondItem="eH2-Vx-nQF" secondAttribute="leading" constant="20" id="Zml-Hy-PnZ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="EJo-V6-xYC" kind="show" identifier="addSchedule" id="nGv-qB-v7u"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SessionCell" id="CTe-gx-tNe" customClass="ClassmetaSessionCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="263.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CTe-gx-tNe" id="v5c-Z2-YIw">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="September 4, 2014 at 9:15AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fof-SG-Ozt">
-                                            <rect key="frame" x="20" y="12.5" width="302" height="20"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="fof-SG-Ozt" secondAttribute="trailing" constant="20" id="IFd-Vr-8XR"/>
-                                        <constraint firstItem="fof-SG-Ozt" firstAttribute="leading" secondItem="v5c-Z2-YIw" secondAttribute="leading" constant="20" id="JMc-Bm-6ca"/>
-                                        <constraint firstAttribute="centerY" secondItem="fof-SG-Ozt" secondAttribute="centerY" id="mo8-Tf-Sp7"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <segue destination="u1M-2S-MAr" kind="show" identifier="editSession" id="Xtg-ax-HOr"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddSessionCell" id="bJo-lX-AgH">
-                                <rect key="frame" x="0.0" y="307.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJo-lX-AgH" id="AA2-5D-fSQ">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -331,6 +284,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="classTextLabel" destination="hIx-fF-KpW" id="G8z-sg-xnu"/>
                                     <segue destination="u1M-2S-MAr" kind="show" identifier="addSession" id="k6c-0p-5mE"/>
                                 </connections>
                             </tableViewCell>
@@ -654,7 +608,5 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="M4q-SS-ljw"/>
-        <segue reference="nGv-qB-v7u"/>
-        <segue reference="k6c-0p-5mE"/>
     </inferredMetricsTieBreakers>
 </document>

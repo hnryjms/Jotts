@@ -117,10 +117,13 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         case "addClass":
             classroom = core.newClassroom()
         case "viewClass":
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-                classroom = self.fetchController.object(at: indexPath)
+            if let selectedCell = sender as? MyClassesMetaCell {
+                classroom = selectedCell.classroom!
+            } else if let selectedClassroom = sender as? Classroom {
+                classroom = selectedClassroom
             } else {
-                classroom = sender as! Classroom
+                abort()
+                break
             }
         case "peekClass":
             let cell = sender as! MyClassesMetaCell

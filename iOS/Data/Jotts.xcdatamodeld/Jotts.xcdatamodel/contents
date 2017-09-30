@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7549" systemVersion="14E17e" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Assignment" representedClassName="Jotts.Assignment" syncable="YES">
-        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dueDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="title" attributeType="String" syncable="YES"/>
         <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="assignments" inverseEntity="Classroom" syncable="YES"/>
     </entity>
@@ -31,19 +31,19 @@
         <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="decks" inverseEntity="Classroom" syncable="YES"/>
     </entity>
     <entity name="Schedule" representedClassName="Jotts.Schedule" syncable="YES">
-        <attribute name="activeDays" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="excludedDays" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="frequency" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="length" attributeType="Double" defaultValueString="0" syncable="YES"/>
-        <attribute name="nextDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="startDate" attributeType="Date" syncable="YES"/>
-        <attribute name="startTime" attributeType="Double" defaultValueString="0" syncable="YES"/>
+        <attribute name="activeDays" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="excludedDays" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="frequency" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="length" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="nextDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startTime" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="schedule" inverseEntity="Classroom" syncable="YES"/>
     </entity>
     <entity name="Session" representedClassName="Jotts.Session" syncable="YES">
-        <attribute name="length" attributeType="Double" defaultValueString="0" syncable="YES"/>
-        <attribute name="startDate" attributeType="Date" syncable="YES"/>
+        <attribute name="length" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="sessions" inverseEntity="Classroom" syncable="YES"/>
     </entity>
     <elements>

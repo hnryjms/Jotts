@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30C0787EB0622C0B5C85FCBB /* UIViewController+TopNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C07E47709F464BB5949704 /* UIViewController+TopNavigationController.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */; };
 		5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */; };
@@ -101,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30C07E47709F464BB5949704 /* UIViewController+TopNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopNavigationController.swift"; sourceTree = "<group>"; };
 		5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Weekdays.swift"; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				FA1111721C1BD66A0000DE87 /* BaseViewModel.swift */,
 				5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */,
 				5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */,
+				30C07E47709F464BB5949704 /* UIViewController+TopNavigationController.swift */,
 			);
 			path = Elements;
 			sourceTree = "<group>";
@@ -508,6 +511,7 @@
 				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 				5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */,
 				5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */,
+				30C0787EB0622C0B5C85FCBB /* UIViewController+TopNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

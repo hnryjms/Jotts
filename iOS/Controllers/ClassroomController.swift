@@ -66,10 +66,13 @@ class ClassroomController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let splitViewController = UIApplication.shared.delegate!.window!!.rootViewController as! UISplitViewController
+        self.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+
         self.classTitleLabel.reactive.text <~ self.viewModel.classTitle.producer
         self.classDetailsLabel.reactive.text <~ self.viewModel.classDetails.producer
-        self.navigationController!.view.reactive.makeBindingTarget { $0.tintColor = $1 } as BindingTarget<UIColor>
-                <~ self.viewModel.tintColor.producer.skipNil()
+
+        self.topNavigationController!.navigationBar.reactive.makeBindingTarget { $0.tintColor = $1 } as BindingTarget<UIColor?> <~ self.viewModel.tintColor.producer
 
         // Do any additional setup after loading the view.
     }
@@ -89,6 +92,10 @@ class ClassroomController: UIViewController {
 
     deinit {
         self.viewModel.save()
+
+        if let topNavigationController = self.topNavigationController {
+            topNavigationController.navigationBar.tintColor = nil
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dJc-Jv-8cY">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina5_9" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Segues with Peek and Pop" minToolsVersion="7.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,7 +17,7 @@
             <objects>
                 <navigationController title="Classes" id="RMx-3f-FxP" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" barStyle="black" largeTitles="YES" id="Pmd-2v-anx">
-                        <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.33333333329999998" green="0.33333333329999998" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -39,7 +40,7 @@
             <objects>
                 <navigationController id="kJm-gK-5x4" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="n1U-7f-8O2">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
@@ -66,11 +67,11 @@
                         <viewControllerLayoutGuide type="bottom" id="GAO-Cl-Wes"/>
                     </layoutGuides>
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="svH-Pt-448">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="mSA-CI-5Qn">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="32" width="812" height="322"/>
                                 <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="v9e-Hn-OXa">
                                     <size key="itemSize" width="50" height="50"/>
@@ -88,7 +89,7 @@
                                         </view>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cards" id="s4O-ZI-XVE">
-                                        <rect key="frame" x="65" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="63.666666666666664" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -98,13 +99,13 @@
                                 </cells>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psychology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="viL-AH-g9A">
-                                <rect key="frame" x="26" y="108" width="323" height="38.333333333333343"/>
+                                <rect key="frame" x="74" y="51.999999999999993" width="664" height="38.333333333333321"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" In 6 Minutes - Room 102 - Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DU0-Oe-LhJ">
-                                <rect key="frame" x="26" y="156.33333333333337" width="323" height="20.666666666666657"/>
+                                <rect key="frame" x="74" y="100.33333333333331" width="664" height="20.666666666666671"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -169,16 +170,16 @@
             <objects>
                 <tableViewController title="Info" id="kcl-aq-yQx" customClass="ClassMetaController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Hh4-Hx-nw1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MetaCell" rowHeight="120" id="mzo-JE-HSV" customClass="ClassMetaInfoCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="120"/>
+                                <rect key="frame" x="0.0" y="55.333333333333336" width="812" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mzo-JE-HSV" id="6Ov-nx-W6j">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="119.66666666666667"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="119.66666666666667"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CS102" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hJi-AY-3Kj">
@@ -193,7 +194,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Smith" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cwV-zQ-LIE">
-                                            <rect key="frame" x="93" y="72" width="262" height="22"/>
+                                            <rect key="frame" x="93" y="72" width="611" height="22"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
                                             <connections>
@@ -201,7 +202,7 @@
                                             </connections>
                                         </textField>
                                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Psychology" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mBn-u4-cev">
-                                            <rect key="frame" x="20" y="25" width="335" height="39"/>
+                                            <rect key="frame" x="20" y="25" width="684" height="39"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="words" spellCheckingType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                                             <connections>
@@ -227,14 +228,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TextCell" id="pZN-uf-cDZ" customClass="ClassMetaTextCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="175.33333333333334" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="175.33333333333334" width="812" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pZN-uf-cDZ" id="0K6-zL-kdA">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43.666666666666664"/>
+                                    <rect key="frame" x="44" y="0.0" width="698" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weekdays at 7:30AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zf9-L0-JyP">
-                                            <rect key="frame" x="20" y="11.666666666666664" width="302" height="20"/>
+                                            <rect key="frame" x="20" y="11.666666666666664" width="658" height="20"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -252,14 +253,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCell" id="bJo-lX-AgH" customClass="ClassMetaTextCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="219.33333333333334" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="219.33333333333334" width="812" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bJo-lX-AgH" id="AA2-5D-fSQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+ Add Individual Session" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hIx-fF-KpW">
-                                            <rect key="frame" x="20" y="11.000000000000002" width="335" height="20.666666666666671"/>
+                                            <rect key="frame" x="20" y="11.000000000000002" width="684" height="20.666666666666671"/>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -300,15 +301,15 @@
             <objects>
                 <tableViewController title="Schedule" id="EJo-V6-xYC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="00h-C3-kIr">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="Yfn-hG-iHA" customClass="LayeredDetailCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.333333333333336" width="812" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Yfn-hG-iHA" id="t0F-L6-DFN">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meets on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N5O-Jl-dj6">
@@ -338,14 +339,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WeekdayCell" id="pdm-8a-4KG" customClass="ScheduleWeekdayCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="99.333333333333343" width="812" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pdm-8a-4KG" id="7ut-vm-2hc">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRT-0K-zEz">
-                                            <rect key="frame" x="20" y="11.666666666666668" width="335" height="20.333333333333332"/>
+                                            <rect key="frame" x="20" y="11.666666666666668" width="684" height="20.333333333333332"/>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -362,14 +363,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="180" id="KuA-YD-epj" customClass="DatePickerCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="143.33333333333334" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="143.33333333333334" width="812" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KuA-YD-epj" id="wxH-SK-HdW">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179.66666666666666"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="179.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="P7J-7q-wmT">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="724" height="180"/>
                                             <date key="date" timeIntervalSinceReferenceDate="431298621.50735301">
                                                 <!--2014-09-01 21:10:21 +0000-->
                                             </date>
@@ -387,14 +388,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PickerCell" rowHeight="162" id="xTG-R2-9Oy" customClass="SchedulePickerCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="323.33333333333337" width="375" height="162"/>
+                                <rect key="frame" x="0.0" y="323.33333333333337" width="812" height="162"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xTG-R2-9Oy" id="egG-aE-5hP">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="161.66666666666666"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="161.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kje-R2-5ev">
-                                            <rect key="frame" x="0.0" y="-0.6666666666666714" width="375" height="162.33333333333331"/>
+                                            <rect key="frame" x="0.0" y="-0.6666666666666714" width="724" height="162.33333333333331"/>
                                         </pickerView>
                                     </subviews>
                                     <constraints>
@@ -427,15 +428,15 @@
             <objects>
                 <tableViewController title="Session" id="u1M-2S-MAr" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="frT-Ii-NrD">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DetailCell" id="5Nd-Ls-dBR" customClass="LayeredDetailCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.333333333333336" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.333333333333336" width="812" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Nd-Ls-dBR" id="SEW-SW-m0u">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meets on" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKu-eb-jNf">
@@ -465,14 +466,14 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="180" id="v6h-yD-RYk" customClass="DatePickerCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.333333333333343" width="375" height="180"/>
+                                <rect key="frame" x="0.0" y="99.333333333333343" width="812" height="180"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="v6h-yD-RYk" id="W6Y-io-JTI">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="179.66666666666666"/>
+                                    <rect key="frame" x="44" y="0.0" width="724" height="179.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="5D9-Hv-ysi">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="180"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="724" height="180"/>
                                             <date key="date" timeIntervalSinceReferenceDate="431298621.50735301">
                                                 <!--2014-09-01 21:10:21 +0000-->
                                             </date>
@@ -518,34 +519,34 @@
         <scene sceneID="smW-Zh-WAh">
             <objects>
                 <tableViewController title="My Classes" id="7bK-jq-Zjz" customClass="MyClassesController" customModule="Jotts" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" id="r7i-6Z-zg0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="107" sectionHeaderHeight="22" sectionFooterHeight="22" contentViewInsetsToSafeArea="NO" id="r7i-6Z-zg0">
+                        <rect key="frame" x="0.0" y="0.0" width="812" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.45129787921905518" green="0.45129787921905518" blue="0.45129787921905518" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MetaCell" rowHeight="96" id="WCw-Qf-5nD" customClass="MyClassesMetaCell" customModule="Jotts" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="22" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="22" width="812" height="96"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="95.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="812" height="95.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-DG-ek5">
-                                            <rect key="frame" x="0.0" y="0.0" width="12" height="96"/>
-                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="12" id="ALH-Rk-k0R"/>
-                                            </constraints>
-                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In 6 minutes - Room 102 - Smith" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsH-xm-LOO">
-                                            <rect key="frame" x="24" y="61.666666666666657" width="331" height="20.333333333333343"/>
+                                            <rect key="frame" x="52" y="61.666666666666657" width="740" height="20.333333333333343"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GcU-DG-ek5">
+                                            <rect key="frame" x="0.0" y="0.0" width="34" height="96"/>
+                                            <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="12" id="ALH-Rk-k0R"/>
+                                            </constraints>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Psychology" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xjm-5P-LHU">
-                                            <rect key="frame" x="24" y="14.999999999999996" width="331" height="38.666666666666657"/>
+                                            <rect key="frame" x="52" y="14.999999999999996" width="740" height="38.666666666666657"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -553,11 +554,13 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="GcU-DG-ek5" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" id="Cn5-Ue-oJj"/>
-                                        <constraint firstItem="xjm-5P-LHU" firstAttribute="leading" secondItem="GcU-DG-ek5" secondAttribute="trailing" constant="12" id="Hel-ru-C2i"/>
+                                        <constraint firstItem="xjm-5P-LHU" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leadingMargin" priority="999" id="Hel-ru-C2i"/>
                                         <constraint firstItem="vsH-xm-LOO" firstAttribute="leading" secondItem="xjm-5P-LHU" secondAttribute="leading" id="JpN-rC-ey7"/>
                                         <constraint firstItem="vsH-xm-LOO" firstAttribute="trailing" secondItem="xjm-5P-LHU" secondAttribute="trailing" id="V1d-ho-bd7"/>
                                         <constraint firstAttribute="bottom" secondItem="GcU-DG-ek5" secondAttribute="bottom" id="V6e-FB-75V"/>
+                                        <constraint firstItem="xjm-5P-LHU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="GcU-DG-ek5" secondAttribute="trailing" constant="10" id="YzH-P3-mO8"/>
                                         <constraint firstAttribute="trailing" secondItem="xjm-5P-LHU" secondAttribute="trailing" constant="20" id="aRp-rp-Tdd"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="GcU-DG-ek5" secondAttribute="trailing" priority="999" constant="18" id="g3k-zV-c0f"/>
                                         <constraint firstItem="GcU-DG-ek5" firstAttribute="leading" secondItem="37f-cq-3Eg" secondAttribute="leading" id="lex-sD-VHr"/>
                                         <constraint firstItem="vsH-xm-LOO" firstAttribute="top" secondItem="xjm-5P-LHU" secondAttribute="bottom" constant="8" id="m7P-C4-ZGM"/>
                                         <constraint firstItem="xjm-5P-LHU" firstAttribute="top" secondItem="37f-cq-3Eg" secondAttribute="top" constant="15" id="pTh-RD-PWH"/>

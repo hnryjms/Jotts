@@ -21,6 +21,9 @@ class ClassMetaViewModel: BaseViewModel {
     lazy var classInstructor: MutableProperty<String?> = {
         return MutableProperty<String?>(self.classroom?.instructor)
     }()
+    lazy var tintColor: MutableProperty<UIColor?> = {
+        return MutableProperty<UIColor?>(UIColor(fromHex: self.classroom?.color))
+    }()
     
     override func initialValues(_ classroom: Classroom) {
         self.classTitle.value = classroom.title
@@ -32,6 +35,8 @@ class ClassMetaViewModel: BaseViewModel {
         BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.title = $0 }) <~ self.classTitle.producer
         BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.room = $0 }) <~ self.classRoom.producer
         BindingTarget(lifetime: self.reactive.lifetime, action: { classroom.instructor = $0 }) <~ self.classInstructor.producer
+
+        self.tintColor <~ classroom.rac_color.map { UIColor(fromHex: $0) }
     }
 
     func save() {
@@ -59,12 +64,18 @@ class ClassMetaController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        self.topNavigationController!.navigationBar.reactive.makeBindingTarget { $0.tintColor = $1 } as BindingTarget<UIColor?> <~ self.viewModel.tintColor.producer
+
         if UIDevice.current.userInterfaceIdiom == .pad {
             self.navigationItem.rightBarButtonItem = nil
             self.tableView.backgroundColor = nil
-            self.navigationController!.navigationBar.barTintColor = nil;
-            self.navigationController!.navigationBar.titleTextAttributes = nil;
+            if #available(iOS 11, *) {
+                self.topNavigationController!.navigationBar.prefersLargeTitles = false
+            }
+            self.topNavigationController!.navigationBar.barStyle = .default
+            self.topNavigationController!.navigationBar.barTintColor = nil
+            self.topNavigationController!.navigationBar.titleTextAttributes = nil
         }
     }
 

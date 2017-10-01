@@ -5,7 +5,7 @@ Jotts helps students stay organized for class.
 
 ## Getting Started
 
-Jotts is not ready for production use, but here's how you can start contibuting
+Jotts is not ready for production use, but here's how you can start contributing
 to Jotts.
 
 ```
@@ -15,7 +15,7 @@ $ git clone https://github.com/hnryjms/Jotts.git
 ### iOS
 
 The iOS aspect of Jotts is currently the only component that is ready to build
-and develop. It's written in Swift 2.1, and requires Xcode 7.1 for building.
+and develop. It's written in Swift 4, and requires Xcode 9 for building.
 Dependencies are handled by [Carthage][carthage] and need to be installed
 before you will be able to build this app.
 

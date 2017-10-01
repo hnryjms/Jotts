@@ -98,4 +98,12 @@ extension Date {
         let midnight = Date(midnightFromDate: from)
         self.init(timeInterval: timeInterval, since: midnight)
     }
+
+    func toLocalizedWeekdayString() -> String {
+        let dateComponents = Calendar(identifier: .iso8601).dateComponents([.weekday], from: self)
+        let bitwise: UInt = 1 << dateComponents.weekday!
+
+        let localizedKey = "Weekday_\(bitwise)"
+        return NSLocalizedString(localizedKey, comment: "Localized Weekday Set")
+    }
 }

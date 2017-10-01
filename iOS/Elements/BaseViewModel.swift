@@ -8,37 +8,37 @@
 
 import Foundation
 
-class BaseViewModel: NSObject {
+class BaseViewModel<T>: NSObject {
     lazy var core: ObjectCore = {
         return AppDelegate.sharedDelegate().core
     }()
     
-    private var _classroom: Classroom?
-    var classroom: Classroom? {
+    private var _subject: T?
+    var subject: T? {
         get {
-            return _classroom
+            return _subject
         }
-        set(newClassroom) {
-            _classroom = nil
+        set(newSubject) {
+            _subject = nil
             
-            guard let classroom = newClassroom else {
+            guard let subject = newSubject else {
                 // There's nothing left to do if `classroom` is being unset.
                 return
             }
+
+            self.initialValues(subject)
             
-            self.initialValues(classroom)
+            _subject = newSubject
             
-            _classroom = newClassroom
-            
-            self.setupBindings(classroom)
+            self.setupBindings(subject)
         }
     }
     
-    func initialValues(_ classroom: Classroom) {
+    func initialValues(_ subject: T) {
         print("Unimplemented default initial values.")
     }
     
-    func setupBindings(_ classroom: Classroom) {
+    func setupBindings(_ subject: T) {
         print("Unimplemented default bindings.")
     }
 }

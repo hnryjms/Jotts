@@ -11,18 +11,18 @@ import ReactiveSwift
 import ReactiveCocoa
 import enum Result.NoError
 
-class ClassMetaViewModel: BaseViewModel {
+class ClassMetaViewModel: BaseViewModel<Classroom> {
     lazy var classTitle: MutableProperty<String?> = {
-        return MutableProperty<String?>(self.classroom?.title)
+        return MutableProperty<String?>(self.subject?.title)
     }()
     lazy var classRoom: MutableProperty<String?> = {
-        return MutableProperty<String?>(self.classroom?.room)
+        return MutableProperty<String?>(self.subject?.room)
     }()
     lazy var classInstructor: MutableProperty<String?> = {
-        return MutableProperty<String?>(self.classroom?.instructor)
+        return MutableProperty<String?>(self.subject?.instructor)
     }()
     lazy var tintColor: MutableProperty<UIColor?> = {
-        return MutableProperty<UIColor?>(UIColor(fromHex: self.classroom?.color))
+        return MutableProperty<UIColor?>(UIColor(fromHex: self.subject?.color))
     }()
     
     override func initialValues(_ classroom: Classroom) {
@@ -41,7 +41,7 @@ class ClassMetaViewModel: BaseViewModel {
 
     func save() {
         do {
-            try self.classroom?.validate()
+            try self.subject?.validate()
             self.core.save()
         } catch {
             print("Skipping validation error")
@@ -55,10 +55,10 @@ class ClassMetaController: UITableViewController {
     }()
     var classroom: Classroom? {
         get {
-            return self.viewModel.classroom
+            return self.viewModel.subject
         }
         set(newClassroom) {
-            self.viewModel.classroom = newClassroom
+            self.viewModel.subject = newClassroom
         }
     }
     override var traitCollection: UITraitCollection {

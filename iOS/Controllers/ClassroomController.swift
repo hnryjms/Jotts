@@ -10,19 +10,19 @@ import UIKit
 import ReactiveSwift
 import ReactiveCocoa
 
-class ClassroomViewModel: BaseViewModel {
+class ClassroomViewModel: BaseViewModel<Classroom> {
     lazy var classTitle: MutableProperty<String?> = {
-        return MutableProperty<String?>(self.classroom?.title)
+        return MutableProperty<String?>(self.subject?.title)
     }()
     lazy var classDetails: MutableProperty<String?> = {
-        return MutableProperty<String?>(self.classroom?.room)
+        return MutableProperty<String?>(self.subject?.room)
     }()
     lazy var tintColor: MutableProperty<UIColor?> = {
-        return MutableProperty<UIColor?>(UIColor(fromHex: self.classroom?.color))
+        return MutableProperty<UIColor?>(UIColor(fromHex: self.subject?.color))
     }()
     
     func save() {
-        guard let classroom = self.classroom else {
+        guard let classroom = self.subject else {
             // There's no point in continuing if the state here was invalid.
             return
         }
@@ -53,10 +53,10 @@ class ClassroomController: UIViewController {
     }()
     var classroom: Classroom? {
         get {
-            return self.viewModel.classroom
+            return self.viewModel.subject
         }
         set(newClassroom) {
-            self.viewModel.classroom = newClassroom
+            self.viewModel.subject = newClassroom
         }
     }
     

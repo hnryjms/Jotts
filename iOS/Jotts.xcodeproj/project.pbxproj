@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		30C0787EB0622C0B5C85FCBB /* UIViewController+TopNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C07E47709F464BB5949704 /* UIViewController+TopNavigationController.swift */; };
+		30C07AC789735B92E9CAD3C8 /* ClassSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C077F60150409B2284E143 /* ClassSessionController.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Weekdays.swift */; };
 		5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */; };
@@ -102,6 +103,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		30C077F60150409B2284E143 /* ClassSessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassSessionController.swift; sourceTree = "<group>"; };
 		30C07E47709F464BB5949704 /* UIViewController+TopNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+TopNavigationController.swift"; sourceTree = "<group>"; };
 		5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkNavigationController.swift; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				FA55702C1BD300EF00546019 /* ClassroomController.swift */,
 				FAA5E8781BDBDB64004DE3FC /* ClassMetaController.swift */,
 				5C51810BE96AF0FA9117E47E /* DarkNavigationController.swift */,
+				30C077F60150409B2284E143 /* ClassSessionController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				5C5187910AD40D9A5BBFF50D /* DarkNavigationController.swift in Sources */,
 				5C51831AA8755B5555B08AD5 /* Date+Weekdays.swift in Sources */,
 				30C0787EB0622C0B5C85FCBB /* UIViewController+TopNavigationController.swift in Sources */,
+				30C07AC789735B92E9CAD3C8 /* ClassSessionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

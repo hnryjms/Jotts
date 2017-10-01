@@ -61,21 +61,33 @@ class ClassMetaController: UITableViewController {
             self.viewModel.classroom = newClassroom
         }
     }
-    
+    override var traitCollection: UITraitCollection {
+        return UIApplication.shared.delegate!.window!!.traitCollection
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.topNavigationController!.navigationBar.reactive.makeBindingTarget { $0.tintColor = $1 } as BindingTarget<UIColor?> <~ self.viewModel.tintColor.producer
+    }
 
-        if UIDevice.current.userInterfaceIdiom == .pad {
-            self.navigationItem.rightBarButtonItem = nil
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if self.traitCollection.horizontalSizeClass == .regular {
+            self.topNavigationController!.navigationBar.barStyle = .default
+            self.topNavigationController!.navigationBar.barTintColor = nil
             self.tableView.backgroundColor = nil
             if #available(iOS 11, *) {
                 self.topNavigationController!.navigationBar.prefersLargeTitles = false
             }
-            self.topNavigationController!.navigationBar.barStyle = .default
-            self.topNavigationController!.navigationBar.barTintColor = nil
-            self.topNavigationController!.navigationBar.titleTextAttributes = nil
+        } else {
+            self.topNavigationController!.navigationBar.barStyle = .blackOpaque
+            self.topNavigationController!.navigationBar.barTintColor = UIColor.darkGray
+            self.tableView.backgroundColor = UIColor.darkGray
+            if #available(iOS 11, *) {
+                self.topNavigationController!.navigationBar.prefersLargeTitles = true
+            }
         }
     }
 

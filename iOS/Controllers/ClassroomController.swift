@@ -66,9 +66,6 @@ class ClassroomController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let splitViewController = UIApplication.shared.delegate!.window!!.rootViewController as! UISplitViewController
-        self.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
-
         self.classTitleLabel.reactive.text <~ self.viewModel.classTitle.producer
         self.classDetailsLabel.reactive.text <~ self.viewModel.classDetails.producer
 
@@ -76,9 +73,8 @@ class ClassroomController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
+
     override var previewActionItems : [UIPreviewActionItem] {
-        
         let deleteAction = UIPreviewAction(
                 title: NSLocalizedString("ClassroomController.deleteClass", comment: "Delete Class"),
                 style: .destructive,
@@ -88,6 +84,17 @@ class ClassroomController: UIViewController {
         )
         
         return [deleteAction]
+    }
+
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+
+        if self.traitCollection.horizontalSizeClass == .regular {
+            let splitViewController = UIApplication.shared.delegate!.window!!.rootViewController as! UISplitViewController
+            self.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem
+        } else {
+            self.navigationItem.leftBarButtonItem = nil
+        }
     }
 
     deinit {

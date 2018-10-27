@@ -2,11 +2,9 @@
 //  Session+CoreDataProperties.swift
 //  Jotts
 //
-//  Created by Hank Brekke on 10/17/15.
-//  Copyright © 2015 Hank Brekke. All rights reserved.
+//  Created by Hank Brekke on 10/27/18.
+//  Copyright © 2018 Hank Brekke. All rights reserved.
 //
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
 //
 
 import Foundation
@@ -14,8 +12,12 @@ import CoreData
 
 extension Session {
 
-    @NSManaged var length: NSNumber?
-    @NSManaged var startDate: Date?
-    @NSManaged var classroom: Classroom?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Session> {
+        return NSFetchRequest<Session>(entityName: "Session")
+    }
+
+    @NSManaged public var length: NSNumber?
+    @NSManaged public var startDate: NSDate?
+    @NSManaged public var classroom: Classroom?
 
 }

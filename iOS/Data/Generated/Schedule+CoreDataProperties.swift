@@ -2,11 +2,9 @@
 //  Schedule+CoreDataProperties.swift
 //  Jotts
 //
-//  Created by Hank Brekke on 10/17/15.
-//  Copyright © 2015 Hank Brekke. All rights reserved.
+//  Created by Hank Brekke on 10/27/18.
+//  Copyright © 2018 Hank Brekke. All rights reserved.
 //
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
 //
 
 import Foundation
@@ -14,14 +12,18 @@ import CoreData
 
 extension Schedule {
 
-    @NSManaged var activeDays: NSNumber?
-    @NSManaged var endDate: Date?
-    @NSManaged var excludedDays: NSNumber?
-    @NSManaged var frequency: NSNumber?
-    @NSManaged var length: NSNumber?
-    @NSManaged var nextDate: Date?
-    @NSManaged var startDate: Date?
-    @NSManaged var startTime: NSNumber?
-    @NSManaged var classroom: Classroom?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Schedule> {
+        return NSFetchRequest<Schedule>(entityName: "Schedule")
+    }
+
+    @NSManaged public var activeDays: NSNumber?
+    @NSManaged public var endDate: NSDate?
+    @NSManaged public var excludedDays: NSNumber?
+    @NSManaged public var frequency: NSNumber?
+    @NSManaged public var length: NSNumber?
+    @NSManaged public var nextDate: NSDate?
+    @NSManaged public var startDate: NSDate?
+    @NSManaged public var startTime: NSNumber?
+    @NSManaged public var classroom: Classroom?
 
 }

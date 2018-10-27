@@ -116,7 +116,7 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
         switch segue.identifier! {
         case "addClass":
             classroom = core.newClassroom()
-        case "viewClass":
+        case "viewClass", "previewClass":
             if let selectedCell = sender as? MyClassesMetaCell {
                 classroom = selectedCell.classroom!
             } else if let selectedClassroom = sender as? Classroom {
@@ -125,17 +125,18 @@ class MyClassesController: UITableViewController, NSFetchedResultsControllerDele
                 abort()
                 break
             }
-        case "peekClass":
-            let cell = sender as! MyClassesMetaCell
-            classroom = cell.classroom!
         default:
             abort()
             break
         }
-        
+
         let navigationController = segue.destination as! UINavigationController
         let destinationController = navigationController.viewControllers[0] as! ClassroomController
         destinationController.classroom = classroom
+
+        if (segue.identifier == "previewClass") {
+            navigationController.setNavigationBarHidden(true, animated: false)
+        }
     }
 
 }

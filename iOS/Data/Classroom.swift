@@ -90,24 +90,24 @@ class Classroom: NSManagedObject {
     
     // MARK: - Observable properties
     
-    var rac_title: SignalProducer<String, NoError> {
+    var rac_title: SignalProducer<String?, NoError> {
         get {
-            return DynamicProperty<String>(object: self, keyPath: #keyPath(title)).producer
+            return DynamicProperty<String?>(object: self, keyPath: "title").producer
         }
     }
-    var rac_instructor: SignalProducer<String, NoError> {
+    var rac_instructor: SignalProducer<String?, NoError> {
         get {
-            return DynamicProperty<String>(object: self, keyPath: #keyPath(instructor)).producer
+            return DynamicProperty<String?>(object: self, keyPath: "instructor").producer
         }
     }
-    var rac_room: SignalProducer<String, NoError> {
+    var rac_room: SignalProducer<String?, NoError> {
         get {
-            return DynamicProperty<String>(object: self, keyPath: "room").producer
+            return DynamicProperty<String?>(object: self, keyPath: "room").producer
         }
     }
-    var rac_color: SignalProducer<String, NoError> {
+    var rac_color: SignalProducer<String?, NoError> {
         get {
-            return DynamicProperty<String>(object: self, keyPath: #keyPath(color)).producer
+            return DynamicProperty<String?>(object: self, keyPath: "color").producer
         }
     }
     
@@ -118,14 +118,18 @@ class Classroom: NSManagedObject {
             let signal = SignalProducer.combineLatest(self.rac_room, self.rac_instructor)
                 .map { (room, instructor) -> String in
                     var details: [String] = []
-                    if Int(room) != nil {
-                        let roomValueString = String(format: NSLocalizedString("Classroom.room_%@", comment: "Room Number"), room)
-                        details.append(roomValueString)
-                    } else {
-                        details.append(room)
+                    if let roomValue = room {
+                        if Int(roomValue) != nil {
+                            let roomValueString = String(format: NSLocalizedString("Classroom.room_%@", comment: "Room Number"), roomValue)
+                            details.append(roomValueString)
+                        } else {
+                            details.append(roomValue)
+                        }
                     }
 
-                    details.append(instructor)
+                    if let instructorValue = instructor {
+                        details.append(instructorValue)
+                    }
                     
                     return details.joined(separator: " - ")
                 }

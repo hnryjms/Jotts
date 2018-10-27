@@ -2,11 +2,9 @@
 //  Assignment+CoreDataProperties.swift
 //  Jotts
 //
-//  Created by Hank Brekke on 10/17/15.
-//  Copyright © 2015 Hank Brekke. All rights reserved.
+//  Created by Hank Brekke on 10/27/18.
+//  Copyright © 2018 Hank Brekke. All rights reserved.
 //
-//  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
-//  to delete and recreate this implementation file for your updated model.
 //
 
 import Foundation
@@ -14,10 +12,14 @@ import CoreData
 
 extension Assignment {
 
-    @NSManaged var completed: NSNumber?
-    @NSManaged var details: String?
-    @NSManaged var dueDate: Date?
-    @NSManaged var title: String?
-    @NSManaged var classroom: Classroom?
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<Assignment> {
+        return NSFetchRequest<Assignment>(entityName: "Assignment")
+    }
+
+    @NSManaged public var completed: NSNumber?
+    @NSManaged public var details: String?
+    @NSManaged public var dueDate: NSDate?
+    @NSManaged public var title: String?
+    @NSManaged public var classroom: Classroom?
 
 }

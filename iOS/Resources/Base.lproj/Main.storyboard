@@ -571,8 +571,8 @@
                                     <outlet property="metaLabel" destination="vsH-xm-LOO" id="Y1B-Hn-QBj"/>
                                     <outlet property="nameLabel" destination="xjm-5P-LHU" id="Cae-t9-hlP"/>
                                     <segue destination="kJm-gK-5x4" kind="showDetail" identifier="viewClass" id="QHf-9D-mcV">
-                                        <segue key="commit" inheritsFrom="parent" id="MRR-B3-X9g"/>
-                                        <segue key="preview" inheritsFrom="commit" id="Ikz-FZ-7yp"/>
+                                        <segue key="commit" inheritsFrom="parent" id="PoF-6k-Nok"/>
+                                        <segue key="preview" destination="kJm-gK-5x4" identifier="previewClass" id="tfA-2D-r4o"/>
                                     </segue>
                                 </connections>
                             </tableViewCell>

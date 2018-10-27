@@ -31,10 +31,8 @@ class Schedule: NSManagedObject {
     var rac_startTime: SignalProducer<TimeInterval?, NoError> {
         get {
             return DynamicProperty<NSNumber?>(object: self, keyPath: #keyPath(startTime)).producer
-                .map {
-                    startTime in
-
-                    return startTime??.doubleValue
+                .map { (startTime) -> TimeInterval? in
+                    return startTime?.doubleValue
                 }
         }
     }
@@ -42,8 +40,8 @@ class Schedule: NSManagedObject {
     var rac_activeDays: SignalProducer<[Weekdays], NoError> {
         get {
             return DynamicProperty<NSNumber?>(object: self, keyPath: #keyPath(activeDays)).producer
-                .map { activeDays in
-                    return activeDays!!.uintValue.toWeekdays()
+                .map { (activeDays) -> [Weekdays] in
+                    return activeDays?.uintValue.toWeekdays() ?? []
                 }
         }
     }

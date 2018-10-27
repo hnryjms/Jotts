@@ -18,10 +18,10 @@ class ObjectCore {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         let documentStore = urls[urls.count-1]
         
-        let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd") as URL!
-        let model = NSManagedObjectModel(contentsOf: modelURL!) as NSManagedObjectModel!
+        let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd")!
+        let model = NSManagedObjectModel(contentsOf: modelURL)!
 
-        let coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model!)
+        let coordinator: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
         let url = documentStore.appendingPathComponent("Jotts.sqlite")
 
         try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)

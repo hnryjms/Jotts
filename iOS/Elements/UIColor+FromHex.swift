@@ -9,7 +9,7 @@ extension UIColor {
     convenience init?(fromHex hex: String?) {
         let hexCode: String? = hex?.trimmingCharacters(in: (CharacterSet.alphanumerics).inverted).uppercased()
 
-        guard hexCode?.characters.count == 6 else {
+        guard hexCode?.count == 6 else {
             return nil
         }
 

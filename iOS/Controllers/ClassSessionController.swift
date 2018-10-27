@@ -89,22 +89,22 @@ class ClassSessionController: UITableViewController {
             if indexPath.section == 0 {
                 cell.infoLabel.text = NSLocalizedString("ClassSessionController.sessionStart", comment: "Session Starts at DateTime")
 
-                cell.valueLabel.reactive.text <~ self.viewModel.startDate.map {
+                cell.valueLabel.reactive.text <~ self.viewModel.startDate.map { (date) -> String in
                     let formatter = DateFormatter()
                     formatter.dateStyle = .short
                     formatter.timeStyle = .short
 
-                    return formatter.string(from: $0)
+                    return formatter.string(from: date)
                 }
             } else if indexPath.section == 1 {
                 cell.infoLabel.text = NSLocalizedString("ClassSessionController.sessionDurations", comment: "Session Lasts Duration")
 
-                cell.valueLabel.reactive.text <~ self.viewModel.sessionLength.map {
+                cell.valueLabel.reactive.text <~ self.viewModel.sessionLength.map { (length) -> String in
                     let formatter = DateComponentsFormatter()
                     formatter.unitsStyle = .full
                     formatter.allowedUnits = [ .hour, .minute ]
 
-                    return formatter.string(from: round($0))!
+                    return formatter.string(from: round(length))!
                 }
             }
 

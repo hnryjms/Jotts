@@ -30,7 +30,6 @@ class DataTests: XCTestCase {
             let classroom = core.newClassroom()
             
             XCTAssertNotNil(classroom)
-            XCTAssertTrue(classroom.isKindOfClass(Classroom))
             XCTAssertNotNil(classroom.schedule)
             
             XCTAssertEqual(classroom.schedule!.count, 1, "Should have single schedule for first class")

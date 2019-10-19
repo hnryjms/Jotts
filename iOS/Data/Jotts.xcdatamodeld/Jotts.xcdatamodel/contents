@@ -1,57 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13240" systemVersion="" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Assignment" representedClassName="Jotts.Assignment" syncable="YES">
-        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="assignments" inverseEntity="Classroom" syncable="YES"/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19A583" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Assignment" representedClassName="Jotts.Assignment" syncable="YES" codeGenerationType="class">
+        <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="details" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="Date" usesScalarValueType="NO" spotlightIndexingEnabled="YES"/>
+        <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="assignments" inverseEntity="Classroom"/>
+        <fetchIndex name="byClassroom">
+            <fetchIndexElement property="classroom" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
-    <entity name="Card" representedClassName="Jotts.Card" syncable="YES">
-        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="image" optional="YES" attributeType="Binary" storedInTruthFile="YES" syncable="YES"/>
-        <attribute name="subtitle" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="deck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Deck" inverseName="cards" inverseEntity="Deck" syncable="YES"/>
+    <entity name="Building" representedClassName="Jotts.Building" syncable="YES" codeGenerationType="class">
+        <attribute name="rotationExcludes" attributeType="Integer 16" minValueString="0" maxValueString="127" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rotationSize" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="7" usesScalarValueType="YES"/>
+        <attribute name="scheduleOrigin" attributeType="Date" defaultDateTimeInterval="592722000" usesScalarValueType="NO"/>
     </entity>
-    <entity name="Classroom" representedClassName="Jotts.Classroom" syncable="YES">
-        <attribute name="color" attributeType="String" minValueString="6" maxValueString="6" defaultValueString="7a40a3" syncable="YES"/>
-        <attribute name="instructor" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="networkID" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="room" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assignment" inverseName="classroom" inverseEntity="Assignment" syncable="YES"/>
-        <relationship name="decks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Deck" inverseName="classroom" inverseEntity="Deck" syncable="YES"/>
-        <relationship name="schedule" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Schedule" inverseName="classroom" inverseEntity="Schedule" syncable="YES"/>
-        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="classroom" inverseEntity="Session" syncable="YES"/>
+    <entity name="Card" representedClassName="Jotts.Card" syncable="YES" codeGenerationType="class">
+        <attribute name="details" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="image" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="subtitle" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <relationship name="deck" maxCount="1" deletionRule="Nullify" destinationEntity="Deck" inverseName="cards" inverseEntity="Deck"/>
+        <fetchIndex name="byDeck">
+            <fetchIndexElement property="deck" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
-    <entity name="Deck" representedClassName="Jotts.Deck" syncable="YES">
-        <attribute name="title" attributeType="String" syncable="YES"/>
-        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Card" inverseName="deck" inverseEntity="Card" syncable="YES"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="decks" inverseEntity="Classroom" syncable="YES"/>
+    <entity name="Classroom" representedClassName="Jotts.Classroom" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="String" minValueString="9" maxValueString="9" defaultValueString="#7a40a3ff"/>
+        <attribute name="instructor" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="room" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assignment" inverseName="classroom" inverseEntity="Assignment"/>
+        <relationship name="decks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Deck" inverseName="classroom" inverseEntity="Deck"/>
+        <relationship name="schedule" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Schedule" inverseName="classroom" inverseEntity="Schedule"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="classroom" inverseEntity="Session"/>
     </entity>
-    <entity name="Schedule" representedClassName="Jotts.Schedule" syncable="YES">
-        <attribute name="activeDays" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="endDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="excludedDays" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="frequency" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="length" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="nextDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="startTime" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="schedule" inverseEntity="Classroom" syncable="YES"/>
+    <entity name="Deck" representedClassName="Jotts.Deck" syncable="YES" codeGenerationType="class">
+        <attribute name="title" attributeType="String"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Card" inverseName="deck" inverseEntity="Card"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="decks" inverseEntity="Classroom"/>
+        <fetchIndex name="byClassroom">
+            <fetchIndexElement property="classroom" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
-    <entity name="Session" representedClassName="Jotts.Session" syncable="YES">
-        <attribute name="length" attributeType="Double" defaultValueString="0" usesScalarValueType="NO" syncable="YES"/>
-        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
-        <relationship name="classroom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="sessions" inverseEntity="Classroom" syncable="YES"/>
+    <entity name="Schedule" representedClassName="Jotts.Schedule" syncable="YES" codeGenerationType="class">
+        <attribute name="length" attributeType="Double" minValueString="0" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rotation" attributeType="Integer 64" minValueString="0" defaultValueString="31" usesScalarValueType="YES"/>
+        <attribute name="startTime" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="schedule" inverseEntity="Classroom"/>
+        <fetchIndex name="byClassroom">
+            <fetchIndexElement property="classroom" type="Binary" order="ascending"/>
+        </fetchIndex>
+    </entity>
+    <entity name="Session" representedClassName="Jotts.Session" syncable="YES" codeGenerationType="class">
+        <attribute name="length" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="classroom" maxCount="1" deletionRule="Nullify" destinationEntity="Classroom" inverseName="sessions" inverseEntity="Classroom"/>
+        <fetchIndex name="byClassroom">
+            <fetchIndexElement property="classroom" type="Binary" order="ascending"/>
+        </fetchIndex>
     </entity>
     <elements>
         <element name="Assignment" positionX="288" positionY="288" width="128" height="118"/>
+        <element name="Building" positionX="288" positionY="297" width="128" height="88"/>
         <element name="Card" positionX="315" positionY="315" width="128" height="118"/>
-        <element name="Classroom" positionX="261" positionY="189" width="128" height="178"/>
+        <element name="Classroom" positionX="261" positionY="189" width="128" height="163"/>
         <element name="Deck" positionX="306" positionY="297" width="128" height="88"/>
-        <element name="Schedule" positionX="261" positionY="225" width="128" height="180"/>
+        <element name="Schedule" positionX="261" positionY="225" width="128" height="103"/>
         <element name="Session" positionX="279" positionY="252" width="128" height="88"/>
     </elements>
 </model>

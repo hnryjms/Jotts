@@ -1,0 +1,90 @@
+//
+//  SceneDelegate.swift
+//  Jotts
+//
+//  Created by Hank Brekke on 10/13/19.
+//  Copyright © 2019 Hank Brekke. All rights reserved.
+//
+
+import UIKit
+import SwiftUI
+
+#if !targetEnvironment(macCatalyst)
+protocol NSToolbarDelegate { }
+#endif
+
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, NSToolbarDelegate {
+
+    var window: UIWindow?
+
+
+    func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
+        let contentView = Classrooms()
+            .environment(\.managedObjectContext, context)
+
+        if let windowScene = scene as? UIWindowScene {
+            let window = UIWindow(windowScene: windowScene)
+
+            let hostingController = DarkHostingController(rootView: contentView)
+            hostingController.view.backgroundColor = UIColor(white: 0.26, alpha: 1)
+
+            window.rootViewController = hostingController
+
+            #if targetEnvironment(macCatalyst)
+            if let titlebar = windowScene.titlebar {
+                let toolbar = NSToolbar(identifier: .jotts)
+
+                toolbar.delegate = self
+                toolbar.allowsUserCustomization = true
+
+                titlebar.titleVisibility = .hidden
+                titlebar.toolbar = toolbar
+            }
+            #endif
+
+            self.window = window
+            window.makeKeyAndVisible()
+        }
+    }
+
+#if targetEnvironment(macCatalyst)
+    func toolbar(_ toolbar: NSToolbar, itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier, willBeInsertedIntoToolbar flag: Bool) -> NSToolbarItem? {
+        switch itemIdentifier {
+        case .addClassroom:
+            let button = NSToolbarItem(itemIdentifier: itemIdentifier)
+            button.label = "Add Classroom"
+            button.toolTip = "Add a new classroom"
+            button.image = UIImage(systemName: "plus")
+            button.isBordered = true
+            button.target = AppDelegate.sharedDelegate().responder
+            button.action = #selector(AppActions.addClassroom)
+            return button
+        default:
+            return nil
+        }
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [
+            .addClassroom
+        ]
+    }
+
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        return [
+            .addClassroom
+        ]
+    }
+#endif
+}
+
+#if targetEnvironment(macCatalyst)
+fileprivate extension NSToolbar.Identifier {
+    static let jotts = NSToolbar.Identifier("Jotts")
+}
+
+fileprivate extension NSToolbarItem.Identifier {
+    static let addClassroom = NSToolbarItem.Identifier("Add Classroom")
+}
+#endif

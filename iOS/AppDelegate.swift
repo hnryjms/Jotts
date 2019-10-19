@@ -10,13 +10,37 @@ import UIKit
 import CoreData
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    
-    lazy var core: ObjectCore = {
+    let responder = AppResponder()
+
+    lazy var persistentContainer: NSPersistentContainer = {
+        let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd")!
+        let model = NSManagedObjectModel(contentsOf: modelURL)!
+
+        let persistentContainer = NSPersistentContainer(name: "Jotts", managedObjectModel: model)
+        persistentContainer.loadPersistentStores { (description, err) in
+            if let error = err {
+                abort()
+            }
+        }
+
+        return persistentContainer
+    }()
+
+    lazy var building: Building = {
         do {
-            return try ObjectCore()
+            let viewContext = self.persistentContainer.viewContext
+            let fetchRequest: NSFetchRequest<Building> = Building.fetchRequest()
+            fetchRequest.returnsObjectsAsFaults = false
+            let result = try viewContext.fetch(fetchRequest)
+
+            if result.isEmpty {
+                return Building(context: viewContext)
+            } else {
+                return result[0]
+            }
         } catch {
             abort()
         }
@@ -27,48 +51,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        splitViewController.delegate = self
+        UINavigationBar.appearance().barStyle = .black
+        UITableView.appearance().backgroundColor = UIColor(white: 0.26, alpha: 1)
+        UITableView.appearance().separatorStyle = .none
 
         return true
     }
 
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    override var next: UIResponder? {
+        get { self.responder }
     }
 
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    }
+    override func buildMenu(with builder: UIMenuBuilder) {
+        let fileDocumentNewClassroomCommand = UIKeyCommand(
+            title: "New Classroom",
+            action: #selector(AppActions.addClassroom),
+            input: "n",
+            modifierFlags: [ .command ]
+        )
 
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-    }
+        let fileDocumentNewAssignmentCommand = UICommand(
+            title: "New Assignment",
+            action: #selector(AppActions.addAssignment),
+            attributes: [ .disabled ]
+        )
 
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
+        let fileDocumentMenu = UIMenu(title: "", options: .displayInline, children: [
+            fileDocumentNewClassroomCommand,
+            fileDocumentNewAssignmentCommand
+        ])
 
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-        // Saves changes in the application's managed object context before the application terminates.
-    }
-
-    // MARK: - Split view
-
-    func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController:UIViewController, onto primaryViewController:UIViewController) -> Bool {
-        // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-        guard let navigationController = secondaryViewController as? UINavigationController else { return false }
-        guard let classroomController = navigationController.topViewController as? ClassroomController else { return false }
-        if classroomController.classroom == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        
-        return false
+        builder.insertChild(fileDocumentMenu, atStartOfMenu: .file)
+        builder.remove(menu: UIMenu.Identifier.format)
     }
 }
 

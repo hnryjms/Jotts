@@ -1,9 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Today" type="AppleRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Jotts" TARGET_NAME="Today" CONFIG_NAME="Debug" SCHEME_NAME="Today" RUN_TARGET_PROJECT_NAME="Jotts" RUN_TARGET_NAME="Jotts" MAKE_ACTIVE="TRUE">
-    <envs />
-    <EXTENSION ID="org.jetbrains.appcode.reveal.RevealRunConfigurationExtension">
-      <REVEAL_SETTINGS autoInject="false" autoInstall="true" askToEnableAutoInstall="true" />
-    </EXTENSION>
-    <method />
+  <configuration default="false" name="Today" type="AppleAppExtensionRunConfiguration" factoryName="AppleAppExtension" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Jotts" TARGET_NAME="Jotts" CONFIG_NAME="Debug" SCHEME_NAME="Today" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="true" APP_EXTENSION_TARGET="Today" EXTENSION_BUNDLE_ID="io.hnryjms.Jotts.Today" EXTENSION_TYPE_ID="com.apple.widget-extension">
+    <embedded_app_extension_list>
+      <app_extension BUNDLE_ID="io.hnryjms.Jotts.Today" EXTENSION_TYPE_ID="com.apple.widget-extension" />
+    </embedded_app_extension_list>
+    <method v="2">
+      <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+    </method>
   </configuration>
 </component>

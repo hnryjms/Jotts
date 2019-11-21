@@ -18,6 +18,7 @@
 		36568EE7235B6BB70063B1CA /* ScheduleEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36568EE6235B6BB70063B1CA /* ScheduleEditor.swift */; };
 		367FCB5023538F870004275F /* Classrooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FCB4F23538F870004275F /* Classrooms.swift */; };
 		367FCB72235391910004275F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FCB71235391910004275F /* SceneDelegate.swift */; };
+		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Midnight.swift */; };
 		FA850D841C250E8E004F4CC4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = FA850D861C250E8E004F4CC4 /* Localizable.strings */; };
@@ -51,6 +52,7 @@
 		36568EE6235B6BB70063B1CA /* ScheduleEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleEditor.swift; sourceTree = "<group>"; };
 		367FCB4F23538F870004275F /* Classrooms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Classrooms.swift; sourceTree = "<group>"; };
 		367FCB71235391910004275F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		5C518B3AE786F1A12A569319 /* Date+Midnight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Midnight.swift"; sourceTree = "<group>"; };
 		FA850D851C250E8E004F4CC4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				361F48FD235963A200286B65 /* ClassroomList.swift */,
 				361F48FF235963BE00286B65 /* ClassroomInfo.swift */,
 				36568EE6235B6BB70063B1CA /* ScheduleEditor.swift */,
+				36D598222378AAE000F781D6 /* SessionEditor.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				367FCB72235391910004275F /* SceneDelegate.swift in Sources */,
 				361F48FE235963A200286B65 /* ClassroomList.swift in Sources */,
 				FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */,
+				36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */,
 				361F4902235967FD00286B65 /* ViewResponder.swift in Sources */,
 				361F48FC235962D700286B65 /* StringBound.swift in Sources */,
 				367FCB5023538F870004275F /* Classrooms.swift in Sources */,

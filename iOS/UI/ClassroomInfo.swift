@@ -68,12 +68,13 @@ struct ClassroomInfo: View {
                         self.isScheduleEditing = true
                     }) {
                         let label: String
+                        let count = schedule.rotation.count(rotationSize: self.rotationSize)
                         if self.rotationSize == 7 && schedule.rotation == 0b0011111 {
                             label = "Weekdays"
-                        } else if self.rotationSize == schedule.rotation.count() {
+                        } else if self.rotationSize == count {
                             label = "Every Day"
                         } else {
-                            label = "\(schedule.rotation.count()) Days"
+                            label = "\(count) Days"
                         }
 
                         return Text(label)
@@ -88,7 +89,8 @@ struct ClassroomInfo: View {
                 }
                 Button(action: {
                     let schedule = Schedule(context: self.managedObjectContext)
-                    schedule.classroom = self.selectedClassroom
+
+                    self.selectedClassroom.addToSchedule(schedule)
                     self.scheduleEditorItem = schedule
                     self.isScheduleEditing = true
                 }) {
@@ -129,7 +131,9 @@ struct ClassroomInfo: View {
                 }
                 Button(action: {
                     let session = Session(context: self.managedObjectContext)
-                    session.classroom = self.selectedClassroom
+                    session.startDate = Date()
+
+                    self.selectedClassroom.addToSessions(session)
                     self.sessionEditorItem = session
                     self.isSessionEditing = true
                 }) {

@@ -17,10 +17,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NSToolbarDelegate {
 
     var window: UIWindow?
 
+    private func schedule() -> DailySchedule {
+        let building = AppDelegate.sharedDelegate().building
+
+        return try! building.schedule()
+    }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
-        let contentView = Classrooms()
+        let contentView = Classrooms(schedule: DailyScheduleObservable(schedule: self.schedule()))
             .environment(\.managedObjectContext, context)
 
         if let windowScene = scene as? UIWindowScene {

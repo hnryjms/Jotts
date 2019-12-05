@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15400" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Assignment" representedClassName="Jotts.Assignment" syncable="YES" codeGenerationType="class">
         <attribute name="completed" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="details" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
@@ -11,9 +11,12 @@
         </fetchIndex>
     </entity>
     <entity name="Building" representedClassName="Jotts.Building" syncable="YES" codeGenerationType="class">
-        <attribute name="rotationExcludes" attributeType="Integer 16" minValueString="0" maxValueString="127" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rotationExclusions" optional="YES" attributeType="Transformable" customClassName="[Date]"/>
         <attribute name="rotationSize" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="7" usesScalarValueType="YES"/>
+        <attribute name="rotationWeekdays" attributeType="Integer 64" minValueString="0" maxValueString="127" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="scheduleDay" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="scheduleOrigin" attributeType="Date" defaultDateTimeInterval="592722000" usesScalarValueType="NO"/>
+        <relationship name="classrooms" toMany="YES" deletionRule="Nullify" destinationEntity="Classroom" inverseName="building" inverseEntity="Classroom"/>
     </entity>
     <entity name="Card" representedClassName="Jotts.Card" syncable="YES" codeGenerationType="class">
         <attribute name="details" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
@@ -31,6 +34,7 @@
         <attribute name="room" optional="YES" attributeType="String"/>
         <attribute name="title" attributeType="String" spotlightIndexingEnabled="YES"/>
         <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assignment" inverseName="classroom" inverseEntity="Assignment"/>
+        <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="classrooms" inverseEntity="Building"/>
         <relationship name="decks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Deck" inverseName="classroom" inverseEntity="Deck"/>
         <relationship name="schedule" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Schedule" inverseName="classroom" inverseEntity="Schedule"/>
         <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="classroom" inverseEntity="Session"/>
@@ -62,9 +66,9 @@
     </entity>
     <elements>
         <element name="Assignment" positionX="288" positionY="288" width="128" height="118"/>
-        <element name="Building" positionX="288" positionY="297" width="128" height="88"/>
+        <element name="Building" positionX="288" positionY="297" width="128" height="133"/>
         <element name="Card" positionX="315" positionY="315" width="128" height="118"/>
-        <element name="Classroom" positionX="261" positionY="189" width="128" height="163"/>
+        <element name="Classroom" positionX="261" positionY="189" width="128" height="178"/>
         <element name="Deck" positionX="306" positionY="297" width="128" height="88"/>
         <element name="Schedule" positionX="261" positionY="225" width="128" height="103"/>
         <element name="Session" positionX="279" positionY="252" width="128" height="88"/>

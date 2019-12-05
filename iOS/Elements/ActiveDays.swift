@@ -13,14 +13,10 @@ extension Int64 {
         return self & Int64(truncating: pow(2, Int(index)) as NSDecimalNumber) != 0
     }
 
-    func count() -> Int {
-        var shiftSelf = self
-        var count = 0
-        while shiftSelf != 0 {
-            count += 1
-            shiftSelf >>= 1
+    func count(rotationSize: Int16) -> Int {
+        return (0...rotationSize).reduce(0) { (count, day) -> Int in
+            return count + (self.isSelected(day: day) ? 1 : 0)
         }
-        return count
     }
 
     mutating func select(day index: Int16) {

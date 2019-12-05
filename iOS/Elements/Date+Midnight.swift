@@ -6,18 +6,16 @@
 import Foundation
 
 extension Date {
-    init(midnightFromDate date: Date) {
-        let components = Calendar.current.dateComponents([.year, .month, .day], from: date);
-        let midnight = Calendar.current.date(from: components)!
-        self.init(timeInterval: 0, since: midnight)
+    public init(midnightFromDate date: Date) {
+        self.init(timeInterval: 0, since: Calendar.current.startOfDay(for: date))
     }
 
-    init(timeIntervalSinceMidnight timeInterval: TimeInterval, from: Date = Date()) {
+    public init(timeIntervalSinceMidnight timeInterval: TimeInterval, from: Date = Date()) {
         let midnight = Date(midnightFromDate: from)
         self.init(timeInterval: timeInterval, since: midnight)
     }
 
-    var timeIntervalSinceMidnight: TimeInterval {
+    public var timeIntervalSinceMidnight: TimeInterval {
         get {
             let midnight = Date(midnightFromDate: self)
             return self.timeIntervalSince(midnight)

@@ -20,6 +20,9 @@ class AppResponder: UIResponder, AppActions {
     var persistentContainer: NSPersistentContainer {
         get { AppDelegate.sharedDelegate().persistentContainer }
     }
+    var building: Building {
+        get { AppDelegate.sharedDelegate().building }
+    }
 
     func addClassroom() {
         let context = self.persistentContainer.viewContext
@@ -93,6 +96,9 @@ class AppResponder: UIResponder, AppActions {
         let classroom = Classroom(context: self.persistentContainer.viewContext)
         classroom.color = color
         classroom.schedule = schedule
+
+        self.building.objectWillChange.send()
+        self.building.addToClassrooms(classroom)
     }
 
     func addAssignment() {

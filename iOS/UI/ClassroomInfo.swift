@@ -12,7 +12,15 @@ import CoreData
 struct ClassroomInfo: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var selectedClassroom: Classroom
-    let session: DailySession?
+    @ObservedObject var schedule: DailyScheduleObservable
+
+    var session: DailySession? {
+        get {
+            return self.schedule.schedule.sessions.first { session -> Bool in
+                return session.classroom === self.selectedClassroom
+            }
+        }
+    }
 
     private let rotationSize = AppDelegate.sharedDelegate().building.rotationSize
 
@@ -26,9 +34,9 @@ struct ClassroomInfo: View {
     private var sessionsRequest: FetchRequest<Session>
     private var sessions: FetchedResults<Session>{sessionsRequest.wrappedValue}
 
-    init(classroom: Classroom, session: DailySession? = nil) {
+    init(classroom: Classroom, schedule: DailyScheduleObservable) {
         self.selectedClassroom = classroom
-        self.session = session
+        self.schedule = schedule
 
         self.schedulesRequest = FetchRequest(
             entity: Schedule.entity(),
@@ -82,17 +90,17 @@ struct ClassroomInfo: View {
                         self.scheduleEditorItem = schedule
                         self.isScheduleEditing = true
                     }) {
-                        let label: String
+                        let label: Text
                         let count = schedule.rotation.count(rotationSize: self.rotationSize)
                         if self.rotationSize == 7 && schedule.rotation == 0b0011111 {
-                            label = "Weekdays"
+                            label = Text("Weekdays")
                         } else if self.rotationSize == count {
-                            label = "Every Day"
+                            label = Text("Every Day")
                         } else {
-                            label = "\(count) Days"
+                            label = Text("\(count) Days", comment: "Count")
                         }
 
-                        return Text(label)
+                        return label
                             .foregroundColor(.black)
                     }
                 }
@@ -172,8 +180,11 @@ struct ClassroomInfo_Previews: PreviewProvider {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let classroom = Classroom(context: context)
 
+        let schedule = try! AppDelegate.sharedDelegate().building.schedule()
+        let scheduleObservable = DailyScheduleObservable(schedule: schedule)
+
         return NavigationView {
-            ClassroomInfo(classroom: classroom)
+            ClassroomInfo(classroom: classroom, schedule: scheduleObservable)
         }
         .environment(\.managedObjectContext, AppDelegate.sharedDelegate().persistentContainer.viewContext)
     }

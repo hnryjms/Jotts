@@ -17,7 +17,7 @@ class SchedulerTests: XCTestCase {
         self.context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
     }
 
-    func mockBuilding() -> Building {
+    private func mockBuilding() -> Building {
         let building = Building(context: self.context!)
 
         building.rotationSize = 2
@@ -28,7 +28,7 @@ class SchedulerTests: XCTestCase {
         return building
     }
 
-    func mockClassroom(building: Building) -> Classroom {
+    private func mockClassroom(building: Building) -> Classroom {
         let classroom = Classroom(context: self.context!)
 
         building.addToClassrooms(classroom)
@@ -36,7 +36,7 @@ class SchedulerTests: XCTestCase {
         return classroom
     }
 
-    func mockSchedule(classroom: Classroom) -> Schedule {
+    private func mockSchedule(classroom: Classroom) -> Schedule {
         let schedule = Schedule(context: self.context!)
 
         schedule.rotation = 0b11
@@ -46,7 +46,15 @@ class SchedulerTests: XCTestCase {
         return schedule
     }
 
-    func testScheduleProgressionNone() throws {
+    private func mockSession(classroom: Classroom) -> Session {
+        let session = Session(context: self.context!)
+
+        classroom.addToSessions(session)
+
+        return session
+    }
+
+    func testProgressionNone() throws {
         let building = self.mockBuilding()
 
         let _ = try building.schedule(for: building.scheduleOrigin!)
@@ -54,7 +62,7 @@ class SchedulerTests: XCTestCase {
         XCTAssertEqual(building.scheduleDay, 0)
     }
 
-    func testScheduleProgressionSingle() throws {
+    func testProgressionSingle() throws {
         let building = self.mockBuilding()
 
         let nextOrigin = Date(timeIntervalSinceMidnight: 86400, from: Date(timeIntervalSinceReferenceDate: 0))
@@ -64,7 +72,7 @@ class SchedulerTests: XCTestCase {
         XCTAssertEqual(building.scheduleDay, 1)
     }
 
-    func testScheduleProgressionDouble() throws {
+    func testProgressionDouble() throws {
         let building = self.mockBuilding()
 
         let nextOrigin = Date(timeIntervalSinceMidnight: 86400 * 2, from: Date(timeIntervalSinceReferenceDate: 0))
@@ -74,7 +82,7 @@ class SchedulerTests: XCTestCase {
         XCTAssertEqual(building.scheduleDay, 0)
     }
 
-    func testScheduleExclusion() throws {
+    func testProgressionExclusion() throws {
         let building = self.mockBuilding()
 
         let exclusion = Date(timeIntervalSinceMidnight: 86400, from: Date(timeIntervalSinceReferenceDate: 0))
@@ -86,6 +94,16 @@ class SchedulerTests: XCTestCase {
 
         XCTAssertEqual(building.scheduleOrigin, nextOrigin)
         XCTAssertEqual(building.scheduleDay, 1)
+    }
+
+    func testPriorSchedulingError() throws {
+        let building = self.mockBuilding()
+
+        let nextOrigin = Date(timeIntervalSinceMidnight: -86400, from: Date(timeIntervalSinceReferenceDate: 0))
+
+        XCTAssertThrowsError(try building.schedule(for: nextOrigin)) { error in
+            XCTAssertEqual(error as? BuildingError, BuildingError.priorScheduling)
+        }
     }
 
     func testScheduleSorting() throws {
@@ -151,6 +169,72 @@ class SchedulerTests: XCTestCase {
         // last schedule
         XCTAssertEqual(classes.sessions[3].schedule, schedule4)
         XCTAssertNil(classes.sessions[3].session)
+        XCTAssertEqual(classes.sessions[3].classroom, classroom2)
+    }
+
+    func testSessionSorting() throws {
+        let building = self.mockBuilding()
+        let classroom2 = self.mockClassroom(building: building)
+        let classroom1 = self.mockClassroom(building: building)
+        let session2 = self.mockSession(classroom: classroom2)
+        let session1 = self.mockSession(classroom: classroom1)
+
+        session1.startDate = Date(timeIntervalSinceMidnight: 100, from: building.scheduleOrigin!)
+        session2.startDate = Date(timeIntervalSinceMidnight: 200, from: building.scheduleOrigin!)
+
+        let classes = try building.schedule(for: building.scheduleOrigin!)
+
+        XCTAssertEqual(building.scheduleDay, 0)
+
+        XCTAssertEqual(classes.sessions.count, 2)
+        XCTAssertEqual(classes.unscheduled.count, 0)
+
+        // earlier classroom first
+        XCTAssertNil(classes.sessions[0].schedule)
+        XCTAssertEqual(classes.sessions[0].session, session1)
+        XCTAssertEqual(classes.sessions[0].classroom, classroom1)
+        // later classroom second
+        XCTAssertNil(classes.sessions[1].schedule)
+        XCTAssertEqual(classes.sessions[1].session, session2)
+        XCTAssertEqual(classes.sessions[1].classroom, classroom2)
+    }
+
+    func testSessionSortingMultiSchedule() throws {
+        let building = self.mockBuilding()
+        let classroom2 = self.mockClassroom(building: building)
+        let classroom1 = self.mockClassroom(building: building)
+        let session4 = self.mockSession(classroom: classroom2)
+        let session2 = self.mockSession(classroom: classroom2)
+        let session1 = self.mockSession(classroom: classroom1)
+        let session3 = self.mockSession(classroom: classroom1)
+
+        session2.startDate = Date(timeIntervalSinceMidnight: 200, from: building.scheduleOrigin!)
+        session3.startDate = Date(timeIntervalSinceMidnight: 300, from: building.scheduleOrigin!)
+        session4.startDate = Date(timeIntervalSinceMidnight: 400, from: building.scheduleOrigin!)
+        session1.startDate = Date(timeIntervalSinceMidnight: 100, from: building.scheduleOrigin!)
+
+        let classes = try building.schedule(for: building.scheduleOrigin!)
+
+        XCTAssertEqual(building.scheduleDay, 0)
+
+        XCTAssertEqual(classes.sessions.count, 4)
+        XCTAssertEqual(classes.unscheduled.count, 0)
+
+        // earliest session first
+        XCTAssertNil(classes.sessions[0].schedule)
+        XCTAssertEqual(classes.sessions[0].session, session1)
+        XCTAssertEqual(classes.sessions[0].classroom, classroom1)
+        // next earliest session
+        XCTAssertNil(classes.sessions[1].schedule)
+        XCTAssertEqual(classes.sessions[1].session, session2)
+        XCTAssertEqual(classes.sessions[1].classroom, classroom2)
+        // third earliest session
+        XCTAssertNil(classes.sessions[2].schedule)
+        XCTAssertEqual(classes.sessions[2].session, session3)
+        XCTAssertEqual(classes.sessions[2].classroom, classroom1)
+        // last session
+        XCTAssertNil(classes.sessions[3].schedule)
+        XCTAssertEqual(classes.sessions[3].session, session4)
         XCTAssertEqual(classes.sessions[3].classroom, classroom2)
     }
 }

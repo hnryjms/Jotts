@@ -36,20 +36,20 @@ struct ScheduleEditor: View {
             List {
                 Section {
                     ForEach(0...self.rotationSize - 1, id: \.self) { index -> AnyView in
-                        let label: String
+                        let label: Text
                         if self.rotationSize == 7 {
                             switch index {
-                                case 0: label = "Monday"
-                                case 1: label = "Tuesday"
-                                case 2: label = "Wednesday"
-                                case 3: label = "Thursday"
-                                case 4: label = "Friday"
-                                case 5: label = "Saturday"
-                                case 6: label = "Sunday"
-                                default: label = "UNKNOWN"
+                                case 0: label = Text("Monday")
+                                case 1: label = Text("Tuesday")
+                                case 2: label = Text("Wednesday")
+                                case 3: label = Text("Thursday")
+                                case 4: label = Text("Friday")
+                                case 5: label = Text("Saturday")
+                                case 6: label = Text("Sunday")
+                                default: label = Text("UNKNOWN")
                             }
                         } else {
-                            label = "Day \(index + 1)"
+                            label = Text("Day \(index + 1)")
                         }
 
                         return AnyView(Button(action: {
@@ -61,7 +61,7 @@ struct ScheduleEditor: View {
                             }
                         }) {
                             HStack {
-                                Text(label)
+                                label
                                     .foregroundColor(.black)
                                 if self.schedule.rotation.isSelected(day: index) {
                                     Spacer()

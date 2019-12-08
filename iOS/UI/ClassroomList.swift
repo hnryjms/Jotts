@@ -11,12 +11,23 @@ import SwiftUI
 struct ClassroomList: View {
     @ObservedObject var schedule: DailyScheduleObservable
 
+    func classroomInfo(_ classroom: Classroom) -> Text {
+        let instructor = classroom.instructor ?? "No Instructor"
+        if let room = classroom.room {
+            if CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: room)) {
+                return Text("Room \(room) - \(instructor)", comment: "Room number, Instructor")
+            }
+        }
+
+        return Text("\(classroom.room ?? "No Room") - \(instructor)", comment: "Room name, Instructor")
+    }
+
     var body: some View {
         List {
             Section {
                 ForEach(schedule.schedule.sessions, id: \.self) { session in
                     NavigationLink(
-                        destination: ClassroomInfo(classroom: session.classroom, session: session)
+                        destination: ClassroomInfo(classroom: session.classroom, schedule: self.schedule)
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
@@ -26,7 +37,7 @@ struct ClassroomList: View {
                                     .font(.subheadline)
                                 Text(session.classroom.title ?? "No Title")
                                     .font(.title)
-                                Text("\(session.classroom.room ?? "No Room") - \(session.classroom.instructor ?? "No Instructor")")
+                                self.classroomInfo(session.classroom)
                                     .font(.body)
                             }
                             .padding(.top)
@@ -41,7 +52,7 @@ struct ClassroomList: View {
             Section {
                 ForEach(schedule.schedule.unscheduled, id: \.self) { classroom in
                     NavigationLink(
-                        destination: ClassroomInfo(classroom: classroom)
+                        destination: ClassroomInfo(classroom: classroom, schedule: self.schedule)
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
@@ -51,7 +62,7 @@ struct ClassroomList: View {
                                     .font(.subheadline)
                                 Text(classroom.title ?? "No Title")
                                     .font(.title)
-                                Text("\(classroom.room ?? "No Room") - \(classroom.instructor ?? "No Instructor")")
+                                self.classroomInfo(classroom)
                                     .font(.body)
                             }
                             .padding(.top)

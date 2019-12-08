@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum BuildingError: Error {
+public enum BuildingError: Error {
     case priorScheduling
 }
 

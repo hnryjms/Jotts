@@ -21,6 +21,7 @@
 		367FCB72235391910004275F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FCB71235391910004275F /* SceneDelegate.swift */; };
 		36827F2D238AD90700722D4A /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2C238AD90700722D4A /* SchedulerTests.swift */; };
 		36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2E239453B000722D4A /* ScheduleObserver.swift */; };
+		36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F302399B8E900722D4A /* TimeIntervalLabel.swift */; };
 		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Midnight.swift */; };
@@ -57,6 +58,7 @@
 		367FCB71235391910004275F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		36827F2C238AD90700722D4A /* SchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		36827F2E239453B000722D4A /* ScheduleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleObserver.swift; sourceTree = "<group>"; };
+		36827F302399B8E900722D4A /* TimeIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalLabel.swift; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		5C518B3AE786F1A12A569319 /* Date+Midnight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Midnight.swift"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			isa = PBXGroup;
 			children = (
 				361F4906235B431300286B65 /* DarkHostingController.swift */,
+				36827F302399B8E900722D4A /* TimeIntervalLabel.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				367FCB5023538F870004275F /* Classrooms.swift in Sources */,
 				36568EE7235B6BB70063B1CA /* ScheduleEditor.swift in Sources */,
 				365D02492387589C00FCECCC /* Scheduler.swift in Sources */,
+				36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */,
 				36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */,
 				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 				361F4907235B431300286B65 /* DarkHostingController.swift in Sources */,

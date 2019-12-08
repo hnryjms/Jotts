@@ -9,7 +9,10 @@
 import UIKit
 import SwiftUI
 
-#if !targetEnvironment(macCatalyst)
+#if targetEnvironment(macCatalyst)
+let isMacOS = true
+#else
+let isMacOS = false
 protocol NSToolbarDelegate { }
 #endif
 
@@ -51,6 +54,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NSToolbarDelegate {
             self.window = window
             window.makeKeyAndVisible()
         }
+    }
+
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        AppDelegate.sharedDelegate().responder.save()
     }
 
 #if targetEnvironment(macCatalyst)

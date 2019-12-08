@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let persistentContainer = NSPersistentContainer(name: "Jotts", managedObjectModel: model)
         persistentContainer.loadPersistentStores { (description, err) in
             if let error = err {
-                abort()
+                fatalError("Unable to load persistent stores, \(error)")
             }
         }
 
@@ -42,7 +42,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 return result[0]
             }
         } catch {
-            abort()
+            fatalError("Unable to create default Building, \(error)")
         }
     }()
 

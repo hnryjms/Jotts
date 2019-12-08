@@ -8,12 +8,6 @@
 
 import SwiftUI
 
-#if targetEnvironment(macCatalyst)
-fileprivate let isMacOS = true
-#else
-fileprivate let isMacOS = false
-#endif
-
 struct Classrooms: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var schedule: DailyScheduleObservable

@@ -12,21 +12,23 @@ import CoreData
 struct ClassroomInfo: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var selectedClassroom: Classroom
+    let session: DailySession?
 
-    let rotationSize = AppDelegate.sharedDelegate().building.rotationSize
+    private let rotationSize = AppDelegate.sharedDelegate().building.rotationSize
 
     @State private var isScheduleEditing = false
     @State private var isSessionEditing = false
     @State private var scheduleEditorItem: Schedule?
     @State private var sessionEditorItem: Session?
 
-    var schedulesRequest: FetchRequest<Schedule>
-    var schedules: FetchedResults<Schedule>{schedulesRequest.wrappedValue}
-    var sessionsRequest: FetchRequest<Session>
-    var sessions: FetchedResults<Session>{sessionsRequest.wrappedValue}
+    private var schedulesRequest: FetchRequest<Schedule>
+    private var schedules: FetchedResults<Schedule>{schedulesRequest.wrappedValue}
+    private var sessionsRequest: FetchRequest<Session>
+    private var sessions: FetchedResults<Session>{sessionsRequest.wrappedValue}
 
-    init(classroom: Classroom) {
+    init(classroom: Classroom, session: DailySession? = nil) {
         self.selectedClassroom = classroom
+        self.session = session
 
         self.schedulesRequest = FetchRequest(
             entity: Schedule.entity(),
@@ -41,12 +43,25 @@ struct ClassroomInfo: View {
         )
     }
 
+    var classroomLabel: some View {
+        if let session = self.session {
+            return AnyView(
+                DailySessionText(session: session)
+                    .font(.subheadline)
+            )
+        } else {
+            return AnyView(
+                Text("Not Scheduled Today")
+                    .font(.subheadline)
+            )
+        }
+    }
+
     var body: some View {
         List {
             Section {
                 VStack(alignment: .leading) {
-                    Text("In (4) minutes")
-                        .font(.subheadline)
+                    classroomLabel
                     TextField("Psychology", text: $selectedClassroom.title.bound)
                         .font(.title)
                     HStack {
@@ -147,7 +162,8 @@ struct ClassroomInfo: View {
             }
         }
         .listStyle(GroupedListStyle())
-        .navigationBarTitle(selectedClassroom.title ?? "")
+        .navigationBarHidden(isMacOS)
+        .navigationBarTitle("\(selectedClassroom.title ?? "")", displayMode: .inline)
     }
 }
 
@@ -156,6 +172,9 @@ struct ClassroomInfo_Previews: PreviewProvider {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let classroom = Classroom(context: context)
 
-        return ClassroomInfo(classroom: classroom)
+        return NavigationView {
+            ClassroomInfo(classroom: classroom)
+        }
+        .environment(\.managedObjectContext, AppDelegate.sharedDelegate().persistentContainer.viewContext)
     }
 }

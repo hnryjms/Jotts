@@ -16,13 +16,13 @@ struct ClassroomList: View {
             Section {
                 ForEach(schedule.schedule.sessions, id: \.self) { session in
                     NavigationLink(
-                        destination: ClassroomInfo(classroom: session.classroom)
+                        destination: ClassroomInfo(classroom: session.classroom, session: session)
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
                             Color(UIColor(fromHex: session.classroom.color ?? "#ff0000ff")!).frame(width: 12.0)
                             VStack(alignment: .leading, spacing: 1.0) {
-                                Text("In (4) minutes")
+                                DailySessionText(session: session)
                                     .font(.subheadline)
                                 Text(session.classroom.title ?? "No Title")
                                     .font(.title)

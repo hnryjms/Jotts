@@ -1,0 +1,17 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Perform unit tests and generate code coverage data"
+  lane :test do
+    run_tests(
+      code_coverage: true
+    )
+
+    slather(
+      output_directory: "fastlane/test_output/coverage",
+      html: true,
+      proj: "Jotts.xcodeproj",
+      scheme: "Jotts"
+    )
+  end
+end

@@ -1,30 +1,19 @@
 # Jotts
-Jotts helps students stay organized for class.
 
-**This project is in a very unstable alpha state**
+Jotts helps students stay organized for class.
 
 ## Getting Started
 
-Jotts is not ready for production use, but here's how you can start contributing
-to Jotts.
+This project is designed to run in Xcode 11 with any system configuration. It
+uses SwiftUI and Code Data to manage data and UI.
 
-```
-$ git clone https://github.com/hnryjms/Jotts.git
-```
+## Common Tasks
 
-### iOS
+Regenerating the `Base.lproj/Localizable.strings` file:
 
-The iOS aspect of Jotts is currently the only component that is ready to build
-and develop. It's written in Swift 4, and requires Xcode 9 for building.
-Dependencies are handled by [Carthage][carthage] and need to be installed
-before you will be able to build this app.
-
-The iOS app supports iOS 10.3 and later, but requirements may change as
-development continues.
-
-```
-$ cd Jotts/iOS
-$ carthage build
+```bash
+cd iOS
+find . -name "*.swift" | xargs genstrings -SwiftUI -o Base.lproj
 ```
 
 ## Contributing
@@ -38,8 +27,3 @@ their classes and schoolwork, and enjoy an easier day in school.
 1. Win
 
 Make sure to run & write tests for new features.
-
-<!--
-## URL LINKS
--->
-[carthage]: https://github.com/Carthage/Carthage

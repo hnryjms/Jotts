@@ -15,6 +15,7 @@
 		361F4907235B431300286B65 /* DarkHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361F4906235B431300286B65 /* DarkHostingController.swift */; };
 		362C6052239D7D1B00FBF0CC /* String+AsEmpty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 362C6051239D7D1B00FBF0CC /* String+AsEmpty.swift */; };
 		36568EE7235B6BB70063B1CA /* ScheduleEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36568EE6235B6BB70063B1CA /* ScheduleEditor.swift */; };
+		3656FBA0239DC27200D28A36 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3656FBA2239DC27200D28A36 /* Localizable.strings */; };
 		365D02492387589C00FCECCC /* Scheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 365D02482387589C00FCECCC /* Scheduler.swift */; };
 		367FCB5023538F870004275F /* Classrooms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FCB4F23538F870004275F /* Classrooms.swift */; };
 		367FCB72235391910004275F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 367FCB71235391910004275F /* SceneDelegate.swift */; };
@@ -61,6 +62,7 @@
 		36827F2E239453B000722D4A /* ScheduleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleObserver.swift; sourceTree = "<group>"; };
 		36827F302399B8E900722D4A /* TimeIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalLabel.swift; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
+		36E37C38239DC49600970C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		5C518B3AE786F1A12A569319 /* Date+Midnight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Midnight.swift"; sourceTree = "<group>"; };
 		FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -179,6 +181,7 @@
 		FAC61FAF1BD2AC5A00FD973C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				3656FBA2239DC27200D28A36 /* Localizable.strings */,
 				FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */,
 				FAAFE75E1BD2A7AC0002B5A4 /* Assets.xcassets */,
 				FAAFE7631BD2A7AC0002B5A4 /* Info.plist */,
@@ -288,6 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */,
+				3656FBA0239DC27200D28A36 /* Localizable.strings in Resources */,
 				FAAFE75F1BD2A7AC0002B5A4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,6 +350,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		3656FBA2239DC27200D28A36 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				36E37C38239DC49600970C0B /* Base */,
+			);
+			name = Localizable.strings;
+			sourceTree = SOURCE_ROOT;
+		};
 		FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

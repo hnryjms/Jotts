@@ -13,6 +13,7 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var appResponder: AppKitActions?
     let responder = AppResponder()
 
     lazy var persistentContainer: NSPersistentContainer = {
@@ -51,9 +52,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        #if targetEnvironment(macCatalyst)
+        let bundlePath = Bundle.main.builtInPlugInsURL!.appendingPathComponent("JottsAppKitGlue.bundle")
+        if let bundle = Bundle(url: bundlePath) {
+            guard bundle.load() else {
+                fatalError("Unable to load AppKit extensions")
+            }
+            guard let glueClass = bundle.principalClass as? NSObject.Type else {
+                fatalError("AppKit extension does not have principal class")
+            }
+            guard let glueResponder = glueClass.init() as? AppKitActions else {
+                fatalError("AppKit extension does not conform to spec")
+            }
+
+            self.appResponder = glueResponder
+        } else {
+            fatalError("Unable to find AppKit extensions")
+        }
+        #else
         UINavigationBar.appearance().barStyle = .black
         UITableView.appearance().backgroundColor = UIColor(white: 0.26, alpha: 1)
         UITableView.appearance().separatorStyle = .none
+        #endif
 
         return true
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -22,6 +22,8 @@
 		36827F2D238AD90700722D4A /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2C238AD90700722D4A /* SchedulerTests.swift */; };
 		36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2E239453B000722D4A /* ScheduleObserver.swift */; };
 		36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F302399B8E900722D4A /* TimeIntervalLabel.swift */; };
+		36A5BAEC239DCC9C00999198 /* AppKitGlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A5BAEB239DCC9C00999198 /* AppKitGlue.swift */; };
+		36A5BAEE239DCCDC00999198 /* JottsAppKitGlue.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 36A5BAE5239DCBD200999198 /* JottsAppKitGlue.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Midnight.swift */; };
@@ -32,6 +34,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		36A5BAEF239DCCDC00999198 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36A5BAE4239DCBD200999198;
+			remoteInfo = JottsAppKitGlue;
+		};
 		FAAFE7691BD2A7AC0002B5A4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FAAFE7471BD2A7AC0002B5A4 /* Project object */;
@@ -40,6 +49,20 @@
 			remoteInfo = Jotts;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		36A5BAF1239DCCDD00999198 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				36A5BAEE239DCCDC00999198 /* JottsAppKitGlue.bundle in Embed PlugIns */,
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		360A21E523538277008DF1C4 /* Jotts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jotts.entitlements; sourceTree = "<group>"; };
@@ -61,6 +84,11 @@
 		36827F2C238AD90700722D4A /* SchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		36827F2E239453B000722D4A /* ScheduleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleObserver.swift; sourceTree = "<group>"; };
 		36827F302399B8E900722D4A /* TimeIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalLabel.swift; sourceTree = "<group>"; };
+		36A5BAE5239DCBD200999198 /* JottsAppKitGlue.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JottsAppKitGlue.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		36A5BAE7239DCBD200999198 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		36A5BAEB239DCC9C00999198 /* AppKitGlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitGlue.swift; sourceTree = "<group>"; };
+		36A5BAF5239DD34F00999198 /* AppKitActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppKitActions.h; sourceTree = "<group>"; };
+		36A5BAF9239DD41100999198 /* Jotts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jotts-Bridging-Header.h"; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		36E37C38239DC49600970C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
@@ -76,6 +104,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		36A5BAE2239DCBD200999198 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAAFE74C1BD2A7AC0002B5A4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +162,22 @@
 			path = UI;
 			sourceTree = "<group>";
 		};
+		36A5BAE6239DCBD200999198 /* JottsAppKitGlue */ = {
+			isa = PBXGroup;
+			children = (
+				36A5BAE7239DCBD200999198 /* Info.plist */,
+				36A5BAEB239DCC9C00999198 /* AppKitGlue.swift */,
+			);
+			path = JottsAppKitGlue;
+			sourceTree = "<group>";
+		};
+		36A5BAED239DCCDC00999198 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FAA5E87A1BDBDBF9004DE3FC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -144,8 +195,10 @@
 				362C6050239D651100FBF0CC /* Gemfile */,
 				362C6053239D800D00FBF0CC /* fastlane */,
 				FAAFE7511BD2A7AC0002B5A4 /* Jotts */,
+				36A5BAE6239DCBD200999198 /* JottsAppKitGlue */,
 				FAAFE76B1BD2A7AC0002B5A4 /* JottsTests */,
 				FAAFE7501BD2A7AC0002B5A4 /* Products */,
+				36A5BAED239DCCDC00999198 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +207,7 @@
 			children = (
 				FAAFE74F1BD2A7AC0002B5A4 /* Jotts.app */,
 				FAAFE7681BD2A7AC0002B5A4 /* JottsTests.xctest */,
+				36A5BAE5239DCBD200999198 /* JottsAppKitGlue.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,6 +215,7 @@
 		FAAFE7511BD2A7AC0002B5A4 /* Jotts */ = {
 			isa = PBXGroup;
 			children = (
+				36A5BAF9239DD41100999198 /* Jotts-Bridging-Header.h */,
 				360A21E523538277008DF1C4 /* Jotts.entitlements */,
 				FAC61FBB1BD2B36B00FD973C /* Data */,
 				367FCB4E23538F750004275F /* UI */,
@@ -193,6 +248,7 @@
 			isa = PBXGroup;
 			children = (
 				FAAFE7521BD2A7AC0002B5A4 /* AppDelegate.swift */,
+				36A5BAF5239DD34F00999198 /* AppKitActions.h */,
 				FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */,
 				FAA5E87A1BDBDBF9004DE3FC /* Extensions */,
 				361F48F9235920E200286B65 /* AppResponder.swift */,
@@ -205,6 +261,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		36A5BAE4239DCBD200999198 /* JottsAppKitGlue */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 36A5BAEA239DCBD200999198 /* Build configuration list for PBXNativeTarget "JottsAppKitGlue" */;
+			buildPhases = (
+				36A5BAE1239DCBD200999198 /* Sources */,
+				36A5BAE2239DCBD200999198 /* Frameworks */,
+				36A5BAE3239DCBD200999198 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JottsAppKitGlue;
+			productName = JottsAppKitGlue;
+			productReference = 36A5BAE5239DCBD200999198 /* JottsAppKitGlue.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		FAAFE74E1BD2A7AC0002B5A4 /* Jotts */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FAAFE77C1BD2A7AC0002B5A4 /* Build configuration list for PBXNativeTarget "Jotts" */;
@@ -212,10 +285,12 @@
 				FAAFE74B1BD2A7AC0002B5A4 /* Sources */,
 				FAAFE74C1BD2A7AC0002B5A4 /* Frameworks */,
 				FAAFE74D1BD2A7AC0002B5A4 /* Resources */,
+				36A5BAF1239DCCDD00999198 /* Embed PlugIns */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				36A5BAF0239DCCDC00999198 /* PBXTargetDependency */,
 			);
 			name = Jotts;
 			packageProductDependencies = (
@@ -252,10 +327,14 @@
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Hank Brekke";
 				TargetAttributes = {
+					36A5BAE4239DCBD200999198 = {
+						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1120;
+					};
 					FAAFE74E1BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
 						DevelopmentTeam = 8984CRB38G;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 1120;
 					};
 					FAAFE7671BD2A7AC0002B5A4 = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -281,11 +360,19 @@
 			targets = (
 				FAAFE74E1BD2A7AC0002B5A4 /* Jotts */,
 				FAAFE7671BD2A7AC0002B5A4 /* JottsTests */,
+				36A5BAE4239DCBD200999198 /* JottsAppKitGlue */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		36A5BAE3239DCBD200999198 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAAFE74D1BD2A7AC0002B5A4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +393,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		36A5BAE1239DCBD200999198 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				36A5BAEC239DCC9C00999198 /* AppKitGlue.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAAFE74B1BD2A7AC0002B5A4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,6 +437,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		36A5BAF0239DCCDC00999198 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = maccatalyst;
+			target = 36A5BAE4239DCBD200999198 /* JottsAppKitGlue */;
+			targetProxy = 36A5BAEF239DCCDC00999198 /* PBXContainerItemProxy */;
+		};
 		FAAFE76A1BD2A7AC0002B5A4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FAAFE74E1BD2A7AC0002B5A4 /* Jotts */;
@@ -369,6 +470,76 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		36A5BAE8239DCBD200999198 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JottsAppKitGlue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsAppKitGlue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		36A5BAE9239DCBD200999198 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = JottsAppKitGlue/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsAppKitGlue;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotts-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		FAAFE77A1BD2A7AC0002B5A4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -484,6 +655,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Jotts.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -497,6 +669,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotts-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -504,6 +679,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Jotts.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -517,6 +693,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTS_MACCATALYST = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Jotts-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -560,6 +738,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		36A5BAEA239DCBD200999198 /* Build configuration list for PBXNativeTarget "JottsAppKitGlue" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				36A5BAE8239DCBD200999198 /* Debug */,
+				36A5BAE9239DCBD200999198 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FAAFE74A1BD2A7AC0002B5A4 /* Build configuration list for PBXProject "Jotts" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

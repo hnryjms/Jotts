@@ -49,7 +49,7 @@ class AppResponder: UIResponder, AppActions {
             color = colors[0];
         }
 
-        let schedule: NSOrderedSet
+        let schedule: NSSet
         do {
             let classrooms = try context.fetch(fetchRequest)
             if classrooms.count > 0 {
@@ -71,26 +71,26 @@ class AppResponder: UIResponder, AppActions {
                 for classroom in classrooms {
                     for i in 0 ..< schedule_count {
                         if i < classroom.schedule!.count {
-                            let schedule = classroom.schedule!.array[i] as! Schedule
+                            let schedule = classroom.schedule!.allObjects[i] as! Schedule
                             schedule_chunks[i].append(schedule);
                         }
                     }
                 }
 
-                let set = NSMutableOrderedSet()
+                let set = NSMutableSet()
                 for chunk in schedule_chunks {
                     let schedule = Schedule(context: context)
                     // TODO: add prediction
                     set.add(schedule)
                 }
 
-                schedule = set as NSOrderedSet
+                schedule = set as NSSet
             } else {
-                schedule = NSOrderedSet(objects: Schedule(context: context))
+                schedule = NSSet(objects: Schedule(context: context))
             }
         } catch {
             print("Failed to predict automatic schedule")
-            schedule = NSOrderedSet(objects: Schedule(context: context))
+            schedule = NSSet(objects: Schedule(context: context))
         }
 
         let classroom = Classroom(context: self.persistentContainer.viewContext)
@@ -109,7 +109,7 @@ class AppResponder: UIResponder, AppActions {
         do {
             try self.persistentContainer.viewContext.save()
         } catch {
-            print("Unable to save")
+            print("Unable to save \(error)")
         }
     }
 }

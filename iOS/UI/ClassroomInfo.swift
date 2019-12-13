@@ -11,8 +11,11 @@ import CoreData
 
 struct ClassroomInfo: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.presentationMode) var presentation
     @ObservedObject var selectedClassroom: Classroom
     @ObservedObject var schedule: DailyScheduleObservable
+
+    @State var isActionsOpen: Bool = false
 
     var session: DailySession? {
         get {
@@ -123,7 +126,7 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isScheduleEditing) {
                 ScheduleEditor(schedule: self.scheduleEditorItem!, onClose: {
                     self.isScheduleEditing = false
-                })
+                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color ?? "#ff0000ff")!))
             }
             Section {
                 ForEach(sessions, id: \.self) { session -> Button<Text> in
@@ -166,12 +169,27 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isSessionEditing) {
                 SessionEditor(session: self.sessionEditorItem!, onClose: {
                     self.isSessionEditing = false
-                })
+                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color ?? "#ff0000ff")!))
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarHidden(isMacOS)
         .navigationBarTitle("\(selectedClassroom.title ?? "")", displayMode: .inline)
+        .navigationBarItems(trailing: Button(action: {
+            self.isActionsOpen = true
+        }) {
+            Image(systemName: "ellipsis")
+                .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
+        })
+        .actionSheet(isPresented: $isActionsOpen) {
+            ActionSheet(title: Text(selectedClassroom.title ?? "Classroom"), buttons: [
+                .destructive(Text("Delete Classroom")) { 
+                    self.managedObjectContext.delete(self.selectedClassroom)
+                    self.presentation.wrappedValue.dismiss()
+                },
+                .cancel()
+            ])
+        }
     }
 }
 

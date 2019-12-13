@@ -11,18 +11,21 @@ import SwiftUI
 struct Classrooms: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var schedule: DailyScheduleObservable
+    @State var selectedClassroom: Classroom?
 
     var body: some View {
         NavigationView {
-            ClassroomList(schedule: schedule)
+            ClassroomList(schedule: schedule, onChangeClassroom: { self.selectedClassroom = $0 })
                 .navigationBarTitle("Classrooms")
                 .navigationBarItems(trailing: Button(action: self.next.addClassroom) {
                     Image(systemName: "plus")
+                        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
                 })
                 .navigationBarHidden(isMacOS)
             Text("Select a Classroom")
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .accentColor(Color(UIColor(fromHex: self.selectedClassroom?.color ?? "#00b190ff")!))
     }
 }
 

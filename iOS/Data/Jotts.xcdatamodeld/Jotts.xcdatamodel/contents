@@ -16,7 +16,7 @@
         <attribute name="rotationWeekdays" attributeType="Integer 64" minValueString="0" maxValueString="127" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="scheduleDay" attributeType="Integer 16" minValueString="0" maxValueString="365" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="scheduleOrigin" attributeType="Date" defaultDateTimeInterval="592722000" usesScalarValueType="NO"/>
-        <relationship name="classrooms" toMany="YES" deletionRule="Nullify" destinationEntity="Classroom" inverseName="building" inverseEntity="Classroom"/>
+        <relationship name="classrooms" toMany="YES" deletionRule="Cascade" destinationEntity="Classroom" inverseName="building" inverseEntity="Classroom"/>
     </entity>
     <entity name="Card" representedClassName="Jotts.Card" syncable="YES" codeGenerationType="class">
         <attribute name="details" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
@@ -36,8 +36,8 @@
         <relationship name="assignments" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Assignment" inverseName="classroom" inverseEntity="Assignment"/>
         <relationship name="building" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Building" inverseName="classrooms" inverseEntity="Building"/>
         <relationship name="decks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Deck" inverseName="classroom" inverseEntity="Deck"/>
-        <relationship name="schedule" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Schedule" inverseName="classroom" inverseEntity="Schedule"/>
-        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="classroom" inverseEntity="Session"/>
+        <relationship name="schedule" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Schedule" inverseName="classroom" inverseEntity="Schedule"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Session" inverseName="classroom" inverseEntity="Session"/>
     </entity>
     <entity name="Deck" representedClassName="Jotts.Deck" syncable="YES" codeGenerationType="class">
         <attribute name="title" attributeType="String"/>

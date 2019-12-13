@@ -11,6 +11,8 @@ import SwiftUI
 struct ClassroomList: View {
     @ObservedObject var schedule: DailyScheduleObservable
 
+    let onChangeClassroom: ((Classroom) -> Void)
+
     func classroomInfo(_ classroom: Classroom) -> Text {
         let instructor = classroom.instructor ?? "No Instructor"
         if let room = classroom.room {
@@ -28,6 +30,7 @@ struct ClassroomList: View {
                 ForEach(schedule.schedule.sessions, id: \.self) { session in
                     NavigationLink(
                         destination: ClassroomInfo(classroom: session.classroom, schedule: self.schedule)
+                            .onAppear { self.onChangeClassroom(session.classroom) }
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
@@ -53,6 +56,7 @@ struct ClassroomList: View {
                 ForEach(schedule.schedule.unscheduled, id: \.self) { classroom in
                     NavigationLink(
                         destination: ClassroomInfo(classroom: classroom, schedule: self.schedule)
+                            .onAppear { self.onChangeClassroom(classroom) }
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {

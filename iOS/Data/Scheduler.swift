@@ -99,7 +99,7 @@ extension Building {
                 })
             }
             let allSchedules: [Schedule] = classrooms.reduce([]) { allSchedules, classroom in
-                guard let schedules = classroom.schedule?.array as? [Schedule] else {
+                guard let schedules = classroom.schedule?.allObjects as? [Schedule] else {
                     return allSchedules
                 }
 

@@ -11,6 +11,7 @@ import SwiftUI
 struct Classrooms: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var schedule: DailyScheduleObservable
+    @FetchRequest(entity: Classroom.entity(), sortDescriptors: []) var classrooms: FetchedResults<Classroom>
     @State var selectedClassroom: Classroom?
 
     var body: some View {
@@ -25,7 +26,10 @@ struct Classrooms: View {
             Text("Select a Classroom")
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
-        .accentColor(Color(UIColor(fromHex: self.selectedClassroom?.color ?? "#00b190ff")!))
+        .accentColor(Color(UIColor(
+            fromHex: self.selectedClassroom?.color,
+            fallback: ColorHex.sorted[classrooms.count % ColorHex.sorted.count]
+        )))
     }
 }
 

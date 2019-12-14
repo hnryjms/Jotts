@@ -29,24 +29,12 @@ class AppResponder: UIResponder, AppActions {
         let fetchRequest = NSFetchRequest<Classroom>(entityName: Classroom.entity().name!)
 
         // Classroom defaults
-        let colors = [
-            "#ff8100ff", // orange
-            "#ff0080ff", // pink
-            "#00b60eff", // green
-            "#e72b00ff", // red
-            "#83f218ff", // light green
-            "#c66bffff", // light purple
-            "#00b190ff", // teal
-            "#0e4dffff", // dark blue
-            "#7a40a3ff", // purple
-            "#996600ff"  // brown
-        ];
-        let color: String;
+        let color: ColorHex;
         do {
-            let colorPath = try context.count(for: fetchRequest) % colors.count;
-            color = colors[colorPath];
+            let colorPath = try context.count(for: fetchRequest) % ColorHex.sorted.count;
+            color = ColorHex.sorted[colorPath];
         } catch {
-            color = colors[0];
+            color = ColorHex.sorted[0];
         }
 
         let schedule: NSSet
@@ -94,7 +82,7 @@ class AppResponder: UIResponder, AppActions {
         }
 
         let classroom = Classroom(context: self.persistentContainer.viewContext)
-        classroom.color = color
+        classroom.color = color.rawValue
         classroom.schedule = schedule
 
         self.building.objectWillChange.send()

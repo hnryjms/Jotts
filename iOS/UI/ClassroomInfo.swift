@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import Introspect
 import CoreData
 
 struct ClassroomInfo: View {
@@ -68,20 +69,70 @@ struct ClassroomInfo: View {
         }
     }
 
+    @State private var titleText: UITextField?
+    @State private var roomText: UITextField?
+    @State private var instructorText: UITextField?
+
+    private func nextTextField() {
+        if titleText?.isFirstResponder == true {
+            self.roomText?.becomeFirstResponder()
+        } else if roomText?.isFirstResponder == true {
+            self.instructorText?.becomeFirstResponder()
+        } else if instructorText?.isFirstResponder == true {
+            print("done")
+        }
+    }
+
     var body: some View {
         List {
             Section {
                 VStack(alignment: .leading) {
                     classroomLabel
-                    TextField("Psychology", text: $selectedClassroom.title.bound)
+                    TextField("Psychology", text: $selectedClassroom.title.bound, onCommit: self.nextTextField)
                         .font(.title)
+                        .introspectTextField { textField in
+                            self.titleText = textField
+
+                            textField.returnKeyType = .next
+                            textField.attributedPlaceholder = NSAttributedString(
+                                string: textField.placeholder!,
+                                attributes: [
+                                    .foregroundColor: UIColor.Jotts.textPlaceholder,
+                                    .font: UIFont.preferredFont(forTextStyle: .title1)
+                                ]
+                            );
+                        }
                     HStack {
-                        TextField("P.123", text: $selectedClassroom.room.bound)
+                        TextField("R.123", text: $selectedClassroom.room.bound, onCommit: self.nextTextField)
                             .font(.body)
                             .frame(width: 65)
                             .keyboardType(.numbersAndPunctuation)
-                        TextField("Smith", text: $selectedClassroom.instructor.bound)
+                            .introspectTextField { textField in
+                                self.roomText = textField
+
+                                textField.returnKeyType = .next
+                                textField.attributedPlaceholder = NSAttributedString(
+                                    string: textField.placeholder!,
+                                    attributes: [
+                                        .foregroundColor: UIColor.Jotts.textPlaceholder,
+                                        .font: UIFont.preferredFont(forTextStyle: .body)
+                                    ]
+                                );
+                            }
+                        TextField("Smith", text: $selectedClassroom.instructor.bound, onCommit: self.nextTextField)
                             .font(.body)
+                            .introspectTextField { textField in
+                                self.instructorText = textField
+
+                                textField.returnKeyType = .next
+                                textField.attributedPlaceholder = NSAttributedString(
+                                    string: textField.placeholder!,
+                                    attributes: [
+                                        .foregroundColor: UIColor.Jotts.textPlaceholder,
+                                        .font: UIFont.preferredFont(forTextStyle: .body)
+                                    ]
+                                );
+                            }
                     }
                 }
                 .listRowBackground(Color(white: 0.26))
@@ -126,7 +177,7 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isScheduleEditing) {
                 ScheduleEditor(schedule: self.scheduleEditorItem!, onClose: {
                     self.isScheduleEditing = false
-                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color ?? "#ff0000ff")!))
+                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color)))
             }
             Section {
                 ForEach(sessions, id: \.self) { session -> Button<Text> in
@@ -169,7 +220,7 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isSessionEditing) {
                 SessionEditor(session: self.sessionEditorItem!, onClose: {
                     self.isSessionEditing = false
-                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color ?? "#ff0000ff")!))
+                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color)))
             }
         }
         .listStyle(GroupedListStyle())

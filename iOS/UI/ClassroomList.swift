@@ -11,7 +11,7 @@ import SwiftUI
 struct ClassroomList: View {
     @ObservedObject var schedule: DailyScheduleObservable
 
-    let onChangeClassroom: ((Classroom) -> Void)
+    let onChangeClassroom: ((Classroom?) -> Void)
 
     func classroomInfo(_ classroom: Classroom) -> Text {
         let instructor = classroom.instructor ?? "No Instructor"
@@ -34,7 +34,7 @@ struct ClassroomList: View {
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
-                            Color(UIColor(fromHex: session.classroom.color ?? "#ff0000ff")!).frame(width: 12.0)
+                            Color(UIColor(fromHex: session.classroom.color)).frame(width: 12.0)
                             VStack(alignment: .leading, spacing: 1.0) {
                                 DailySessionText(session: session)
                                     .font(.subheadline)
@@ -60,7 +60,7 @@ struct ClassroomList: View {
                             .onDisappear(perform: self.next.save)
                     ) {
                         HStack {
-                            Color(UIColor(fromHex: classroom.color ?? "#ff0000ff")!).frame(width: 12.0)
+                            Color(UIColor(fromHex: classroom.color)).frame(width: 12.0)
                             VStack(alignment: .leading, spacing: 1.0) {
                                 Text("Not Scheduled Today")
                                     .font(.subheadline)
@@ -78,6 +78,9 @@ struct ClassroomList: View {
                     .foregroundColor(.white)
                 }
             }
+        }
+        .onAppear {
+            self.onChangeClassroom(nil)
         }
     }
 }

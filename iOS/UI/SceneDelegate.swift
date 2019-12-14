@@ -35,7 +35,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, NSToolbarDelegate {
             let window = UIWindow(windowScene: windowScene)
 
             let hostingController = DarkHostingController(rootView: contentView)
-            hostingController.view.backgroundColor = UIColor(white: 0.26, alpha: 1)
+            hostingController.view.backgroundColor = UIColor.Jotts.background
 
             window.rootViewController = hostingController
 

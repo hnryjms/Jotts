@@ -20,7 +20,7 @@ fileprivate class TimeIntervalTrigger: ObservableObject {
 
     private let destination: Date
     private let origin: Date
-    private var sink: AnyCancellable?
+    private var displayLink: CADisplayLink?
 
     init(destination: Date, origin: Date = Date()) {
         self.destination = destination
@@ -29,12 +29,16 @@ fileprivate class TimeIntervalTrigger: ObservableObject {
         self.timeInterval = self.destination.timeIntervalSince(self.origin)
 
         DispatchQueue.main.async {
-            self.sink = Timer.publish(every: 1, on: .current, in: .default)
-                .autoconnect()
-                .sink { [unowned self] _ in
-                    self.timeInterval = self.destination.timeIntervalSince(self.origin)
-                }
+            let link = CADisplayLink(target: self, selector: #selector(self.update))
+            link.preferredFramesPerSecond = 1
+            link.add(to: .current, forMode: .default)
+
+            self.displayLink = link
         }
+    }
+
+    @objc func update() {
+        self.timeInterval = self.destination.timeIntervalSince(self.origin)
     }
 }
 
@@ -63,7 +67,7 @@ struct DailySessionText: View {
     @ObservedObject private var trigger: TimeIntervalTrigger
     private let formatter: DateComponentsFormatter = {
         let formatter = DateComponentsFormatter()
-        formatter.allowedUnits = [.day, .hour, .minute, .second]
+        formatter.allowedUnits = [.hour, .minute, .second]
         formatter.unitsStyle = .full
         formatter.maximumUnitCount = 1
         return formatter
@@ -85,7 +89,7 @@ struct DailySessionText: View {
         let startDate = self.session.startDate()
         let endDate = self.session.endDate()
 
-        if startDate.timeIntervalSinceNow > 0 {
+        if round(startDate.timeIntervalSinceNow) > 0 {
             return AnyView(TimeIntervalText(destination: startDate) { interval in
                 Text("In \(self.formatter.string(from: interval)!)", comment: "Time interval to start of event")
             })

@@ -18,7 +18,7 @@ struct SessionEditor: View {
             self.session.startDate ?? Date()
         }) { newValue in
             self.session.objectWillChange.send()
-            self.session.startDate = newValue
+            self.session.startDate = Date(timeIntervalSinceReferenceDate: round(newValue.timeIntervalSinceReferenceDate / 60) * 60)
         }
     }
     var endDate: Binding<Date> {
@@ -26,7 +26,7 @@ struct SessionEditor: View {
             Date(timeInterval: self.session.length, since: self.startDate.wrappedValue)
         }) { newValue in
             self.session.objectWillChange.send()
-            self.session.length = newValue.timeIntervalSinceMidnight - self.startDate.wrappedValue.timeIntervalSinceMidnight
+            self.session.length = round((newValue.timeIntervalSinceMidnight - self.startDate.wrappedValue.timeIntervalSinceMidnight) / 60) * 60
         }
     }
 

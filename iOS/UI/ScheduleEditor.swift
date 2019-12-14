@@ -19,7 +19,7 @@ struct ScheduleEditor: View {
             Date(timeIntervalSinceMidnight: self.schedule.startTime)
         }) { newValue in
             self.schedule.objectWillChange.send()
-            self.schedule.startTime = newValue.timeIntervalSinceMidnight
+            self.schedule.startTime = round(newValue.timeIntervalSinceMidnight / 60) * 60
         }
     }
     var endDate: Binding<Date> {
@@ -27,7 +27,7 @@ struct ScheduleEditor: View {
             Date(timeIntervalSinceMidnight: self.schedule.startTime + self.schedule.length)
         }) { newValue in
             self.schedule.objectWillChange.send()
-            self.schedule.length = newValue.timeIntervalSinceMidnight - self.schedule.startTime
+            self.schedule.length = round((newValue.timeIntervalSinceMidnight - self.schedule.startTime) / 60) * 60
         }
     }
     

@@ -27,6 +27,8 @@
 		36C7A96823A53D8C008577E0 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 36C7A96723A53D8C008577E0 /* Introspect */; };
 		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		36D705E823A542A900F22955 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E723A542A900F22955 /* Colors.swift */; };
+		36D705EA23A57FDE00F22955 /* SetupWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E923A57FDE00F22955 /* SetupWelcome.swift */; };
+		36D705EC23A5924900F22955 /* SetupRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705EB23A5924900F22955 /* SetupRotation.swift */; };
 		5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */; };
 		5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C518B3AE786F1A12A569319 /* Date+Midnight.swift */; };
 		FA8537681BD2A8FA006C9FD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FAAFE7601BD2A7AC0002B5A4 /* LaunchScreen.storyboard */; };
@@ -93,6 +95,8 @@
 		36A5BAF9239DD41100999198 /* Jotts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jotts-Bridging-Header.h"; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		36D705E723A542A900F22955 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		36D705E923A57FDE00F22955 /* SetupWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWelcome.swift; sourceTree = "<group>"; };
+		36D705EB23A5924900F22955 /* SetupRotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupRotation.swift; sourceTree = "<group>"; };
 		36E37C38239DC49600970C0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5C5185079B1BA7099A5F01A3 /* UIColor+FromHex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+FromHex.swift"; sourceTree = "<group>"; };
 		5C518B3AE786F1A12A569319 /* Date+Midnight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Midnight.swift"; sourceTree = "<group>"; };
@@ -163,6 +167,8 @@
 				361F48FF235963BE00286B65 /* ClassroomInfo.swift */,
 				36568EE6235B6BB70063B1CA /* ScheduleEditor.swift */,
 				36D598222378AAE000F781D6 /* SessionEditor.swift */,
+				36D705E923A57FDE00F22955 /* SetupWelcome.swift */,
+				36D705EB23A5924900F22955 /* SetupRotation.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -425,11 +431,13 @@
 				36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */,
 				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 				36D705E823A542A900F22955 /* Colors.swift in Sources */,
+				36D705EA23A57FDE00F22955 /* SetupWelcome.swift in Sources */,
 				361F4907235B431300286B65 /* DarkHostingController.swift in Sources */,
 				360BBCC6235B9F520011660B /* Int64+Selection.swift in Sources */,
 				361F4900235963BE00286B65 /* ClassroomInfo.swift in Sources */,
 				361F48FA235920E200286B65 /* AppResponder.swift in Sources */,
 				362C6052239D7D1B00FBF0CC /* String+AsEmpty.swift in Sources */,
+				36D705EC23A5924900F22955 /* SetupRotation.swift in Sources */,
 				5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

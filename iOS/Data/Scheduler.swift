@@ -8,6 +8,14 @@
 
 import Foundation
 
+extension DateComponents {
+    var weekdayShifted: Int {
+        get {
+            return (self.weekday! + 5) % 7
+        }
+    }
+}
+
 public enum BuildingError: Error {
     case priorScheduling
 }
@@ -36,6 +44,8 @@ public struct DailySession: Hashable {
 public struct DailySchedule {
     public let sessions: [DailySession]
     public let unscheduled: [Classroom]
+
+    let building: Building
 }
 
 extension Building {
@@ -75,7 +85,7 @@ extension Building {
                             }
                         }
 
-                        if self.rotationWeekdays.isSelected(day: Int16(components.weekday!)) {
+                        if self.rotationWeekdays.isSelected(day: Int16(components.weekdayShifted)) {
                             scheduleDay += 1
                         }
                     }
@@ -86,7 +96,14 @@ extension Building {
             }
 
             guard let classrooms = self.classrooms?.allObjects as? [Classroom] else {
-                return DailySchedule(sessions: [], unscheduled: [])
+                return DailySchedule(sessions: [], unscheduled: [], building: self)
+            }
+
+            if self.rotationSize != 7 {
+                let components = Calendar.current.dateComponents([ .weekday ], from: nextScheduleOrigin)
+                if !self.rotationWeekdays.isSelected(day: Int16(components.weekdayShifted)) {
+                    return DailySchedule(sessions: [], unscheduled: classrooms, building: self)
+                }
             }
 
             let allSessions: [Session] = classrooms.reduce([]) { allSessions, classroom in
@@ -124,7 +141,8 @@ extension Building {
                 sessions: dailySessions.sorted(by: { (a, b) -> Bool in
                     return a.startDate() < b.startDate()
                 }),
-                unscheduled: unscheduled
+                unscheduled: unscheduled,
+                building: self
             )
         } else {
             self.scheduleOrigin = Date()

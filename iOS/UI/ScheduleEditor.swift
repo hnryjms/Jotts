@@ -71,6 +71,7 @@ struct ScheduleEditor: View {
                         })
                     }
                 }
+                .listRowBackground(Color.white)
                 Section {
                     DatePicker(selection: self.startDate, displayedComponents: .hourAndMinute) {
                         Text("Class starts at")
@@ -79,6 +80,7 @@ struct ScheduleEditor: View {
                         Text("Class ends at")
                     }
                 }
+                .listRowBackground(Color.white)
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Schedule")

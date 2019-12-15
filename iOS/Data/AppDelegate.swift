@@ -73,6 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barStyle = .black
         UITableView.appearance().backgroundColor = UIColor.Jotts.background
         UITableView.appearance().separatorStyle = .none
+        UITableViewCell.appearance().backgroundColor = .clear
         #endif
 
         return true

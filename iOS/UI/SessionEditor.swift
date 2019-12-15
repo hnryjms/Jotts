@@ -41,6 +41,7 @@ struct SessionEditor: View {
                         Text("Class ends at")
                     }
                 }
+                .listRowBackground(Color.white)
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Session")
@@ -55,7 +56,8 @@ struct SessionEditor: View {
 
 struct SessionEditor_Previews: PreviewProvider {
     static var previews: some View {
-        let schedule = Schedule()
-        return ScheduleEditor(schedule: schedule, onClose: { })
+        let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
+        let session = Session(context: context)
+        return SessionEditor(session: session, onClose: { })
     }
 }

@@ -14,6 +14,7 @@ class DailyScheduleObservable: NSObject, ObservableObject, NSFetchedResultsContr
     @Published var schedule: DailySchedule
 
     private var controllers: [NSFetchedResultsController<NSFetchRequestResult>]
+    private var scheduleSettings: AnyCancellable?
 
     init(schedule: DailySchedule) {
         self.schedule = schedule
@@ -38,6 +39,12 @@ class DailyScheduleObservable: NSObject, ObservableObject, NSFetchedResultsContr
         })
 
         super.init()
+
+        self.scheduleSettings = schedule.building.objectWillChange.sink { _ in
+            DispatchQueue.main.async {
+                self.schedule = try! AppDelegate.sharedDelegate().building.schedule()
+            }
+        }
 
         self.controllers.forEach { controller in
             controller.delegate = self

@@ -10,22 +10,33 @@ import SwiftUI
 
 struct Classrooms: View {
     @Environment(\.managedObjectContext) var managedObjectContext
+
     @ObservedObject var schedule: DailyScheduleObservable
+
     @FetchRequest(entity: Classroom.entity(), sortDescriptors: []) var classrooms: FetchedResults<Classroom>
-    @State var selectedClassroom: Classroom?
+    @FetchRequest(entity: Building.entity(), sortDescriptors: []) var buildings: FetchedResults<Building>
+
+    @State private var selectedClassroom: Classroom?
+    @State private var isSetupOpen: Bool = false
 
     var body: some View {
         NavigationView {
-            ClassroomList(schedule: schedule, onChangeClassroom: { self.selectedClassroom = $0 })
-                .navigationBarTitle("Classrooms")
-                .navigationBarItems(trailing: Button(action: self.next.addClassroom) {
-                    Image(systemName: "plus")
-                        .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
-                })
-                .navigationBarHidden(isMacOS)
+            ClassroomList(
+                schedule: schedule,
+                selectedClassroom: $selectedClassroom,
+                isSetupOpen: $isSetupOpen
+            )
             Text("Select a Classroom")
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .sheet(isPresented: $isSetupOpen) {
+            SetupWelcome(building: self.buildings[0])
+        }
+        .onAppear {
+            if self.classrooms.count == 0 {
+                self.isSetupOpen = true
+            }
+        }
         .accentColor(Color(UIColor(
             fromHex: self.selectedClassroom?.color,
             fallback: ColorHex.sorted[classrooms.count % ColorHex.sorted.count]

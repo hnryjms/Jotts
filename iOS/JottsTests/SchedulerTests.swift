@@ -82,6 +82,23 @@ class SchedulerTests: XCTestCase {
         XCTAssertEqual(building.scheduleDay, 0)
     }
 
+    func testProgressionWeekdaysNone() throws {
+        let building = self.mockBuilding()
+        let classroom = self.mockClassroom(building: building)
+        let _ = self.mockSchedule(classroom: classroom)
+
+        building.rotationWeekdays = 0
+
+        let nextOrigin = Date(timeIntervalSinceMidnight: 86400, from: Date(timeIntervalSinceReferenceDate: 0))
+        let classes = try building.schedule(for: nextOrigin)
+
+        XCTAssertEqual(building.scheduleOrigin, nextOrigin)
+        XCTAssertEqual(building.scheduleDay, 0)
+
+        XCTAssertEqual(classes.sessions, [])
+        XCTAssertEqual(classes.unscheduled, [ classroom ])
+    }
+
     func testProgressionExclusion() throws {
         let building = self.mockBuilding()
 

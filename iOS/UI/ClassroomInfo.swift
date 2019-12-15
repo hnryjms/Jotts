@@ -135,7 +135,6 @@ struct ClassroomInfo: View {
                             }
                     }
                 }
-                .listRowBackground(Color(white: 0.26))
                 .foregroundColor(.white)
             }
             Section {
@@ -174,6 +173,7 @@ struct ClassroomInfo: View {
                     Text("Add Schedule")
                 }
             }
+            .listRowBackground(Color.white)
             .sheet(isPresented: $isScheduleEditing) {
                 ScheduleEditor(schedule: self.scheduleEditorItem!, onClose: {
                     self.isScheduleEditing = false
@@ -217,6 +217,7 @@ struct ClassroomInfo: View {
                     Text("Add Session")
                 }
             }
+            .listRowBackground(Color.white)
             .sheet(isPresented: $isSessionEditing) {
                 SessionEditor(session: self.sessionEditorItem!, onClose: {
                     self.isSessionEditing = false

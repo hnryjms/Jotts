@@ -225,23 +225,29 @@ struct ClassroomInfo: View {
             }
         }
         .listStyle(GroupedListStyle())
+        .introspectTableView(customize: { (tableView) in
+            if isMacOS {
+                tableView.backgroundColor = UIColor.Jotts.background
+            }
+        })
         .navigationBarHidden(isMacOS)
         .navigationBarTitle("\(selectedClassroom.title ?? "")", displayMode: .inline)
-        .navigationBarItems(trailing: Button(action: {
-            self.isActionsOpen = true
-        }) {
-            Image(systemName: "ellipsis")
-                .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
-        })
-        .actionSheet(isPresented: $isActionsOpen) {
-            ActionSheet(title: Text(selectedClassroom.title ?? "Classroom"), buttons: [
-                .destructive(Text("Delete Classroom")) { 
+        .navigationBarItems(trailing: Group {
+            Button(action: {
+                self.isActionsOpen = true
+            }) {
+                Image(systemName: "ellipsis")
+                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
+            }
+            .modifier(ActionButtonsModifier(isPresented: $isActionsOpen, title: Text(selectedClassroom.title ?? "Classroom"), buttons: [
+                .destructive(Text("Delete Classroom")) {
                     self.managedObjectContext.delete(self.selectedClassroom)
                     self.presentation.wrappedValue.dismiss()
                 },
                 .cancel()
-            ])
-        }
+            ]))
+        })
+
     }
 }
 

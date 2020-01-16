@@ -24,6 +24,7 @@
 		36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F302399B8E900722D4A /* TimeIntervalLabel.swift */; };
 		36A5BAEC239DCC9C00999198 /* AppKitGlue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A5BAEB239DCC9C00999198 /* AppKitGlue.swift */; };
 		36A5BAEE239DCCDC00999198 /* JottsAppKitGlue.bundle in Embed PlugIns */ = {isa = PBXBuildFile; fileRef = 36A5BAE5239DCBD200999198 /* JottsAppKitGlue.bundle */; platformFilter = maccatalyst; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		36C6F1D823A9C61E00891115 /* ActionButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C6F1D723A9C61E00891115 /* ActionButtonsModifier.swift */; };
 		36C7A96823A53D8C008577E0 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 36C7A96723A53D8C008577E0 /* Introspect */; };
 		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		36D705E823A542A900F22955 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E723A542A900F22955 /* Colors.swift */; };
@@ -93,6 +94,7 @@
 		36A5BAEB239DCC9C00999198 /* AppKitGlue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppKitGlue.swift; sourceTree = "<group>"; };
 		36A5BAF5239DD34F00999198 /* AppKitActions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppKitActions.h; sourceTree = "<group>"; };
 		36A5BAF9239DD41100999198 /* Jotts-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Jotts-Bridging-Header.h"; sourceTree = "<group>"; };
+		36C6F1D723A9C61E00891115 /* ActionButtonsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsModifier.swift; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		36D705E723A542A900F22955 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		36D705E923A57FDE00F22955 /* SetupWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWelcome.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				361F4906235B431300286B65 /* DarkHostingController.swift */,
 				36827F302399B8E900722D4A /* TimeIntervalLabel.swift */,
 				36D705E723A542A900F22955 /* Colors.swift */,
+				36C6F1D723A9C61E00891115 /* ActionButtonsModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -436,6 +439,7 @@
 				360BBCC6235B9F520011660B /* Int64+Selection.swift in Sources */,
 				361F4900235963BE00286B65 /* ClassroomInfo.swift in Sources */,
 				361F48FA235920E200286B65 /* AppResponder.swift in Sources */,
+				36C6F1D823A9C61E00891115 /* ActionButtonsModifier.swift in Sources */,
 				362C6052239D7D1B00FBF0CC /* String+AsEmpty.swift in Sources */,
 				36D705EC23A5924900F22955 /* SetupRotation.swift in Sources */,
 				5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */,

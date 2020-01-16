@@ -26,9 +26,27 @@ struct Classrooms: View {
                 selectedClassroom: $selectedClassroom,
                 isSetupOpen: $isSetupOpen
             )
-            Text("Select a Classroom")
+            ZStack {
+                Text(" ")
+                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+                    .background(Color(UIColor.Jotts.background))
+                    .edgesIgnoringSafeArea(.all)
+                Text("Select a Classroom")
+                    .foregroundColor(.white)
+            }
+            .background(Color(UIColor.Jotts.background))
+
         }
         .navigationViewStyle(DoubleColumnNavigationViewStyle())
+        .introspectNavigationController(customize: { (controller) in
+            if isMacOS {
+                controller.viewControllers[0].view.backgroundColor = .clear
+            }
+            if let splitView = controller.parent as? UISplitViewController {
+                splitView.preferredDisplayMode = .allVisible
+                splitView.primaryBackgroundStyle = .sidebar
+            }
+        })
         .sheet(isPresented: $isSetupOpen) {
             SetupWelcome(building: self.buildings[0])
         }

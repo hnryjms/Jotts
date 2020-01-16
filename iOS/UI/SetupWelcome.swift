@@ -50,6 +50,7 @@ struct SetupWelcome: View {
                     .padding(.bottom)
                 }
                 .padding(.horizontal)
+                .frame(maxWidth: 420)
             }
             .navigationBarTitle("Welcome")
             .foregroundColor(.white)

@@ -69,6 +69,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             fatalError("Unable to find AppKit extensions")
         }
+        UITableView.appearance().separatorStyle = .none
+        UITableViewCell.appearance().backgroundColor = .clear
         #else
         UINavigationBar.appearance().barStyle = .black
         UITableView.appearance().backgroundColor = UIColor.Jotts.background

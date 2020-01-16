@@ -94,6 +94,11 @@ struct ClassroomList: View {
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
         })
         .navigationBarHidden(isMacOS)
+        .introspectTableView { (tableView) in
+            if isMacOS {
+                tableView.backgroundColor = .clear
+            }
+        }
     }
 }
 

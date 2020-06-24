@@ -6,12 +6,12 @@
 //  Copyright © 2019 Hank Brekke. All rights reserved.
 //
 
-import UIKit
+import SwiftUI
 
-extension UIColor {
+extension Color {
     struct Jotts {
-        static var background: UIColor { return UIColor(white: 0.26, alpha: 1) }
-        static var textPlaceholder: UIColor { return UIColor(white: 0.65, alpha: 1) }
+        static var background: Color { return Color(.sRGB, white: 0.26) }
+        static var textPlaceholder: Color { return Color(.sRGB, white: 0.65) }
     }
 }
 

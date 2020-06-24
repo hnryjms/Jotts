@@ -56,7 +56,7 @@ struct SessionEditor: View {
 
 struct SessionEditor_Previews: PreviewProvider {
     static var previews: some View {
-        let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
+        let context = globalPersistentContainer.viewContext
         let session = Session(context: context)
         return SessionEditor(session: session, onClose: { })
     }

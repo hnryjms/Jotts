@@ -33,12 +33,6 @@ struct ActionButtonsModifier: ViewModifier {
                         }
                     }
                     .listStyle(GroupedListStyle())
-                    .introspectTableView { (tableView) in
-                        tableView.backgroundColor = .white
-                    }
-                    .introspectViewController { (controller) in
-                        controller.preferredContentSize = CGSize(width: 240, height: 180)
-                    }
                 }
             } else {
                 content.actionSheet(isPresented: $isPresented) {

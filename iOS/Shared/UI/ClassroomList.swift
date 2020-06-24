@@ -39,10 +39,9 @@ struct ClassroomList: View {
         NavigationLink(
             destination: ClassroomInfo(classroom: classroom, schedule: self.schedule)
                 .onAppear { self.selectedClassroom = classroom }
-                .onDisappear(perform: self.next.save)
         ) {
             HStack {
-                Color(UIColor(fromHex: classroom.color)).frame(width: 12.0)
+                Color(fromHex: classroom.color).frame(width: 12.0)
                 VStack(alignment: .leading, spacing: 1.0) {
                     self.classroomSession(session)
                     Text(classroom.title ?? "No Title")
@@ -89,16 +88,10 @@ struct ClassroomList: View {
             self.selectedClassroom = nil
         }
         .navigationBarTitle("Classrooms")
-        .navigationBarItems(trailing: Button(action: self.next.addClassroom) {
+        .navigationBarItems(trailing: Button(action: {}) {
             Image(systemName: "plus")
                 .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
         })
-        .navigationBarHidden(isMacOS)
-        .introspectTableView { (tableView) in
-            if isMacOS {
-                tableView.backgroundColor = .clear
-            }
-        }
     }
 }
 
@@ -107,8 +100,7 @@ struct ClassroomList_Previews: PreviewProvider {
     @State static var isSetupOpen: Bool = false
 
     static var previews: some View {
-        let building = AppDelegate.sharedDelegate().building
-        let schedule = try! building.schedule()
+        let schedule = try! globalBuilding.schedule()
 
         return ClassroomList(
             schedule: DailyScheduleObservable(schedule: schedule),

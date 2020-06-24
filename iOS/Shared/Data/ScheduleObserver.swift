@@ -30,7 +30,7 @@ class DailyScheduleObservable: NSObject, ObservableObject, NSFetchedResultsContr
 
             let controller = NSFetchedResultsController(
                 fetchRequest: fetchRequest,
-                managedObjectContext: AppDelegate.sharedDelegate().persistentContainer.viewContext,
+                managedObjectContext: globalPersistentContainer.viewContext,
                 sectionNameKeyPath: nil,
                 cacheName: nil
             )
@@ -42,7 +42,7 @@ class DailyScheduleObservable: NSObject, ObservableObject, NSFetchedResultsContr
 
         self.scheduleSettings = schedule.building.objectWillChange.sink { _ in
             DispatchQueue.main.async {
-                self.schedule = try! AppDelegate.sharedDelegate().building.schedule()
+                self.schedule = try! globalBuilding.schedule()
             }
         }
 
@@ -56,7 +56,7 @@ class DailyScheduleObservable: NSObject, ObservableObject, NSFetchedResultsContr
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         if controller.fetchRequest.entity == Schedule.entity() ||
             controller.fetchRequest.entity == Session.entity() {
-            self.schedule = try! AppDelegate.sharedDelegate().building.schedule()
+            self.schedule = try! globalBuilding.schedule()
         } else {
             self.objectWillChange.send()
         }

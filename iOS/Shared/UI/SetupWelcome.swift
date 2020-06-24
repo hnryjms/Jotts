@@ -18,7 +18,7 @@ struct SetupWelcome: View {
             ZStack {
                 Text(" ")
                     .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .background(Color(UIColor.Jotts.background))
+                    .background(Color.Jotts.background)
                     .edgesIgnoringSafeArea(.all)
                 VStack(spacing: 12) {
                     Spacer()
@@ -54,9 +54,6 @@ struct SetupWelcome: View {
             }
             .navigationBarTitle("Welcome")
             .foregroundColor(.white)
-        }
-        .onDisappear {
-            self.next.save()
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -94,7 +91,7 @@ struct SetupTypeSelector: View {
 
 struct SetupWelcome_Previews: PreviewProvider {
     static var previews: some View {
-        let context = AppDelegate.sharedDelegate().persistentContainer.viewContext
+        let context = globalPersistentContainer.viewContext
         let building = Building(context: context)
 
         return SetupWelcome(building: building)

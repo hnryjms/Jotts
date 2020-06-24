@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import Introspect
 import CoreData
 
 struct ClassroomInfo: View {
@@ -26,7 +25,7 @@ struct ClassroomInfo: View {
         }
     }
 
-    private let rotationSize = AppDelegate.sharedDelegate().building.rotationSize
+    private let rotationSize = globalBuilding.rotationSize
 
     @State private var isScheduleEditing = false
     @State private var isSessionEditing = false
@@ -69,70 +68,20 @@ struct ClassroomInfo: View {
         }
     }
 
-    @State private var titleText: UITextField?
-    @State private var roomText: UITextField?
-    @State private var instructorText: UITextField?
-
-    private func nextTextField() {
-        if titleText?.isFirstResponder == true {
-            self.roomText?.becomeFirstResponder()
-        } else if roomText?.isFirstResponder == true {
-            self.instructorText?.becomeFirstResponder()
-        } else if instructorText?.isFirstResponder == true {
-            print("done")
-        }
-    }
-
     var body: some View {
         List {
             Section {
                 VStack(alignment: .leading) {
                     classroomLabel
-                    TextField("Psychology", text: $selectedClassroom.title.bound, onCommit: self.nextTextField)
+                    TextField("Psychology", text: $selectedClassroom.title.bound)
                         .font(.title)
-                        .introspectTextField { textField in
-                            self.titleText = textField
-
-                            textField.returnKeyType = .next
-                            textField.attributedPlaceholder = NSAttributedString(
-                                string: textField.placeholder!,
-                                attributes: [
-                                    .foregroundColor: UIColor.Jotts.textPlaceholder,
-                                    .font: UIFont.preferredFont(forTextStyle: .title1)
-                                ]
-                            );
-                        }
                     HStack {
-                        TextField("R.123", text: $selectedClassroom.room.bound, onCommit: self.nextTextField)
+                        TextField("R.123", text: $selectedClassroom.room.bound)
                             .font(.body)
                             .frame(width: 65)
                             .keyboardType(.numbersAndPunctuation)
-                            .introspectTextField { textField in
-                                self.roomText = textField
-
-                                textField.returnKeyType = .next
-                                textField.attributedPlaceholder = NSAttributedString(
-                                    string: textField.placeholder!,
-                                    attributes: [
-                                        .foregroundColor: UIColor.Jotts.textPlaceholder,
-                                        .font: UIFont.preferredFont(forTextStyle: .body)
-                                    ]
-                                );
-                            }
-                        TextField("Smith", text: $selectedClassroom.instructor.bound, onCommit: self.nextTextField)
+                        TextField("Smith", text: $selectedClassroom.instructor.bound)
                             .font(.body)
-                            .introspectTextField { textField in
-                                self.instructorText = textField
-
-                                textField.returnKeyType = .next
-                                textField.attributedPlaceholder = NSAttributedString(
-                                    string: textField.placeholder!,
-                                    attributes: [
-                                        .foregroundColor: UIColor.Jotts.textPlaceholder,
-                                        .font: UIFont.preferredFont(forTextStyle: .body)
-                                    ]
-                                );
-                            }
                     }
                 }
                 .foregroundColor(.white)
@@ -142,7 +91,7 @@ struct ClassroomInfo: View {
                     Button(action: {
                         self.scheduleEditorItem = schedule
                         self.isScheduleEditing = true
-                    }) {
+                    }) { () -> Text in
                         let label: Text
                         let count = schedule.rotation.count(rotationSize: self.rotationSize)
                         if self.rotationSize == 7 && schedule.rotation == 0b0011111 {
@@ -177,14 +126,14 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isScheduleEditing) {
                 ScheduleEditor(schedule: self.scheduleEditorItem!, onClose: {
                     self.isScheduleEditing = false
-                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color)))
+                }).accentColor(Color(fromHex: self.selectedClassroom.color))
             }
             Section {
                 ForEach(sessions, id: \.self) { session -> Button<Text> in
                     Button(action: {
                         self.sessionEditorItem = session
                         self.isSessionEditing = true
-                    }) {
+                    }) { () -> Text in
 
                         let startText: String
                         if let startDate = session.startDate {
@@ -221,16 +170,10 @@ struct ClassroomInfo: View {
             .sheet(isPresented: $isSessionEditing) {
                 SessionEditor(session: self.sessionEditorItem!, onClose: {
                     self.isSessionEditing = false
-                }).accentColor(Color(UIColor(fromHex: self.selectedClassroom.color)))
+                }).accentColor(Color(fromHex: self.selectedClassroom.color))
             }
         }
         .listStyle(GroupedListStyle())
-        .introspectTableView(customize: { (tableView) in
-            if isMacOS {
-                tableView.backgroundColor = UIColor.Jotts.background
-            }
-        })
-        .navigationBarHidden(isMacOS)
         .navigationBarTitle("\(selectedClassroom.title ?? "")", displayMode: .inline)
         .navigationBarItems(trailing: Group {
             Button(action: {
@@ -256,12 +199,12 @@ struct ClassroomInfo_Previews: PreviewProvider {
         let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
         let classroom = Classroom(context: context)
 
-        let schedule = try! AppDelegate.sharedDelegate().building.schedule()
+        let schedule = try! globalBuilding.schedule()
         let scheduleObservable = DailyScheduleObservable(schedule: schedule)
 
         return NavigationView {
             ClassroomInfo(classroom: classroom, schedule: scheduleObservable)
         }
-        .environment(\.managedObjectContext, AppDelegate.sharedDelegate().persistentContainer.viewContext)
+        .environment(\.managedObjectContext, globalPersistentContainer.viewContext)
     }
 }

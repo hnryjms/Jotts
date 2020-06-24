@@ -11,7 +11,7 @@ import SwiftUI
 struct ScheduleEditor: View {
     @ObservedObject var schedule: Schedule
 
-    let rotationSize = AppDelegate.sharedDelegate().building.rotationSize
+    let rotationSize = globalBuilding.rotationSize
     let onClose: () -> Void
 
     var startDate: Binding<Date> {

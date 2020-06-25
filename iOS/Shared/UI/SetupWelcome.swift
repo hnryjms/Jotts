@@ -15,45 +15,36 @@ struct SetupWelcome: View {
 
     var body: some View {
         NavigationView {
-            ZStack {
-                Text(" ")
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .background(Color.Jotts.background)
-                    .edgesIgnoringSafeArea(.all)
-                VStack(spacing: 12) {
-                    Spacer()
-                    Image(systemName: "bell.fill")
-                        .padding(.bottom, 50)
-                        .font(.system(size: 100))
-                    Text("Jotts is a modern organizer for students. Add your schedule, and check where to go any time during your first day, or any day.")
-                        .multilineTextAlignment(.center)
-                    Spacer()
-                    VStack(spacing: 20) {
-                        NavigationLink(destination: SetupTypeSelector(parentPresentation: presentation, building: building)) {
-                            HStack {
-                                Spacer()
-                                Text("Setup My Schedule")
-                                    .foregroundColor(.white)
-                                Spacer()
-                            }
-                        }
-                        .padding()
-                        .background(Color.accentColor)
-                        .cornerRadius(8)
-                        Button(action: {
-                            self.presentation.wrappedValue.dismiss()
-                        }) {
-                            Text("Skip Setup")
-                                .foregroundColor(.accentColor)
+            VStack(spacing: 12) {
+                Spacer()
+                Image(systemName: "bell.fill")
+                    .padding(.bottom, 50)
+                    .font(.system(size: 100))
+                Text("Jotts is a modern organizer for students. Add your schedule, and check where to go any time during your first day, or any day.")
+                    .multilineTextAlignment(.center)
+                Spacer()
+                VStack(spacing: 20) {
+                    NavigationLink(destination: SetupTypeSelector(parentPresentation: presentation, building: building)) {
+                        HStack {
+                            Spacer()
+                            Text("Setup My Schedule")
+                                .foregroundColor(.white)
+                            Spacer()
                         }
                     }
-                    .padding(.bottom)
+                    .padding()
+                    .background(Color.accentColor)
+                    .cornerRadius(8)
+                    Button(action: {
+                        self.presentation.wrappedValue.dismiss()
+                    }) {
+                        Text("Skip Setup")
+                            .foregroundColor(.accentColor)
+                    }
                 }
-                .padding(.horizontal)
-                .frame(maxWidth: 420)
             }
+            .padding()
             .navigationBarTitle("Welcome")
-            .foregroundColor(.white)
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -77,22 +68,19 @@ struct SetupTypeSelector: View {
                     Text("My schedule is the same every week")
                         .foregroundColor(.black)
                 }
-                NavigationLink(destination: SetupRotation(building: building, parentPresentation: $parentPresentation)) {
+                NavigationLink(destination: SetupRotation(building: building)) {
                     Text("My schedule rotates on a cycle")
                 }
             }
-            .listRowBackground(Color.white)
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle("Schedule Type", displayMode: .inline)
-        .navigationBarHidden(false)
     }
 }
 
 struct SetupWelcome_Previews: PreviewProvider {
     static var previews: some View {
-        let context = globalPersistentContainer.viewContext
-        let building = Building(context: context)
+        let building = Building.infer(context: globalViewContext)
 
         return SetupWelcome(building: building)
     }

@@ -9,9 +9,11 @@
 import SwiftUI
 
 struct ScheduleEditor: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    @Environment(\.building) var building
+
     @ObservedObject var schedule: Schedule
 
-    let rotationSize = globalBuilding.rotationSize
     let onClose: () -> Void
 
     var startDate: Binding<Date> {
@@ -35,9 +37,9 @@ struct ScheduleEditor: View {
         NavigationView {
             List {
                 Section {
-                    ForEach(0...self.rotationSize - 1, id: \.self) { index -> AnyView in
+                    ForEach(0...building.rotationSize - 1, id: \.self) { index -> AnyView in
                         let label: Text
-                        if self.rotationSize == 7 {
+                        if building.rotationSize == 7 {
                             switch index {
                                 case 0: label = Text("Monday")
                                 case 1: label = Text("Tuesday")
@@ -84,10 +86,11 @@ struct ScheduleEditor: View {
             }
             .listStyle(GroupedListStyle())
             .navigationBarTitle("Schedule")
-            .navigationBarItems(trailing: Button(action: self.onClose) {
-                Text("Done")
-                    .bold()
-            })
+            .toolbar {
+                ToolbarItem(placement: .confirmationAction) {
+                    Button("Done", action: self.onClose)
+                }
+            }
         }
         .navigationViewStyle(StackNavigationViewStyle())
     }
@@ -95,7 +98,10 @@ struct ScheduleEditor: View {
 
 struct ScheduleEditor_Previews: PreviewProvider {
     static var previews: some View {
-        let schedule = Schedule()
+        let classroom = Classroom.infer(context: globalViewContext)
+        let schedule = Schedule.infer(context: globalViewContext, classroom: classroom)
+
         return ScheduleEditor(schedule: schedule, onClose: { })
+            .environment(\.managedObjectContext, globalViewContext)
     }
 }

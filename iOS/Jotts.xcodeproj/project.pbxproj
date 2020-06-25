@@ -18,6 +18,10 @@
 		36827F2D238AD90700722D4A /* SchedulerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2C238AD90700722D4A /* SchedulerTests.swift */; };
 		36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F2E239453B000722D4A /* ScheduleObserver.swift */; };
 		36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36827F302399B8E900722D4A /* TimeIntervalLabel.swift */; };
+		36A92CF024A2F8B8000E0B65 /* Schedule+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CEF24A2F8B8000E0B65 /* Schedule+Infer.swift */; };
+		36A92CF124A2F8B8000E0B65 /* Schedule+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CEF24A2F8B8000E0B65 /* Schedule+Infer.swift */; };
+		36A92CF624A452E2000E0B65 /* SwiftUI+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF524A452E2000E0B65 /* SwiftUI+Environment.swift */; };
+		36A92CF724A452E2000E0B65 /* SwiftUI+Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36A92CF524A452E2000E0B65 /* SwiftUI+Environment.swift */; };
 		36C6F1D823A9C61E00891115 /* ActionButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C6F1D723A9C61E00891115 /* ActionButtonsModifier.swift */; };
 		36CA301324A2D602006FD727 /* macOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA301224A2D602006FD727 /* macOSTests.swift */; };
 		36CA301E24A2D602006FD727 /* macOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA301D24A2D602006FD727 /* macOSUITests.swift */; };
@@ -42,6 +46,10 @@
 		36CA303D24A2D9B3006FD727 /* SetupWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E923A57FDE00F22955 /* SetupWelcome.swift */; };
 		36CA303E24A2D9B5006FD727 /* SetupRotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705EB23A5924900F22955 /* SetupRotation.swift */; };
 		36CA303F24A2D9BB006FD727 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3656FBA2239DC27200D28A36 /* Localizable.strings */; };
+		36CA304224A2EA1E006FD727 /* Classroom+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA304124A2EA1E006FD727 /* Classroom+Infer.swift */; };
+		36CA304424A2F212006FD727 /* Building+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA304324A2F212006FD727 /* Building+Infer.swift */; };
+		36CA304524A2F212006FD727 /* Building+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA304324A2F212006FD727 /* Building+Infer.swift */; };
+		36CA304624A2F217006FD727 /* Classroom+Infer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36CA304124A2EA1E006FD727 /* Classroom+Infer.swift */; };
 		36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D598222378AAE000F781D6 /* SessionEditor.swift */; };
 		36D705E823A542A900F22955 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E723A542A900F22955 /* Colors.swift */; };
 		36D705EA23A57FDE00F22955 /* SetupWelcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D705E923A57FDE00F22955 /* SetupWelcome.swift */; };
@@ -106,6 +114,8 @@
 		36827F2C238AD90700722D4A /* SchedulerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SchedulerTests.swift; sourceTree = "<group>"; };
 		36827F2E239453B000722D4A /* ScheduleObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleObserver.swift; sourceTree = "<group>"; };
 		36827F302399B8E900722D4A /* TimeIntervalLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeIntervalLabel.swift; sourceTree = "<group>"; };
+		36A92CEF24A2F8B8000E0B65 /* Schedule+Infer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Schedule+Infer.swift"; sourceTree = "<group>"; };
+		36A92CF524A452E2000E0B65 /* SwiftUI+Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftUI+Environment.swift"; sourceTree = "<group>"; };
 		36C6F1D723A9C61E00891115 /* ActionButtonsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButtonsModifier.swift; sourceTree = "<group>"; };
 		36CA2FFD24A2D601006FD727 /* Jotts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Jotts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		36CA300824A2D602006FD727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +127,8 @@
 		36CA301D24A2D602006FD727 /* macOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOSUITests.swift; sourceTree = "<group>"; };
 		36CA301F24A2D602006FD727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		36CA302B24A2D8E9006FD727 /* Jotts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Jotts.swift; sourceTree = "<group>"; };
+		36CA304124A2EA1E006FD727 /* Classroom+Infer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Classroom+Infer.swift"; sourceTree = "<group>"; };
+		36CA304324A2F212006FD727 /* Building+Infer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Building+Infer.swift"; sourceTree = "<group>"; };
 		36D598222378AAE000F781D6 /* SessionEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionEditor.swift; sourceTree = "<group>"; };
 		36D705E723A542A900F22955 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		36D705E923A57FDE00F22955 /* SetupWelcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupWelcome.swift; sourceTree = "<group>"; };
@@ -250,6 +262,16 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		36CA304024A2EA04006FD727 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				36CA304124A2EA1E006FD727 /* Classroom+Infer.swift */,
+				36CA304324A2F212006FD727 /* Building+Infer.swift */,
+				36A92CEF24A2F8B8000E0B65 /* Schedule+Infer.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FAA5E87A1BDBDBF9004DE3FC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +279,7 @@
 				5C518B3AE786F1A12A569319 /* Date+Midnight.swift */,
 				360BBCC5235B9F520011660B /* Int64+Selection.swift */,
 				362C6051239D7D1B00FBF0CC /* String+AsEmpty.swift */,
+				36A92CF524A452E2000E0B65 /* SwiftUI+Environment.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -323,6 +346,7 @@
 			isa = PBXGroup;
 			children = (
 				FAC61FBF1BD2B3D900FD973C /* Jotts.xcdatamodeld */,
+				36CA304024A2EA04006FD727 /* Model */,
 				FAA5E87A1BDBDBF9004DE3FC /* Extensions */,
 				365D02482387589C00FCECCC /* Scheduler.swift */,
 				36827F2E239453B000722D4A /* ScheduleObserver.swift */,
@@ -530,10 +554,13 @@
 			files = (
 				36CA303124A2D963006FD727 /* String+AsEmpty.swift in Sources */,
 				36CA303E24A2D9B5006FD727 /* SetupRotation.swift in Sources */,
+				36A92CF724A452E2000E0B65 /* SwiftUI+Environment.swift in Sources */,
 				36CA303624A2D99B006FD727 /* Colors.swift in Sources */,
 				36CA303524A2D998006FD727 /* TimeIntervalLabel.swift in Sources */,
 				36CA303A24A2D9AA006FD727 /* ClassroomInfo.swift in Sources */,
 				36CA303D24A2D9B3006FD727 /* SetupWelcome.swift in Sources */,
+				36CA304624A2F217006FD727 /* Classroom+Infer.swift in Sources */,
+				36A92CF124A2F8B8000E0B65 /* Schedule+Infer.swift in Sources */,
 				36CA303424A2D97C006FD727 /* UIColor+FromHex.swift in Sources */,
 				36CA303324A2D978006FD727 /* ScheduleObserver.swift in Sources */,
 				36CA303B24A2D9AD006FD727 /* ScheduleEditor.swift in Sources */,
@@ -546,6 +573,7 @@
 				36CA303824A2D9A4006FD727 /* Classrooms.swift in Sources */,
 				36CA303024A2D95E006FD727 /* Int64+Selection.swift in Sources */,
 				36CA302F24A2D956006FD727 /* Date+Midnight.swift in Sources */,
+				36CA304524A2F212006FD727 /* Building+Infer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,19 +599,23 @@
 			files = (
 				361F48FE235963A200286B65 /* ClassroomList.swift in Sources */,
 				FAC61FC11BD2B3D900FD973C /* Jotts.xcdatamodeld in Sources */,
+				36A92CF624A452E2000E0B65 /* SwiftUI+Environment.swift in Sources */,
 				36D598232378AAE000F781D6 /* SessionEditor.swift in Sources */,
 				367FCB5023538F870004275F /* Classrooms.swift in Sources */,
 				36568EE7235B6BB70063B1CA /* ScheduleEditor.swift in Sources */,
 				365D02492387589C00FCECCC /* Scheduler.swift in Sources */,
 				36827F312399B8E900722D4A /* TimeIntervalLabel.swift in Sources */,
+				36A92CF024A2F8B8000E0B65 /* Schedule+Infer.swift in Sources */,
 				36827F2F239453B000722D4A /* ScheduleObserver.swift in Sources */,
 				36CA302C24A2D8E9006FD727 /* Jotts.swift in Sources */,
 				5C5182CC0DF9EC42A653BE60 /* UIColor+FromHex.swift in Sources */,
 				36D705E823A542A900F22955 /* Colors.swift in Sources */,
 				36D705EA23A57FDE00F22955 /* SetupWelcome.swift in Sources */,
 				360BBCC6235B9F520011660B /* Int64+Selection.swift in Sources */,
+				36CA304224A2EA1E006FD727 /* Classroom+Infer.swift in Sources */,
 				361F4900235963BE00286B65 /* ClassroomInfo.swift in Sources */,
 				36C6F1D823A9C61E00891115 /* ActionButtonsModifier.swift in Sources */,
+				36CA304424A2F212006FD727 /* Building+Infer.swift in Sources */,
 				362C6052239D7D1B00FBF0CC /* String+AsEmpty.swift in Sources */,
 				36D705EC23A5924900F22955 /* SetupRotation.swift in Sources */,
 				5C51831AA8755B5555B08AD5 /* Date+Midnight.swift in Sources */,
@@ -663,8 +695,6 @@
 		36CA302424A2D602006FD727 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -673,15 +703,8 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.macOSTests;
@@ -696,8 +719,6 @@
 		36CA302524A2D602006FD727 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -706,15 +727,8 @@
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = macOSTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.macOSTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -790,6 +804,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -834,9 +849,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -849,6 +865,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -887,8 +904,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -904,7 +922,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = Jotts;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -916,7 +933,6 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = iOS/iOS.entitlements;
 				INFOPLIST_FILE = iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.Jotts;
 				PRODUCT_NAME = Jotts;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -928,17 +944,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = JottsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS.app/iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
 			};
 			name = Debug;
 		};
@@ -947,16 +957,10 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = JottsTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				INFOPLIST_FILE = "Tests iOS/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = io.hnryjms.JottsTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/iOS.app/iOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Jotts.app/Jotts";
 			};
 			name = Release;
 		};

@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct ClassroomList: View {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     @ObservedObject var schedule: DailyScheduleObservable
 
-    @Binding var selectedClassroom: Classroom?
     @Binding var isSetupOpen: Bool
 
     func classroomSession(_ session: DailySession?) -> some View {
@@ -38,7 +39,6 @@ struct ClassroomList: View {
     func classroomRow(_ classroom: Classroom, session: DailySession? = nil) -> some View {
         NavigationLink(
             destination: ClassroomInfo(classroom: classroom, schedule: self.schedule)
-                .onAppear { self.selectedClassroom = classroom }
         ) {
             HStack {
                 Color(fromHex: classroom.color).frame(width: 12.0)
@@ -54,7 +54,6 @@ struct ClassroomList: View {
             }
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 10))
-        .foregroundColor(.white)
     }
 
     var body: some View {
@@ -84,29 +83,37 @@ struct ClassroomList: View {
                 .foregroundColor(.white)
             }
         }
-        .onAppear {
-            self.selectedClassroom = nil
+        .navigationTitle("Classrooms")
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {
+                    let _ = Classroom.infer(context: self.managedObjectContext)
+
+                    //todo: navigate
+                }) {
+                    Label("Add Classroom", systemImage: "plus")
+                        .labelStyle(IconOnlyLabelStyle())
+                }
+            }
         }
-        .navigationBarTitle("Classrooms")
-        .navigationBarItems(trailing: Button(action: {}) {
-            Image(systemName: "plus")
-                .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
-        })
     }
 }
 
 struct ClassroomList_Previews: PreviewProvider {
-    @State static var classroom: Classroom? = nil
     @State static var isSetupOpen: Bool = false
 
     static var previews: some View {
-        let schedule = try! globalBuilding.schedule()
+        let building = Building.infer(context: globalViewContext)
 
-        return ClassroomList(
-            schedule: DailyScheduleObservable(schedule: schedule),
-            selectedClassroom: $classroom,
-            isSetupOpen: $isSetupOpen
-        )
+        let schedule = try! building.schedule()
+
+        return NavigationView {
+            ClassroomList(
+                schedule: DailyScheduleObservable(schedule: schedule),
+                isSetupOpen: $isSetupOpen
+            )
+        }
+        .environment(\.managedObjectContext, globalViewContext)
     }
 }
 

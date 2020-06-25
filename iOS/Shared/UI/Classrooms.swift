@@ -11,53 +11,35 @@ import SwiftUI
 struct Classrooms: View {
     @Environment(\.managedObjectContext) var managedObjectContext
 
-    @ObservedObject var schedule: DailyScheduleObservable
+    let building: Building
 
     @FetchRequest(entity: Classroom.entity(), sortDescriptors: []) var classrooms: FetchedResults<Classroom>
-    @FetchRequest(entity: Building.entity(), sortDescriptors: []) var buildings: FetchedResults<Building>
 
-    @State private var selectedClassroom: Classroom?
     @State private var isSetupOpen: Bool = false
 
     var body: some View {
         NavigationView {
             ClassroomList(
-                schedule: schedule,
-                selectedClassroom: $selectedClassroom,
+                schedule: DailyScheduleObservable(schedule: try! building.schedule()),
                 isSetupOpen: $isSetupOpen
             )
-            ZStack {
-                Text(" ")
-                    .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
-                    .background(Color.Jotts.background)
-                    .edgesIgnoringSafeArea(.all)
-                Text("Select a Classroom")
-                    .foregroundColor(.white)
-            }
-            .background(Color.Jotts.background)
-
         }
-        .navigationViewStyle(DoubleColumnNavigationViewStyle())
         .sheet(isPresented: $isSetupOpen) {
-            SetupWelcome(building: self.buildings[0])
+            SetupWelcome(building: building)
         }
         .onAppear {
             if self.classrooms.count == 0 {
                 self.isSetupOpen = true
             }
         }
-        .accentColor(Color(
-            fromHex: self.selectedClassroom?.color,
-            fallback: ColorHex.sorted[classrooms.count % ColorHex.sorted.count]
-        ))
     }
 }
 
 struct Classrooms_Previews: PreviewProvider {
     static var previews: some View {
-        let schedule = try! globalBuilding.schedule()
+        let building = Building.infer(context: globalViewContext)
 
-        return Classrooms(schedule: DailyScheduleObservable(schedule: schedule))
-            .environment(\.managedObjectContext, globalPersistentContainer.viewContext)
+        return Classrooms(building: building)
+            .environment(\.managedObjectContext, globalViewContext)
     }
 }

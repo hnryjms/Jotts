@@ -12,6 +12,8 @@ import CoreData
 struct ClassroomInfo: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @Environment(\.presentationMode) var presentation
+    @Environment(\.building) var building
+
     @ObservedObject var selectedClassroom: Classroom
     @ObservedObject var schedule: DailyScheduleObservable
 
@@ -24,8 +26,6 @@ struct ClassroomInfo: View {
             }
         }
     }
-
-    private let rotationSize = globalBuilding.rotationSize
 
     @State private var isScheduleEditing = false
     @State private var isSessionEditing = false
@@ -84,19 +84,17 @@ struct ClassroomInfo: View {
                             .font(.body)
                     }
                 }
-                .foregroundColor(.white)
             }
             Section {
                 ForEach(schedules, id: \.self) { schedule -> Button<Text> in
                     Button(action: {
                         self.scheduleEditorItem = schedule
-                        self.isScheduleEditing = true
                     }) { () -> Text in
                         let label: Text
-                        let count = schedule.rotation.count(rotationSize: self.rotationSize)
-                        if self.rotationSize == 7 && schedule.rotation == 0b0011111 {
+                        let count = schedule.rotation.count(rotationSize: building.rotationSize)
+                        if building.rotationSize == 7 && schedule.rotation == 0b0011111 {
                             label = Text("Weekdays")
-                        } else if self.rotationSize == count {
+                        } else if building.rotationSize == count {
                             label = Text("Every Day")
                         } else {
                             label = Text("\(count) Days", comment: "Count")
@@ -117,22 +115,25 @@ struct ClassroomInfo: View {
 
                     self.selectedClassroom.addToSchedule(schedule)
                     self.scheduleEditorItem = schedule
-                    self.isScheduleEditing = true
                 }) {
                     Text("Add Schedule")
                 }
             }
             .listRowBackground(Color.white)
             .sheet(isPresented: $isScheduleEditing) {
-                ScheduleEditor(schedule: self.scheduleEditorItem!, onClose: {
-                    self.isScheduleEditing = false
-                }).accentColor(Color(fromHex: self.selectedClassroom.color))
+                if let schedule = self.scheduleEditorItem {
+                    ScheduleEditor(schedule: schedule, onClose: {
+                        self.isScheduleEditing = false
+                    })
+                } else {
+                    Text("TBD")
+                }
+
             }
             Section {
                 ForEach(sessions, id: \.self) { session -> Button<Text> in
                     Button(action: {
                         self.sessionEditorItem = session
-                        self.isSessionEditing = true
                     }) { () -> Text in
 
                         let startText: String
@@ -168,43 +169,56 @@ struct ClassroomInfo: View {
             }
             .listRowBackground(Color.white)
             .sheet(isPresented: $isSessionEditing) {
-                SessionEditor(session: self.sessionEditorItem!, onClose: {
-                    self.isSessionEditing = false
-                }).accentColor(Color(fromHex: self.selectedClassroom.color))
+                if let session = self.sessionEditorItem {
+                    SessionEditor(session: session, onClose: {
+                        self.isSessionEditing = false
+                    })
+                } else {
+                    Text("TBD")
+                }
             }
         }
         .listStyle(GroupedListStyle())
         .navigationBarTitle("\(selectedClassroom.title ?? "")", displayMode: .inline)
-        .navigationBarItems(trailing: Group {
-            Button(action: {
-                self.isActionsOpen = true
-            }) {
-                Image(systemName: "ellipsis")
-                    .padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
+        .toolbar {
+            ToolbarItem(placement: .primaryAction) {
+                Button(action: {}) {
+                    Label("All Actions", systemImage: "ellipsis")
+                        .labelStyle(IconOnlyLabelStyle())
+                }
+                .contextMenu {
+                    Button(action: {
+                        self.managedObjectContext.delete(self.selectedClassroom)
+                        self.presentation.wrappedValue.dismiss()
+                    }) {
+                        Label("Delete Classroom", systemImage: "trash")
+                            .accentColor(.red)
+                    }
+                }
             }
-            .modifier(ActionButtonsModifier(isPresented: $isActionsOpen, title: Text(selectedClassroom.title ?? "Classroom"), buttons: [
-                .destructive(Text("Delete Classroom")) {
-                    self.managedObjectContext.delete(self.selectedClassroom)
-                    self.presentation.wrappedValue.dismiss()
-                },
-                .cancel()
-            ]))
-        })
-
+        }
     }
 }
 
 struct ClassroomInfo_Previews: PreviewProvider {
     static var previews: some View {
-        let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
-        let classroom = Classroom(context: context)
+        let building = Building.infer(context: globalViewContext)
+        let classroom = Classroom.infer(context: globalViewContext)
 
-        let schedule = try! globalBuilding.schedule()
-        let scheduleObservable = DailyScheduleObservable(schedule: schedule)
+        classroom.title = "English"
+        classroom.room = "R.232"
+        classroom.instructor = "McCoy"
 
-        return NavigationView {
-            ClassroomInfo(classroom: classroom, schedule: scheduleObservable)
+        let schedule = try! building.schedule()
+
+        return Group {
+            NavigationView {
+                ClassroomInfo(
+                    classroom: classroom,
+                    schedule: DailyScheduleObservable(schedule: schedule)
+                )
+            }
         }
-        .environment(\.managedObjectContext, globalPersistentContainer.viewContext)
+        .environment(\.managedObjectContext, globalViewContext)
     }
 }

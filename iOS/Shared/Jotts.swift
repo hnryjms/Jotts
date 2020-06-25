@@ -9,7 +9,22 @@
 import SwiftUI
 import CoreData
 
-let globalPersistentContainer: NSPersistentContainer = {
+
+#if DEBUG
+// SwiftUI Previews may mutate managed objects... so we need to use a non-persistent context.
+let globalViewContext: NSManagedObjectContext = {
+    let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd")!
+    let model = NSManagedObjectModel(contentsOf: modelURL)!
+
+    let coordinator = NSPersistentStoreCoordinator(managedObjectModel: model)
+
+    let context = NSManagedObjectContext(concurrencyType: .mainQueueConcurrencyType)
+    context.persistentStoreCoordinator = coordinator
+
+    return context
+}()
+#else
+let globalViewContext: NSManagedObjectContext = {
     let modelURL = Bundle.main.url(forResource: "Jotts", withExtension: "momd")!
     let model = NSManagedObjectModel(contentsOf: modelURL)!
 
@@ -20,36 +35,19 @@ let globalPersistentContainer: NSPersistentContainer = {
         }
     }
 
-    return persistentContainer
+    return persistentContainer.viewContext
 }()
-
-let globalBuilding: Building = {
-    do {
-        let viewContext = globalPersistentContainer.viewContext
-        let fetchRequest: NSFetchRequest<Building> = Building.fetchRequest()
-        fetchRequest.returnsObjectsAsFaults = false
-        let result = try viewContext.fetch(fetchRequest)
-
-        if result.isEmpty {
-            return Building(context: viewContext)
-        } else {
-            return result[0]
-        }
-    } catch {
-        fatalError("Unable to create default Building, \(error)")
-    }
-}()
+#endif
 
 @main
-struct Jotts: App {
+struct JottsApp: App {
     var body: some Scene {
         WindowGroup {
-            let schedule = try! globalBuilding.schedule()
+            let building = Building.infer(context: globalViewContext)
 
-            Classrooms(
-                schedule: DailyScheduleObservable(schedule: schedule)
-            )
-            .environment(\.managedObjectContext, globalPersistentContainer.viewContext)
+            Classrooms(building: building)
+                .environment(\.managedObjectContext, globalViewContext)
+                .environment(\.building, building)
         }
     }
 }

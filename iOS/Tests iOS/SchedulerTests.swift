@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import iOS
+import Jotts
 import CoreData
 
 class SchedulerTests: XCTestCase {

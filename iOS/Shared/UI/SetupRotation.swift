@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct SetupRotation: View {
+    @Environment(\.presentationMode) var presentation
+
     @ObservedObject var building: Building
-    @Binding var parentPresentation: PresentationMode
 
     @State var _int_rotationSize: String?
     private var rotationSize: Binding<String> {
@@ -45,14 +46,12 @@ struct SetupRotation: View {
                     Text("Rotation Size")
                     TextField("", text: rotationSize)
                         .keyboardType(.numberPad)
-                        .multilineTextAlignment(.trailing)
                 }
                 if self.building.rotationSize != 7 {
                     HStack {
                         Text("Current Day")
                         TextField("", text: scheduleDay)
                             .keyboardType(.numberPad)
-                            .multilineTextAlignment(.trailing)
                     }
                 }
             }
@@ -101,10 +100,22 @@ struct SetupRotation: View {
                 .listRowBackground(Color.white)*/
             }
         }
-        .navigationBarItems(trailing: Button(action: {
-            self.parentPresentation.dismiss()
-        }) {
-            Text("Done").bold()
-        })
+        .toolbar {
+            ToolbarItem(placement: .confirmationAction) {
+                Button("Done") {
+                    self.presentation.wrappedValue.dismiss()
+                }
+            }
+        }
+    }
+}
+
+struct SetupRotation_Previews: PreviewProvider {
+    @Environment(\.presentationMode) var presentation
+
+    static var previews: some View {
+        let building = Building.infer(context: globalViewContext)
+
+        return SetupRotation(building: building)
     }
 }
